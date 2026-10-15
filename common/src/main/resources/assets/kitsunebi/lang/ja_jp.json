@@ -1,0 +1,26 @@
+{
+  "itemGroup.kitsunebi.kitsunebi_tab": "狐火 (Kitsunebi)",
+  "item.kitsunebi.kitsunebi_gohei": "狐火の御幣",
+  "tooltip.kitsunebi.tool_mode_toggle": "§7右クリック: §f表示切替 (透明 ⇔ 常時表示)",
+  "tooltip.kitsunebi.tool_light_toggle": "§7スニーク+右クリック: §f光源切替 (15 ⇔ 0)",
+  "message.kitsunebi.light_on": "§6[狐火] §f光源を点灯 (Lv15) にしました",
+  "message.kitsunebi.light_off": "§7[狐火] §8光源を消灯 (Lv0) にしました",
+  "message.kitsunebi.visible_on": "§b[狐火] §f常時表示モードにしました",
+  "message.kitsunebi.visible_off": "§d[狐火] §7透明モードにしました",
+
+  "block.kitsunebi.kitsunebi_white": "狐火 (白)",
+  "block.kitsunebi.kitsunebi_blue": "狐火 (青)",
+  "block.kitsunebi.kitsunebi_cyan": "狐火 (水色)",
+  "block.kitsunebi.kitsunebi_green": "狐火 (緑)",
+  "block.kitsunebi.kitsunebi_purple": "狐火 (紫)",
+  "block.kitsunebi.kitsunebi_orange": "狐火 (橙)",
+  "block.kitsunebi.kitsunebi_red": "狐火 (赤)",
+
+  "item.kitsunebi.kitsunebi_white": "狐火 (白)",
+  "item.kitsunebi.kitsunebi_blue": "狐火 (青)",
+  "item.kitsunebi.kitsunebi_cyan": "狐火 (水色)",
+  "item.kitsunebi.kitsunebi_green": "狐火 (緑)",
+  "item.kitsunebi.kitsunebi_purple": "狐火 (紫)",
+  "item.kitsunebi.kitsunebi_orange": "狐火 (橙)",
+  "item.kitsunebi.kitsunebi_red": "狐火 (赤)"
+}

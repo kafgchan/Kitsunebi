@@ -1,0 +1,24 @@
+plugins {
+    id 'net.fabricmc.fabric-loom-remap'
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+}
+
+sourceSets.main.resources {
+    srcDir('src/generated/resources')
+}
+
+processResources {
+    def expandProps = [
+        "mod_id": project.mod_id,
+        "mod_name": project.mod_name,
+        "mod_version": project.mod_version,
+        "minecraft_version": project.minecraft_version
+    ]
+    filesMatching(['pack.mcmeta']) {
+        expand expandProps
+    }
+}

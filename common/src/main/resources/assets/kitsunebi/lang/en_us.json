@@ -1,0 +1,26 @@
+{
+  "itemGroup.kitsunebi.kitsunebi_tab": "Kitsunebi",
+  "item.kitsunebi.kitsunebi_gohei": "Kitsunebi Gohei",
+  "tooltip.kitsunebi.tool_mode_toggle": "§7Right-click: §fToggle Visibility (Invisible ⇔ Visible)",
+  "tooltip.kitsunebi.tool_light_toggle": "§7Sneak + Right-click: §fToggle Light (15 ⇔ 0)",
+  "message.kitsunebi.light_on": "§6[Kitsunebi] §fLight turned ON (Lv15)",
+  "message.kitsunebi.light_off": "§7[Kitsunebi] §8Light turned OFF (Lv0)",
+  "message.kitsunebi.visible_on": "§b[Kitsunebi] §fSet to Visible Mode",
+  "message.kitsunebi.visible_off": "§d[Kitsunebi] §7Set to Invisible Mode",
+
+  "block.kitsunebi.kitsunebi_white": "White Kitsunebi",
+  "block.kitsunebi.kitsunebi_blue": "Blue Kitsunebi",
+  "block.kitsunebi.kitsunebi_cyan": "Cyan Kitsunebi",
+  "block.kitsunebi.kitsunebi_green": "Green Kitsunebi",
+  "block.kitsunebi.kitsunebi_purple": "Purple Kitsunebi",
+  "block.kitsunebi.kitsunebi_orange": "Orange Kitsunebi",
+  "block.kitsunebi.kitsunebi_red": "Red Kitsunebi",
+
+  "item.kitsunebi.kitsunebi_white": "White Kitsunebi",
+  "item.kitsunebi.kitsunebi_blue": "Blue Kitsunebi",
+  "item.kitsunebi.kitsunebi_cyan": "Cyan Kitsunebi",
+  "item.kitsunebi.kitsunebi_green": "Green Kitsunebi",
+  "item.kitsunebi.kitsunebi_purple": "Purple Kitsunebi",
+  "item.kitsunebi.kitsunebi_orange": "Orange Kitsunebi",
+  "item.kitsunebi.kitsunebi_red": "Red Kitsunebi"
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "kitsunebi",
+  "version": "${mod_version}",
+  "name": "Kitsunebi",
+  "description": "A lightweight standalone mod inspired by the Kitsunebi from Bamboo Mod. Adds customizable invisible and decorative lighting with colorful flames.",
+  "authors": [
+    "Antigravity",
+    "Kaede"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.kafgchan.kitsunebi.fabric.KitsunebiFabric"
+    ],
+    "client": [
+      "net.kafgchan.kitsunebi.fabric.client.KitsunebiFabricClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

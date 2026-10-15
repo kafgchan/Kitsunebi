@@ -1,0 +1,82 @@
+plugins {
+    id 'net.neoforged.moddev'
+    id 'idea'
+}
+
+base {
+    archivesName = "${project.mod_id}-neoforge"
+}
+
+sourceSets.main.java {
+    srcDir file('../common/src/main/java')
+}
+
+sourceSets.main.resources {
+    srcDir('src/generated/resources')
+    srcDir file('../common/src/main/resources')
+    srcDir file('../common/src/generated/resources')
+    exclude("**/*.bbmodel")
+    exclude("src/generated/**/.cache")
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('../common/src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()
+        }
+
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+
+    mods {
+        "${project.mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_group_id           : mod_group_id
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
