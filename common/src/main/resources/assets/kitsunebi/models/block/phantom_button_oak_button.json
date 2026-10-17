@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/oak_button",
+  "textures": {
+    "texture": "kitsunebi:block/phantom_block",
+    "particle": "kitsunebi:block/phantom_block"
+  }
+}

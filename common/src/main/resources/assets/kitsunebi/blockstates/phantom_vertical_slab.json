@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "facing=north,double=false": {
+      "model": "kitsunebi:block/phantom_vertical_slab"
+    },
+    "facing=north,double=true": {
+      "model": "kitsunebi:block/phantom_block"
+    },
+    "facing=east,double=false": {
+      "model": "kitsunebi:block/phantom_vertical_slab",
+      "y": 90
+    },
+    "facing=east,double=true": {
+      "model": "kitsunebi:block/phantom_block"
+    },
+    "facing=south,double=false": {
+      "model": "kitsunebi:block/phantom_vertical_slab",
+      "y": 180
+    },
+    "facing=south,double=true": {
+      "model": "kitsunebi:block/phantom_block"
+    },
+    "facing=west,double=false": {
+      "model": "kitsunebi:block/phantom_vertical_slab",
+      "y": 270
+    },
+    "facing=west,double=true": {
+      "model": "kitsunebi:block/phantom_block"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cobblestone_wall_post",
+  "textures": {
+    "wall": "kitsunebi:block/phantom_block",
+    "particle": "kitsunebi:block/phantom_block"
+  }
+}

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "architectural_kitsunebi",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-a8a938fd-11a1-4d73-b86e-7dd7893296c2.png",
+    "targets": [
+      "block/architectural_kitsunebi.png",
+      "item/architectural_kitsunebi.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft inventory item sprite for architectural foxfire block. ONE original 2D pixel-art icon, centered on transparent square canvas. A pale ivory and cyan magical hollow wireframe building cube, with a small white foxfire flame suspended inside. Distinct from ordinary colored fire, visibly represents an intangible no-collision construction block. Crisp chunky 32x32 logical pixel grid, limited pearl white silver and pale teal palette, a tiny warm gold accent, no antialiasing, no text, no labels, no border, no ground or shadow. Isometric readable cubic silhouette, empty transparent gaps inside cube, occupy 26x28 logical pixels. Original game art, not copied from any mod."
+  }
+]

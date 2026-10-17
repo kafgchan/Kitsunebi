@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "texture": "kitsunebi:block/phantom_block",
+    "particle": "kitsunebi:block/phantom_block"
+  },
+  "elements": [
+    {
+      "from": [
+        5.0,
+        0.0,
+        6.0
+      ],
+      "to": [
+        11.0,
+        2.0,
+        10.0
+      ],
+      "faces": {
+        "down": {
+          "texture": "#texture",
+          "uv": [
+            5.0,
+            6.0,
+            11.0,
+            10.0
+          ]
+        },
+        "up": {
+          "texture": "#texture",
+          "uv": [
+            5.0,
+            6.0,
+            11.0,
+            10.0
+          ]
+        },
+        "north": {
+          "texture": "#texture",
+          "uv": [
+            5.0,
+            14.0,
+            11.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#texture",
+          "uv": [
+            5.0,
+            14.0,
+            11.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#texture",
+          "uv": [
+            6.0,
+            14.0,
+            10.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#texture",
+          "uv": [
+            6.0,
+            14.0,
+            10.0,
+            16.0
+          ]
+        }
+      }
+    }
+  ]
+}

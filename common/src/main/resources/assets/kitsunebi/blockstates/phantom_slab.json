@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kitsunebi:block/phantom_slab"
+    },
+    "type=top": {
+      "model": "kitsunebi:block/phantom_slab_top"
+    },
+    "type=double": {
+      "model": "kitsunebi:block/phantom_block"
+    }
+  }
+}

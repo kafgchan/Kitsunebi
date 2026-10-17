@@ -28,5 +28,6 @@ runs/
 Thumbs.db
 ehthumbs.db
 
-# Logs
+# Logs and backups
 *.log
+docs/*-backup*/

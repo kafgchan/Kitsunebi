@@ -1,0 +1,89 @@
+[
+  {
+    "name": "blue",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-a81335d0-4c51-45d1-8723-eca308373132.png",
+    "targets": [
+      "block/kitsunebi_blue.png",
+      "item/kitsunebi_blue.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft pixel-art texture sprite. Create ONE original blue kitsunebi ghost flame, front view, centered, square canvas, transparent background. Crisp chunky pixel art on a logical 32x32 pixel grid, no antialiasing, no text, no border, no ground or shadow. Elegant twisting asymmetrical flame with two small detached wisps, cobalt blue outer silhouette, azure middle, pale icy core, limited 6-color palette. Occupy central 26x28 logical pixels. Flat 2D game sprite, not a rendered cube. Clear opaque pixel clusters and fully transparent empty space. Designed to remain legible as both inventory item and crossed-plane world flame."
+  },
+  {
+    "name": "white",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-ae3a2718-d280-466b-9092-dc75adc1c771.png",
+    "targets": [
+      "block/kitsunebi_white.png",
+      "item/kitsunebi_white.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft pixel-art texture sprite. Create ONE original white kitsunebi ghost flame, front view, centered, square canvas, transparent background. Crisp chunky pixel art on a logical 32x32 pixel grid, no antialiasing, no text, no border, no ground or shadow. Elegant twisting asymmetrical flame with two small detached wisps, pearl white outer silhouette, silver middle, warm ivory core, limited 6-color palette. Occupy central 26x28 logical pixels. Flat 2D game sprite, not a rendered cube. Clear opaque pixel clusters and fully transparent empty space. Designed to remain legible as both inventory item and crossed-plane world flame."
+  },
+  {
+    "name": "cyan",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-80d1166a-7ef4-41bc-9cad-48c0c0e0c8b3.png",
+    "targets": [
+      "block/kitsunebi_cyan.png",
+      "item/kitsunebi_cyan.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft pixel-art texture sprite. Create ONE original cyan kitsunebi ghost flame, front view, centered, square canvas, transparent background. Crisp chunky pixel art on a logical 32x32 pixel grid, no antialiasing, no text, no border, no ground or shadow. Elegant twisting asymmetrical flame with two small detached wisps, teal outer silhouette, turquoise middle, pale cyan core, limited 6-color palette. Occupy central 26x28 logical pixels. Flat 2D game sprite, not a rendered cube. Clear opaque pixel clusters and fully transparent empty space. Designed to remain legible as both inventory item and crossed-plane world flame."
+  },
+  {
+    "name": "green",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-21c14a7c-bc26-4eb9-a863-349c0bcedec3.png",
+    "targets": [
+      "block/kitsunebi_green.png",
+      "item/kitsunebi_green.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft pixel-art texture sprite. Create ONE original green kitsunebi ghost flame, front view, centered, square canvas, transparent background. Crisp chunky pixel art on a logical 32x32 pixel grid, no antialiasing, no text, no border, no ground or shadow. Elegant twisting asymmetrical flame with two small detached wisps, emerald outer silhouette, jade middle, pale mint core, limited 6-color palette. Occupy central 26x28 logical pixels. Flat 2D game sprite, not a rendered cube. Clear opaque pixel clusters and fully transparent empty space. Designed to remain legible as both inventory item and crossed-plane world flame."
+  },
+  {
+    "name": "purple",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-c957b8d3-cf79-46d7-a714-f612b27bb69a.png",
+    "targets": [
+      "block/kitsunebi_purple.png",
+      "item/kitsunebi_purple.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft pixel-art texture sprite. Create ONE original purple kitsunebi ghost flame, front view, centered, square canvas, transparent background. Crisp chunky pixel art on a logical 32x32 pixel grid, no antialiasing, no text, no border, no ground or shadow. Elegant twisting asymmetrical flame with two small detached wisps, deep violet outer silhouette, lavender middle, pale lilac core, limited 6-color palette. Occupy central 26x28 logical pixels. Flat 2D game sprite, not a rendered cube. Clear opaque pixel clusters and fully transparent empty space. Designed to remain legible as both inventory item and crossed-plane world flame."
+  },
+  {
+    "name": "orange",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-57232076-c215-4b6a-9ab9-eb708106e45b.png",
+    "targets": [
+      "block/kitsunebi_orange.png",
+      "item/kitsunebi_orange.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft pixel-art texture sprite. Create ONE original orange kitsunebi ghost flame, front view, centered, square canvas, transparent background. Crisp chunky pixel art on a logical 32x32 pixel grid, no antialiasing, no text, no border, no ground or shadow. Elegant twisting asymmetrical flame with two small detached wisps, burnt orange outer silhouette, amber middle, pale gold core, limited 6-color palette. Occupy central 26x28 logical pixels. Flat 2D game sprite, not a rendered cube. Clear opaque pixel clusters and fully transparent empty space. Designed to remain legible as both inventory item and crossed-plane world flame."
+  },
+  {
+    "name": "red",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-ffc1db7f-3bc5-437a-a875-dcb97ea248bc.png",
+    "targets": [
+      "block/kitsunebi_red.png",
+      "item/kitsunebi_red.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft pixel-art texture sprite. Create ONE original red kitsunebi ghost flame, front view, centered, square canvas, transparent background. Crisp chunky pixel art on a logical 32x32 pixel grid, no antialiasing, no text, no border, no ground or shadow. Elegant twisting asymmetrical flame with two small detached wisps, crimson outer silhouette, scarlet middle, pale peach core, limited 6-color palette. Occupy central 26x28 logical pixels. Flat 2D game sprite, not a rendered cube. Clear opaque pixel clusters and fully transparent empty space. Designed to remain legible as both inventory item and crossed-plane world flame."
+  },
+  {
+    "name": "gohei",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-a16cd453-be54-4031-bb93-e258894632a6.png",
+    "targets": [
+      "item/kitsunebi_gohei.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft item texture. ONE original Japanese gohei ritual wand inventory sprite, diagonal from bottom-left to top-right, centered square transparent canvas. Crisp chunky 32x32 logical pixel art, limited palette, no antialiasing, no text, no frame. Dark warm wooden handle, small vermilion binding, two ivory zigzag folded paper streamers near the top, small pale cyan magical accent. Occupy 28x28 logical pixels. Flat game sprite, clearly readable, no ground shadow."
+  },
+  {
+    "name": "goggles",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-c43940ed-1ae8-4237-a637-77eb02780659.png",
+    "targets": [
+      "item/kitsunebi_goggles.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft inventory equipment texture. ONE original foxfire builder goggles, front view centered square transparent canvas. Crisp chunky 32x32 logical pixel art, no antialiasing, limited colors. Two rectangular luminous pale cyan lenses with dark teal shadows, warm brass frames, dark brown leather strap, subtle red binding at bridge. Recognizable functional goggles, no face, no text, no shadow, no border. Occupy central 28x16 logical pixels. Flat 2D inventory icon."
+  },
+  {
+    "name": "phantom",
+    "source": "C:\\Users\\lara2\\.codex\\generated_images\\01a14aa2-6693-7110-b47a-4bffc0119216\\exec-73615e05-66ff-4d8f-8990-f5b8a4a731a7.png",
+    "targets": [
+      "block/phantom_block.png"
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: Minecraft seamless square block surface texture. ONE flat tile, full bleed opaque, crisp chunky pixel art on logical 32x32 grid. Original phantom construction material: cool muted blue-gray translucent-crystal appearance rendered as opaque pixels, pale cyan subtle corner-line accents and a small restrained geometric diamond engraving at center. Quiet mineral surface, limited 6-color palette. Seamless matching edges, no perspective, no cube, no text, no border outside tile, no lighting gradient, no floating objects. The texture is shared by slabs stairs walls and building blocks; make details unobtrusive."
+  }
+]

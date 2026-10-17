@@ -28,6 +28,12 @@ neoForge {
     }
 
     runs {
+        slopeVerifyServer {
+            server()
+            gameDirectory = file('build/slope-verify-server')
+            programArgument '--nogui'
+            systemProperty 'kitsunebi.verifySlopeMovement', 'true'
+        }
         client {
             client()
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id

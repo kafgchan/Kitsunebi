@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "kitsunebi:block/phantom_pressure_plate_oak_pressure_plate"
+    },
+    "powered=true": {
+      "model": "kitsunebi:block/phantom_pressure_plate_oak_pressure_plate_down"
+    }
+  }
+}

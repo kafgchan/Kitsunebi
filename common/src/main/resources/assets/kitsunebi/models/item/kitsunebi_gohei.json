@@ -2,5 +2,24 @@
   "parent": "minecraft:item/handheld",
   "textures": {
     "layer0": "kitsunebi:item/kitsunebi_gohei"
+  },
+  "display": {
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
   }
 }

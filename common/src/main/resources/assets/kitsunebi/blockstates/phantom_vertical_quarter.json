@@ -1,0 +1,6884 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "layer": "0",
+        "extra": "0",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "0",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "0",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "0",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "1",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "1",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "1",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "1",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "0",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "0",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "0",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "0",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "2",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "2",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "2",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "2",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "0",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "0",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "0",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "0",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "4",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "4",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "4",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "4",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "0",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "0",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "0",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "0",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "8",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "8",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "8",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "8",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_vertical_quarter_3",
+        "y": 270
+      }
+    }
+  ]
+}

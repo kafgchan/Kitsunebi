@@ -1,0 +1,1444 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "layer": "0",
+        "extra": "0"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "1"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "2"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "4"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "8"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "0",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "0"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "1"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "2"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "4"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "8"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "1",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "0"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "1"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "2"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "4"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "8"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "2",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "0"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "1"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "2"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "3"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "4"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "5"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "6"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "7"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "8"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "9"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "10"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "11"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "12"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "13"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "14"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_0"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_1"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_2"
+      }
+    },
+    {
+      "when": {
+        "layer": "3",
+        "extra": "15"
+      },
+      "apply": {
+        "model": "kitsunebi:block/phantom_quarter_slab_3"
+      }
+    }
+  ]
+}

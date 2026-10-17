@@ -36,7 +36,7 @@ public class KitsunebiBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     // 中央にコンパクトな選択ボックス (8x8x8)
-    private static final VoxelShape SHAPE = Block.box(4.0, 4.0, 4.0, 12.0, 12.0, 12.0);
+    private static final VoxelShape SHAPE = Block.box(3.0, 1.0, 3.0, 13.0, 15.0, 13.0);
 
     private final String colorName;
 
@@ -69,18 +69,14 @@ public class KitsunebiBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         if (context instanceof EntityCollisionContext entityContext && entityContext.getEntity() instanceof Player player) {
-            if (isHoldingKitsunebiRelatedItem(player)) {
-                return SHAPE;
-            }
+            return net.kafgchan.kitsunebi.util.KitsunebiVisionHelper.canSeePhantom(player)
+                    ? SHAPE : Shapes.empty();
         }
-        return Shapes.empty();
+        return SHAPE;
     }
 
     public static boolean isHoldingKitsunebiRelatedItem(Player player) {
-        if (player == null) return false;
-        ItemStack main = player.getMainHandItem();
-        ItemStack off = player.getOffhandItem();
-        return isRelatedItem(main) || isRelatedItem(off);
+        return net.kafgchan.kitsunebi.util.KitsunebiVisionHelper.canSeePhantom(player);
     }
 
     public static boolean isRelatedItem(ItemStack stack) {
@@ -90,7 +86,8 @@ public class KitsunebiBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public RenderShape getRenderShape(BlockState state) {
-        return state.getValue(VISIBLE) ? RenderShape.MODEL : RenderShape.INVISIBLE;
+        return state.getValue(VISIBLE) || net.kafgchan.kitsunebi.client.KitsunebiClientHelper.isVisionActive()
+                ? RenderShape.MODEL : RenderShape.INVISIBLE;
     }
 
     @Nullable

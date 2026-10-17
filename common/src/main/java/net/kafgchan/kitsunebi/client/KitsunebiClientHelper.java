@@ -1,79 +1,53 @@
 package net.kafgchan.kitsunebi.client;
 
-import net.kafgchan.kitsunebi.block.KitsunebiBlock;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
+import net.kafgchan.kitsunebi.util.KitsunebiVisionHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.chunk.status.ChunkStatus;
+import net.kafgchan.kitsunebi.block.KitsunebiBlock;
+import net.kafgchan.kitsunebi.block.phantom.IPhantomBlock;
 
-import java.util.ArrayList;
-import java.util.List;
+/** Client-local visibility, read by terrain compilation workers as well. */
+public final class KitsunebiClientHelper {
+    private static volatile boolean visionActive;
+    private KitsunebiClientHelper() {}
+    public static boolean isVisionActive() { return visionActive; }
 
-public class KitsunebiClientHelper {
-    private static int scanTimer = 0;
-    private static final List<TrackedKitsunebi> NEARBY_KITSUNEBI = new ArrayList<>();
+    /** Returns true only when terrain needs rebuilding. No particles. */
+    public static boolean tickClient(Player player, Level level) {
+        boolean next = level != null && level.isClientSide && player != null
+                && KitsunebiVisionHelper.canSeePhantom(player);
+        if (next == visionActive) return false;
+        visionActive = next;
+        return true;
+    }
 
-    private record TrackedKitsunebi(BlockPos pos, ParticleOptions particle) {}
+    @FunctionalInterface
+    public interface SectionDirtyMarker {
+        void mark(int x, int y, int z);
+    }
 
-    public static void tickClient(Player player, Level level) {
-        if (player == null || level == null) {
-            NEARBY_KITSUNEBI.clear();
-            return;
-        }
-
-        // 手に狐火または御幣を持っているか？
-        boolean holding = KitsunebiBlock.isHoldingKitsunebiRelatedItem(player);
-
-        if (!holding) {
-            NEARBY_KITSUNEBI.clear();
-            scanTimer = 0;
-            return;
-        }
-
-        // 4tickに1回、周囲（水平±10ブロック、垂直±6ブロック）をスキャン
-        if (--scanTimer <= 0) {
-            scanTimer = 4;
-            NEARBY_KITSUNEBI.clear();
-
-            BlockPos center = player.blockPosition();
-            BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-
-            for (int dx = -10; dx <= 10; dx++) {
-                for (int dy = -6; dy <= 6; dy++) {
-                    for (int dz = -10; dz <= 10; dz++) {
-                        mutable.set(center.getX() + dx, center.getY() + dy, center.getZ() + dz);
-                        BlockState state = level.getBlockState(mutable);
-                        if (state.getBlock() instanceof KitsunebiBlock kitsunebiBlock) {
-                            ParticleOptions particle = getParticle(kitsunebiBlock.getColorName());
-                            NEARBY_KITSUNEBI.add(new TrackedKitsunebi(mutable.immutable(), particle));
-                        }
+    /** Keep existing GPU meshes; only queue sections containing our models. */
+    public static void refreshVisionSections(Level level, BlockPos center, int radius,
+                                             SectionDirtyMarker marker) {
+        int cx = center.getX() >> 4;
+        int cz = center.getZ() >> 4;
+        for (int x = cx - radius; x <= cx + radius; x++) {
+            for (int z = cz - radius; z <= cz + radius; z++) {
+                // Do not load chunks just to refresh visualization.
+                var chunk = level.getChunkSource().getChunk(x, z, ChunkStatus.FULL, false);
+                if (chunk == null) continue;
+                var sections = chunk.getSections();
+                for (int i = 0; i < sections.length; i++) {
+                    var section = sections[i];
+                    if (section.hasOnlyAir()) continue;
+                    if (section.maybeHas(state -> state.getBlock() instanceof KitsunebiBlock
+                            || state.getBlock() instanceof IPhantomBlock)) {
+                        marker.mark(x, level.getSectionYFromSectionIndex(i), z);
                     }
                 }
             }
         }
-
-        // 毎tick、検出された狐火ブロックの中心にパーティクルをスポーン（ふわっと浮かび上がる淡い光）
-        for (TrackedKitsunebi tracked : NEARBY_KITSUNEBI) {
-            BlockPos pos = tracked.pos();
-            double x = pos.getX() + 0.5 + (level.random.nextDouble() - 0.5) * 0.3;
-            double y = pos.getY() + 0.4 + level.random.nextDouble() * 0.2;
-            double z = pos.getZ() + 0.5 + (level.random.nextDouble() - 0.5) * 0.3;
-            level.addParticle(tracked.particle(), x, y, z, 0.0, 0.02, 0.0);
-        }
-    }
-
-    private static ParticleOptions getParticle(String color) {
-        return switch (color) {
-            case "white" -> ParticleTypes.END_ROD;
-            case "blue" -> ParticleTypes.SOUL_FIRE_FLAME;
-            case "cyan" -> ParticleTypes.GLOW;
-            case "green" -> ParticleTypes.HAPPY_VILLAGER;
-            case "purple" -> ParticleTypes.WITCH;
-            case "orange" -> ParticleTypes.FLAME;
-            case "red" -> ParticleTypes.FLAME;
-            default -> ParticleTypes.END_ROD;
-        };
     }
 }

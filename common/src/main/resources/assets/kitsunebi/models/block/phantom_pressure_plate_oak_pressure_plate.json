@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/oak_pressure_plate",
+  "textures": {
+    "texture": "kitsunebi:block/phantom_block",
+    "particle": "kitsunebi:block/phantom_block"
+  }
+}

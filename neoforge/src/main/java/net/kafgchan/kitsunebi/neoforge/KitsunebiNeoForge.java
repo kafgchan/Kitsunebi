@@ -13,9 +13,14 @@ public class KitsunebiNeoForge {
     public KitsunebiNeoForge(IEventBus modEventBus) {
         KitsunebiCommon.init();
         NeoForgePlatformHelper.registerBuses(modEventBus);
+        if (Boolean.getBoolean("kitsunebi.verifySlopeMovement")) {
+            net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(
+                    net.kafgchan.kitsunebi.neoforge.verification.SlopeMovementVerifier::verify);
+        }
 
         if (FMLLoader.getDist().isClient()) {
             modEventBus.addListener(KitsunebiNeoForgeClient::onClientSetup);
+            modEventBus.addListener(KitsunebiNeoForgeClient::onModifyModels);
         }
     }
 }

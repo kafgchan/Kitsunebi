@@ -2,7 +2,28 @@ plugins {
     id 'net.fabricmc.fabric-loom-remap'
 }
 
+sourceSets {
+    shapeRegression {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += output + compileClasspath + sourceSets.main.runtimeClasspath
+    }
+}
+
+tasks.register('shapeRegression', JavaExec) {
+    dependsOn shapeRegressionClasses
+    classpath = sourceSets.shapeRegression.runtimeClasspath
+    mainClass = 'net.kafgchan.kitsunebi.ShapeRegression'
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('check') {
+    dependsOn 'shapeRegression'
+}
+
 dependencies {
+    compileOnly "net.fabricmc:fabric-loader:${project.loader_version}"
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
 }

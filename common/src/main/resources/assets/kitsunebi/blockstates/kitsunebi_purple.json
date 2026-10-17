@@ -1,7 +1,7 @@
 {
   "variants": {
     "visible=false": {
-      "model": "kitsunebi:block/kitsunebi_invisible"
+      "model": "kitsunebi:block/kitsunebi_purple"
     },
     "visible=true": {
       "model": "kitsunebi:block/kitsunebi_purple"

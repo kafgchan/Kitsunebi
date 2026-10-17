@@ -31,4 +31,13 @@ public interface IPlatformHelper {
      * クリエイティブタブを登録する
      */
     Supplier<CreativeModeTab> registerCreativeTab(String name, Supplier<CreativeModeTab> tab);
+
+    CreativeModeTab.Builder creativeTabBuilder();
+
+    /**
+     * Curios (NeoForge) または Accessories / Trinkets (Fabric) のアクセサリースロットにアイテムが装備されているか判定
+     */
+    default boolean isCurioOrAccessoryEquipped(net.minecraft.world.entity.LivingEntity entity, Item item) {
+        return false;
+    }
 }
