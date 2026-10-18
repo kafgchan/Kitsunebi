@@ -43,7 +43,6 @@ public final class SmoothSlopeModel implements BakedModel {
         return new SmoothSlopeModel(original,SlopeMesh.create(size,facing,half,shape));
     }
 
-    @SuppressWarnings("deprecation")
     private SmoothSlopeModel(BakedModel original,List<SlopeMesh.Face> faces) {
         this.original=original;
         TextureAtlasSprite sprite=original.getParticleIcon();
@@ -80,7 +79,7 @@ public final class SmoothSlopeModel implements BakedModel {
     @Override public boolean isGui3d(){return true;}
     @Override public boolean usesBlockLight(){return true;}
     @Override public boolean isCustomRenderer(){return false;}
-    @Override @SuppressWarnings("deprecation") public TextureAtlasSprite getParticleIcon(){return original.getParticleIcon();}
-    @Override @SuppressWarnings("deprecation") public ItemTransforms getTransforms(){return original.getTransforms();}
+    @Override public TextureAtlasSprite getParticleIcon(){return original.getParticleIcon();}
+    @Override public ItemTransforms getTransforms(){return original.getTransforms();}
     @Override public ItemOverrides getOverrides(){return original.getOverrides();}
 }

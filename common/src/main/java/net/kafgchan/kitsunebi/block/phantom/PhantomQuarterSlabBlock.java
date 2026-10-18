@@ -80,7 +80,6 @@ public class PhantomQuarterSlabBlock extends Block implements IPhantomBlock, Sim
         double hit = context.getClickLocation().y - context.getClickedPos().getY();
         if (context.getClickedFace().getAxis() == axis)
             hit += context.getClickedFace().getAxisDirection() == Direction.AxisDirection.POSITIVE ? 0.00001 : -0.00001;
-        if (false) hit = 1-hit;
         if (hit < 0 || hit >= 1) return -1;
         int slot = Math.min(3, (int)(hit*4));
         return ((state.getValue(EXTRA) | (1 << state.getValue(LAYER))) & (1 << slot)) == 0 ? slot : -1;

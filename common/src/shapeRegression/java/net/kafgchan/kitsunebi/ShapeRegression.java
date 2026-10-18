@@ -13,10 +13,10 @@ import net.minecraft.server.Bootstrap;
 import net.minecraft.world.level.EmptyBlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.phys.shapes.CollisionContext;
 
 /** Standalone regression harness for ParticleEngine.crack and block support. */
 public final class ShapeRegression {
+    @SuppressWarnings("deprecation")
     public static void main(String[] args) throws Exception {
         SharedConstants.tryDetectVersion();
         Bootstrap.bootStrap();

@@ -30,4 +30,7 @@ ehthumbs.db
 
 # Logs and backups
 *.log
+*.log.gz
+logs/
+*/logs/
 docs/*-backup*/
