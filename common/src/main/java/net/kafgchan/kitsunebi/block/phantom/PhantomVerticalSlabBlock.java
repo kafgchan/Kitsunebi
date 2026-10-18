@@ -50,11 +50,18 @@ public class PhantomVerticalSlabBlock extends Block implements IPhantomBlock, Si
                 .mapColor(MapColor.NONE)
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
+                .noLootTable()
                 .noOcclusion());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(DOUBLE, false)
                 .setValue(FACING, Direction.NORTH)
                 .setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    public void playerDestroy(net.minecraft.world.level.Level level, net.minecraft.world.entity.player.Player player, BlockPos pos, BlockState state, @Nullable net.minecraft.world.level.block.entity.BlockEntity blockEntity, net.minecraft.world.item.ItemStack tool) {
+        int count = state.getValue(DOUBLE) ? 2 : 1;
+        IPhantomBlock.handlePlayerDestroy(this, level, player, pos, state, blockEntity, tool, count);
     }
 
     @Override

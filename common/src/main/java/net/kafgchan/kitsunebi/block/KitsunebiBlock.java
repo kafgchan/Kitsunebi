@@ -8,8 +8,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -47,6 +49,7 @@ public class KitsunebiBlock extends Block implements SimpleWaterloggedBlock {
                 .instabreak()
                 .sound(SoundType.AMETHYST)
                 .lightLevel(state -> state.getValue(LIT) ? 15 : 0)
+                .noLootTable()
                 .noOcclusion());
 
         this.colorName = colorName;
@@ -73,6 +76,15 @@ public class KitsunebiBlock extends Block implements SimpleWaterloggedBlock {
                     ? SHAPE : Shapes.empty();
         }
         return SHAPE;
+    }
+
+    @Override
+    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+        player.awardStat(net.minecraft.stats.Stats.BLOCK_MINED.get(this));
+        player.causeFoodExhaustion(0.005F);
+        if (!level.isClientSide && net.kafgchan.kitsunebi.util.KitsunebiVisionHelper.shouldDropBlock(player, tool)) {
+            popResource(level, pos, new ItemStack(this));
+        }
     }
 
     public static boolean isHoldingKitsunebiRelatedItem(Player player) {

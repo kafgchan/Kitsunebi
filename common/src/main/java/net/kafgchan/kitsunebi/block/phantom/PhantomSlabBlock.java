@@ -22,7 +22,14 @@ public class PhantomSlabBlock extends SlabBlock implements IPhantomBlock {
                 .mapColor(MapColor.NONE)
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
+                .noLootTable()
                 .noOcclusion());
+    }
+
+    @Override
+    public void playerDestroy(net.minecraft.world.level.Level level, net.minecraft.world.entity.player.Player player, BlockPos pos, BlockState state, @org.jetbrains.annotations.Nullable net.minecraft.world.level.block.entity.BlockEntity blockEntity, net.minecraft.world.item.ItemStack tool) {
+        int count = state.getValue(TYPE) == net.minecraft.world.level.block.state.properties.SlabType.DOUBLE ? 2 : 1;
+        IPhantomBlock.handlePlayerDestroy(this, level, player, pos, state, blockEntity, tool, count);
     }
 
     @Override

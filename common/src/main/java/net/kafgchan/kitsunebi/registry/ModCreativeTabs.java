@@ -16,6 +16,7 @@ public class ModCreativeTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.KITSUNEBI_GOHEI.get());
                         output.accept(ModItems.KITSUNEBI_GOGGLES.get());
+                        output.accept(ModItems.KITSUNEBI_ALTAR.get());
                         for (String color : ModBlocks.COLORS) {
                             output.accept(ModItems.getItem(color).get());
                         }

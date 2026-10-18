@@ -5,6 +5,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.EntityCollisionContext;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * 幻影ブロック共通インターフェース
  */
@@ -19,5 +28,17 @@ public interface IPhantomBlock {
         // Engine queries (particles, support, cached shapes) have no player.
         // Only an actual player's ray cast should be hidden by vision equipment.
         return true;
+    }
+
+    /**
+     * プレイヤーによるブロック破壊時のドロップ制御
+     * 御幣または仮面＋シルクタッチ時のみドロップ、それ以外はドロップなし
+     */
+    static void handlePlayerDestroy(Block block, Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool, int count) {
+        player.awardStat(Stats.BLOCK_MINED.get(block));
+        player.causeFoodExhaustion(0.005F);
+        if (!level.isClientSide && KitsunebiVisionHelper.shouldDropBlock(player, tool)) {
+            Block.popResource(level, pos, new ItemStack(block.asItem(), Math.max(1, count)));
+        }
     }
 }

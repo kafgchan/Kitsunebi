@@ -26,6 +26,11 @@ public class ModItems {
             () -> new net.kafgchan.kitsunebi.item.KitsunebiGogglesItem(new Item.Properties())
     );
 
+    public static final Supplier<Item> KITSUNEBI_ALTAR = Services.PLATFORM.registerItem(
+            "kitsunebi_altar",
+            () -> new BlockItem(ModBlocks.KITSUNEBI_ALTAR.get(), new Item.Properties())
+    );
+
     static {
         // 光源狐火アイテム
         for (String color : ModBlocks.COLORS) {

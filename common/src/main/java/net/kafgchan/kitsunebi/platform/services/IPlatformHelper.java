@@ -1,5 +1,7 @@
 package net.kafgchan.kitsunebi.platform.services;
 
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -33,6 +35,16 @@ public interface IPlatformHelper {
     Supplier<CreativeModeTab> registerCreativeTab(String name, Supplier<CreativeModeTab> tab);
 
     CreativeModeTab.Builder creativeTabBuilder();
+
+    @FunctionalInterface
+    interface MenuFactory<T extends AbstractContainerMenu> {
+        T create(int containerId, net.minecraft.world.entity.player.Inventory playerInventory);
+    }
+
+    /**
+     * MenuTypeを登録する
+     */
+    <T extends AbstractContainerMenu> Supplier<MenuType<T>> registerMenuType(String name, MenuFactory<T> factory);
 
     /**
      * Curios (NeoForge) または Accessories / Trinkets (Fabric) のアクセサリースロットにアイテムが装備されているか判定

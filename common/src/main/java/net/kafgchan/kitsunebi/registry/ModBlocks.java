@@ -40,6 +40,12 @@ public class ModBlocks {
             () -> new ArchitecturalKitsunebiBlock(BlockBehaviour.Properties.of())
     );
 
+    // --- 専用作業台：狐火の祭壇 ---
+    public static final Supplier<Block> KITSUNEBI_ALTAR = Services.PLATFORM.registerBlock(
+            "kitsunebi_altar",
+            () -> new net.kafgchan.kitsunebi.block.altar.KitsunebiAltarBlock(BlockBehaviour.Properties.of())
+    );
+
     // --- B: 幻影ブロック群（衝突あり・通常不可視） ---
     public static final Supplier<Block> PHANTOM_BLOCK = registerPhantom(
             "phantom_block",

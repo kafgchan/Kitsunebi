@@ -44,11 +44,19 @@ public class PhantomQuarterSlabBlock extends Block implements IPhantomBlock, Sim
                 .mapColor(MapColor.NONE)
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
+                .noLootTable()
                 .noOcclusion());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(EXTRA, 0)
                 .setValue(LAYER, 0)
                 .setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    public void playerDestroy(net.minecraft.world.level.Level level, net.minecraft.world.entity.player.Player player, BlockPos pos, BlockState state, @Nullable net.minecraft.world.level.block.entity.BlockEntity blockEntity, net.minecraft.world.item.ItemStack tool) {
+        int mask = state.getValue(EXTRA) | (1 << state.getValue(LAYER));
+        int count = Integer.bitCount(mask);
+        IPhantomBlock.handlePlayerDestroy(this, level, player, pos, state, blockEntity, tool, count);
     }
 
     @Override

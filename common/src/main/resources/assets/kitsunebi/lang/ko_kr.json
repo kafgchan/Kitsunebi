@@ -57,5 +57,11 @@
   "block.kitsunebi.phantom_slope_mid": "환영 경사로 (중간)",
   "item.kitsunebi.phantom_slope_mid": "환영 경사로 (중간)",
   "block.kitsunebi.phantom_slope_low": "환영 경사로 (낮음)",
-  "item.kitsunebi.phantom_slope_low": "환영 경사로 (낮음)"
+  "item.kitsunebi.phantom_slope_low": "환영 경사로 (낮음)",
+  "block.kitsunebi.kitsunebi_altar": "여우불의 제단",
+  "item.kitsunebi.kitsunebi_altar": "여우불의 제단",
+  "container.kitsunebi.altar": "여우불의 제단",
+  "category.kitsunebi.fire": "여우불",
+  "category.kitsunebi.block": "여우불 블록",
+  "category.kitsunebi.phantom": "환영 건축자재"
 }

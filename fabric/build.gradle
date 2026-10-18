@@ -50,12 +50,14 @@ dependencies {
 sourceSets.main.java {
     srcDir file('../common/src/main/java')
     exclude 'net/kafgchan/kitsunebi/client/SmoothSlopeModel.java'
+    exclude 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen.java'
 }
 
 tasks.named('jar') {
     dependsOn ':common:classes'
     from(project(':common').sourceSets.main.output) {
-        include 'net/kafgchan/kitsunebi/client/SmoothSlopeModel.class'
+        include 'net/kafgchan/kitsunebi/client/SmoothSlopeModel*.class'
+        include 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen*.class'
     }
 }
 

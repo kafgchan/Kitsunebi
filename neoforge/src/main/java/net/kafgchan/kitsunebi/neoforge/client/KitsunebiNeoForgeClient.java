@@ -11,6 +11,9 @@ public class KitsunebiNeoForgeClient {
     public static void onModifyModels(net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult event) {
         event.getModels().replaceAll(net.kafgchan.kitsunebi.client.SmoothSlopeModel::replace);
     }
+    public static void onRegisterMenuScreens(net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) {
+        event.register(net.kafgchan.kitsunebi.registry.ModMenus.KITSUNEBI_ALTAR_MENU.get(), net.kafgchan.kitsunebi.client.KitsunebiAltarScreen::new);
+    }
     public static void onClientSetup(FMLClientSetupEvent event) {
         // 装備・手持ちの変更時のみ可視化モデルを再構築
         NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post tickEvent) -> {

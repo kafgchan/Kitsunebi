@@ -20,6 +20,11 @@ public class KitsunebiFabricClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(blockSupplier.get(), RenderType.translucent());
         }
 
+        net.minecraft.client.gui.screens.MenuScreens.register(
+                net.kafgchan.kitsunebi.registry.ModMenus.KITSUNEBI_ALTAR_MENU.get(),
+                net.kafgchan.kitsunebi.client.KitsunebiAltarScreen::new
+        );
+
         // 装備・手持ちの変更時のみ可視化モデルを再構築
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client != null) {

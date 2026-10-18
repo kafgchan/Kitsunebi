@@ -24,7 +24,13 @@ public class PhantomBlock extends Block implements IPhantomBlock {
                 .mapColor(MapColor.NONE)
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
+                .noLootTable()
                 .noOcclusion());
+    }
+
+    @Override
+    public void playerDestroy(net.minecraft.world.level.Level level, net.minecraft.world.entity.player.Player player, BlockPos pos, BlockState state, @org.jetbrains.annotations.Nullable net.minecraft.world.level.block.entity.BlockEntity blockEntity, net.minecraft.world.item.ItemStack tool) {
+        IPhantomBlock.handlePlayerDestroy(this, level, player, pos, state, blockEntity, tool, 1);
     }
 
     @Override

@@ -46,6 +46,16 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public <T extends net.minecraft.world.inventory.AbstractContainerMenu> Supplier<net.minecraft.world.inventory.MenuType<T>> registerMenuType(String name, MenuFactory<T> factory) {
+        net.minecraft.world.inventory.MenuType<T> registered = Registry.register(
+                BuiltInRegistries.MENU,
+                ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name),
+                new net.minecraft.world.inventory.MenuType<>(factory::create, net.minecraft.world.flag.FeatureFlagSet.of())
+        );
+        return () -> registered;
+    }
+
+    @Override
     public boolean isCurioOrAccessoryEquipped(net.minecraft.world.entity.LivingEntity entity, Item item) {
         // 1. Accessories API (io.wispforest.accessories)
         try {

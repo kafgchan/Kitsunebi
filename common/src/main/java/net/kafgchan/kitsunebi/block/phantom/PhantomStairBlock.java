@@ -48,6 +48,7 @@ public class PhantomStairBlock extends Block implements IPhantomBlock, SimpleWat
                 .mapColor(MapColor.NONE)
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
+                .noLootTable()
                 .noOcclusion());
         this.size = size;
         this.registerDefaultState(this.stateDefinition.any()
@@ -56,6 +57,11 @@ public class PhantomStairBlock extends Block implements IPhantomBlock, SimpleWat
                 .setValue(SHAPE, StairsShape.STRAIGHT)
                 .setValue(WATERLOGGED, false));
         buildShapes();
+    }
+
+    @Override
+    public void playerDestroy(net.minecraft.world.level.Level level, net.minecraft.world.entity.player.Player player, BlockPos pos, BlockState state, @Nullable net.minecraft.world.level.block.entity.BlockEntity blockEntity, net.minecraft.world.item.ItemStack tool) {
+        IPhantomBlock.handlePlayerDestroy(this, level, player, pos, state, blockEntity, tool, 1);
     }
 
     public StairSlopeSize getSize() {

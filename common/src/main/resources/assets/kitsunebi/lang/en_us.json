@@ -57,5 +57,11 @@
   "block.kitsunebi.phantom_slope_mid": "Phantom Slope (Mid)",
   "item.kitsunebi.phantom_slope_mid": "Phantom Slope (Mid)",
   "block.kitsunebi.phantom_slope_low": "Phantom Slope (Low)",
-  "item.kitsunebi.phantom_slope_low": "Phantom Slope (Low)"
+  "item.kitsunebi.phantom_slope_low": "Phantom Slope (Low)",
+  "block.kitsunebi.kitsunebi_altar": "Altar of Kitsunebi",
+  "item.kitsunebi.kitsunebi_altar": "Altar of Kitsunebi",
+  "container.kitsunebi.altar": "Altar of Kitsunebi",
+  "category.kitsunebi.fire": "Kitsunebi",
+  "category.kitsunebi.block": "Kitsunebi Block",
+  "category.kitsunebi.phantom": "Phantom"
 }

@@ -57,5 +57,11 @@
   "block.kitsunebi.phantom_slope_mid": "幻影斜坡 (中)",
   "item.kitsunebi.phantom_slope_mid": "幻影斜坡 (中)",
   "block.kitsunebi.phantom_slope_low": "幻影斜坡 (低)",
-  "item.kitsunebi.phantom_slope_low": "幻影斜坡 (低)"
+  "item.kitsunebi.phantom_slope_low": "幻影斜坡 (低)",
+  "block.kitsunebi.kitsunebi_altar": "狐火祭壇",
+  "item.kitsunebi.kitsunebi_altar": "狐火祭壇",
+  "container.kitsunebi.altar": "狐火祭壇",
+  "category.kitsunebi.fire": "狐火",
+  "category.kitsunebi.block": "狐火方塊",
+  "category.kitsunebi.phantom": "幻影建材"
 }

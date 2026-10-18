@@ -21,6 +21,7 @@ public class KitsunebiNeoForge {
         if (FMLLoader.getDist().isClient()) {
             modEventBus.addListener(KitsunebiNeoForgeClient::onClientSetup);
             modEventBus.addListener(KitsunebiNeoForgeClient::onModifyModels);
+            modEventBus.addListener(KitsunebiNeoForgeClient::onRegisterMenuScreens);
         }
     }
 }

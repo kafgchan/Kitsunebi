@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "ACC",
+    " BC",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "B": {
+      "item": "minecraft:stick"
+    },
+    "C": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "kitsunebi:kitsunebi_gohei"
+  }
+}

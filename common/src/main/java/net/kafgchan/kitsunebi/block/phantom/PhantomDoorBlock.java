@@ -23,7 +23,18 @@ public class PhantomDoorBlock extends DoorBlock implements IPhantomBlock {
                 .mapColor(MapColor.NONE)
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
+                .noLootTable()
                 .noOcclusion());
+    }
+
+    @Override
+    public void playerDestroy(net.minecraft.world.level.Level level, net.minecraft.world.entity.player.Player player, BlockPos pos, BlockState state, @org.jetbrains.annotations.Nullable net.minecraft.world.level.block.entity.BlockEntity blockEntity, net.minecraft.world.item.ItemStack tool) {
+        if (state.getValue(HALF) == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER) {
+            IPhantomBlock.handlePlayerDestroy(this, level, player, pos, state, blockEntity, tool, 1);
+        } else {
+            player.awardStat(net.minecraft.stats.Stats.BLOCK_MINED.get(this));
+            player.causeFoodExhaustion(0.005F);
+        }
     }
 
     @Override
