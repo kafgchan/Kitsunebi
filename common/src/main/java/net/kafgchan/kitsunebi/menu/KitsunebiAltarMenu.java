@@ -43,19 +43,42 @@ public class KitsunebiAltarMenu extends AbstractContainerMenu {
     }
 
     private AltarCraftingEngine.Category getRecipeCategory(){
-        return getCategoryIndex()==1?AltarCraftingEngine.Category.PHANTOM:
-                getSelectionIndex()==7?AltarCraftingEngine.Category.ARCHITECTURAL:AltarCraftingEngine.Category.KITSUNEBI;
+        return switch(getCategoryIndex()) {
+            case 1 -> AltarCraftingEngine.Category.PHANTOM;
+            case 2 -> AltarCraftingEngine.Category.EQUIPMENT;
+            default -> getSelectionIndex()==7?AltarCraftingEngine.Category.ARCHITECTURAL:AltarCraftingEngine.Category.KITSUNEBI;
+        };
     }
     private int getRecipeSelection(){return getCategoryIndex()==0&&getSelectionIndex()==7?0:getSelectionIndex();}
     public boolean isEquipment(){return getCategoryIndex()==2;}
     public int getCategoryIndex(){return Math.max(0,Math.min(2,data.get(0)));}
     public int getSelectionIndex(){return Math.max(0,Math.min(getSelectionCount()-1,data.get(1)));}
     public int getQuantity(){return isEquipment()?1:Math.max(1,Math.min(64,data.get(2)));}
-    public int getSelectionCount(){return switch(getCategoryIndex()){case 0->8;case 1->17;default->5;};}
+    public int getSelectionCount(){
+        return switch(getCategoryIndex()){
+            case 0->8;
+            case 1->17;
+            case 2->10;
+            default->10;
+        };
+    }
     public ItemStack getSelectionStack(int index) {
         return switch(getCategoryIndex()) {
             case 0->index==7?new ItemStack(ModBlocks.ARCHITECTURAL_KITSUNEBI.get()):new ItemStack(ModItems.getItem(ModBlocks.COLORS[Math.max(0,Math.min(6,index))]).get());
             case 1->AltarCraftingEngine.getPhantomOutputStack(index,1);
+            case 2->switch(index) {
+                case 0->new ItemStack(ModItems.KITSUNEBI_HEADDRESS.get());
+                case 1->new ItemStack(ModItems.KITSUNEBI_HAORI.get());
+                case 2->new ItemStack(ModItems.KITSUNEBI_HAKAMA.get());
+                case 3->new ItemStack(ModItems.KITSUNEBI_TABI.get());
+                case 4->new ItemStack(ModItems.KITSUNEBI_SWORD.get());
+                case 5->new ItemStack(ModItems.KITSUNEBI_PICKAXE.get());
+                case 6->new ItemStack(ModItems.KITSUNEBI_AXE.get());
+                case 7->new ItemStack(ModItems.KITSUNEBI_SHOVEL.get());
+                case 8->new ItemStack(ModItems.KITSUNEBI_HOE.get());
+                case 9->new ItemStack(ModBlocks.KITSUNEBI_ALTAR.get());
+                default->ItemStack.EMPTY;
+            };
             default->ItemStack.EMPTY;
         };
     }
@@ -64,8 +87,7 @@ public class KitsunebiAltarMenu extends AbstractContainerMenu {
     }
     /** Client preview may use the local drag value; crafting always uses synchronized state. */
     public AltarCraftingEngine.RecipeResult getCurrentResult(int quantity){
-        if(isEquipment()) return new AltarCraftingEngine.RecipeResult(ItemStack.EMPTY,java.util.List.of(),false);
-        return AltarCraftingEngine.calculate(inputContainer,getRecipeCategory(),getRecipeSelection(),quantity);
+        return AltarCraftingEngine.calculate(inputContainer,getRecipeCategory(),getRecipeSelection(),isEquipment()?1:quantity);
     }
     public boolean canCraft(){
         return canCraft(getQuantity());
