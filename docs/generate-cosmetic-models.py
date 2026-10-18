@@ -38,7 +38,7 @@ def box(bounds, material=0, shade=True):
 
 def native(elements):
     return {'parent':'minecraft:block/block','textures':{'palette':'kitsunebi:block/model_palette',
-            'particle':'kitsunebi:block/model_palette'},'elements':elements}
+            'particle':'kitsunebi:block/phantom_block'},'elements':elements}
 
 # Rounded droplet volume, curving tip, and detached wisps: no crossed sheets.
 cells = set()
@@ -65,6 +65,8 @@ for color in colors:
             e['faces'][d] = face(indices[color][brightness])
         if e['faces']: elements.append(e)
     flame=native(elements)
+    # Particle UVs sample the entire sprite, so never use the multicolored swatch sheet.
+    flame['textures']['particle']=f'kitsunebi:block/kitsunebi_{color}'
     flame['render_type']='minecraft:translucent'
     write(f'models/block/kitsunebi_{color}.json',flame)
     write(f'models/item/kitsunebi_{color}.json',{'parent':f'kitsunebi:block/kitsunebi_{color}',
@@ -97,6 +99,7 @@ part((3.65,8.2,3.6,4.05,9,12.35),3)
 part((11.95,8.2,3.6,12.35,9,12.35),3)
 part((3.65,8.2,12,12.35,9,12.4),3)
 data = native(mask)
+data['textures']['particle']='kitsunebi:block/kitsunebi_white'
 data['display'] = {
     'gui':{'rotation':[0,165,0],'translation':[0,-1,0],'scale':[1,1,1]},
     'head':{'rotation':[0,0,0],'translation':[0,0,0],'scale':[1.6,1.6,1.6]},

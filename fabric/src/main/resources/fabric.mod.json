@@ -8,7 +8,7 @@
     "Antigravity",
     "Kaede"
   ],
-  "license": "MIT",
+  "license": "LGPL-3.0-or-later",
   "environment": "*",
   "entrypoints": {
     "main": [

@@ -4,7 +4,8 @@
 ![NeoForge](https://img.shields.io/badge/NeoForge-21.1.259-orange)
 ![Fabric](https://img.shields.io/badge/Fabric-0.16.14-blue)
 ![Java](https://img.shields.io/badge/Java-21-red)
-![License](https://img.shields.io/badge/License-MIT-green)
+![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)
+![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)
 
 旧竹Mod（Bamboo Mod）に登場した「狐火」に着想を得た、Minecraft 1.21.1 向けの独立した高品質・軽量な光源Modです。
 NeoForge および Fabric の両ローダーに対応しています。
@@ -76,4 +77,6 @@ NeoForge および Fabric の両ローダーに対応しています。
 ---
 
 ## 📄 ライセンス
-本プロジェクトは MIT License のもとで公開されています。
+- **ソースコード**: [GNU Lesser General Public License v3.0 or later](LICENSE) (`LGPL-3.0-or-later`)
+- **アセット（テクスチャ・モデル等）**: [Creative Commons Attribution 4.0 International](LICENSE-ASSETS.md) (`CC BY 4.0`)
+- **詳細・クレジット**: [CREDITS.md](CREDITS.md) をご覧ください。

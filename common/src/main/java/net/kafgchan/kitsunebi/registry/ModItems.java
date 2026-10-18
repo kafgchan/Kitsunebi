@@ -31,6 +31,53 @@ public class ModItems {
             () -> new BlockItem(ModBlocks.KITSUNEBI_ALTAR.get(), new Item.Properties())
     );
 
+    // 狐火防具4種（白×朱赤 和装、耐久 1,048,576）
+    public static final Supplier<Item> KITSUNEBI_HEADDRESS = Services.PLATFORM.registerItem(
+            "kitsunebi_headdress",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHeaddressItem(new Item.Properties())
+    );
+
+    public static final Supplier<Item> KITSUNEBI_HAORI = Services.PLATFORM.registerItem(
+            "kitsunebi_haori",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHaoriItem(new Item.Properties())
+    );
+
+    public static final Supplier<Item> KITSUNEBI_HAKAMA = Services.PLATFORM.registerItem(
+            "kitsunebi_hakama",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHakamaItem(new Item.Properties())
+    );
+
+    public static final Supplier<Item> KITSUNEBI_TABI = Services.PLATFORM.registerItem(
+            "kitsunebi_tabi",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiTabiItem(new Item.Properties())
+    );
+
+    // 狐火ツール5種（耐久 1,048,576、妖術対応）
+    public static final Supplier<Item> KITSUNEBI_SWORD = Services.PLATFORM.registerItem(
+            "kitsunebi_sword",
+            () -> new net.kafgchan.kitsunebi.item.tool.KitsunebiSwordItem(new Item.Properties())
+    );
+
+    public static final Supplier<Item> KITSUNEBI_PICKAXE = Services.PLATFORM.registerItem(
+            "kitsunebi_pickaxe",
+            () -> new net.kafgchan.kitsunebi.item.tool.KitsunebiPickaxeItem(new Item.Properties())
+    );
+
+    public static final Supplier<Item> KITSUNEBI_AXE = Services.PLATFORM.registerItem(
+            "kitsunebi_axe",
+            () -> new net.kafgchan.kitsunebi.item.tool.KitsunebiAxeItem(new Item.Properties())
+    );
+
+    public static final Supplier<Item> KITSUNEBI_SHOVEL = Services.PLATFORM.registerItem(
+            "kitsunebi_shovel",
+            () -> new net.kafgchan.kitsunebi.item.tool.KitsunebiShovelItem(new Item.Properties())
+    );
+
+    public static final Supplier<Item> KITSUNEBI_HOE = Services.PLATFORM.registerItem(
+            "kitsunebi_hoe",
+            () -> new net.kafgchan.kitsunebi.item.tool.KitsunebiHoeItem(new Item.Properties())
+    );
+
     static {
         // 光源狐火アイテム
         for (String color : ModBlocks.COLORS) {

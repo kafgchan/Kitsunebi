@@ -13,6 +13,7 @@ public class KitsunebiNeoForge {
     public KitsunebiNeoForge(IEventBus modEventBus) {
         KitsunebiCommon.init();
         NeoForgePlatformHelper.registerBuses(modEventBus);
+        modEventBus.addListener(net.kafgchan.kitsunebi.neoforge.network.KitsunebiNeoForgeNetwork::registerPayloadHandlers);
         if (Boolean.getBoolean("kitsunebi.verifySlopeMovement")) {
             net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(
                     net.kafgchan.kitsunebi.neoforge.verification.SlopeMovementVerifier::verify);
@@ -22,6 +23,7 @@ public class KitsunebiNeoForge {
             modEventBus.addListener(KitsunebiNeoForgeClient::onClientSetup);
             modEventBus.addListener(KitsunebiNeoForgeClient::onModifyModels);
             modEventBus.addListener(KitsunebiNeoForgeClient::onRegisterMenuScreens);
+            modEventBus.addListener(net.kafgchan.kitsunebi.neoforge.client.KitsunebiNeoForgeKeyHandler::registerKeys);
         }
     }
 }

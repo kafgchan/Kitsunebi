@@ -9,6 +9,7 @@ import net.kafgchan.kitsunebi.registry.ModMenus;
 public class KitsunebiCommon {
     public static void init() {
         Constants.LOG.info("Initializing {} on platform: {}", Constants.MOD_NAME, Services.PLATFORM.getPlatformName());
+        net.kafgchan.kitsunebi.config.KitsunebiConfig.load();
         ModBlocks.init();
         ModItems.init();
         ModMenus.init();

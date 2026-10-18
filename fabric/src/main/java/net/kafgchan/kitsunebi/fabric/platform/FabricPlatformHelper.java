@@ -56,6 +56,15 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public net.minecraft.core.Holder<net.minecraft.world.item.ArmorMaterial> registerArmorMaterial(String name, Supplier<net.minecraft.world.item.ArmorMaterial> materialSupplier) {
+        return Registry.registerForHolder(
+                BuiltInRegistries.ARMOR_MATERIAL,
+                ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name),
+                materialSupplier.get()
+        );
+    }
+
+    @Override
     public boolean isCurioOrAccessoryEquipped(net.minecraft.world.entity.LivingEntity entity, Item item) {
         // 1. Accessories API (io.wispforest.accessories)
         try {

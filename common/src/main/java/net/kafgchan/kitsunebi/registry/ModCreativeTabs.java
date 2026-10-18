@@ -17,6 +17,17 @@ public class ModCreativeTabs {
                         output.accept(ModItems.KITSUNEBI_GOHEI.get());
                         output.accept(ModItems.KITSUNEBI_GOGGLES.get());
                         output.accept(ModItems.KITSUNEBI_ALTAR.get());
+                        // 狐火防具4種
+                        output.accept(ModItems.KITSUNEBI_HEADDRESS.get());
+                        output.accept(ModItems.KITSUNEBI_HAORI.get());
+                        output.accept(ModItems.KITSUNEBI_HAKAMA.get());
+                        output.accept(ModItems.KITSUNEBI_TABI.get());
+                        // 狐火ツール5種
+                        output.accept(ModItems.KITSUNEBI_SWORD.get());
+                        output.accept(ModItems.KITSUNEBI_PICKAXE.get());
+                        output.accept(ModItems.KITSUNEBI_AXE.get());
+                        output.accept(ModItems.KITSUNEBI_SHOVEL.get());
+                        output.accept(ModItems.KITSUNEBI_HOE.get());
                         for (String color : ModBlocks.COLORS) {
                             output.accept(ModItems.getItem(color).get());
                         }

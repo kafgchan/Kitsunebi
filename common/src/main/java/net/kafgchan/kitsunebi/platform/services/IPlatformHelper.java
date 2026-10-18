@@ -47,6 +47,11 @@ public interface IPlatformHelper {
     <T extends AbstractContainerMenu> Supplier<MenuType<T>> registerMenuType(String name, MenuFactory<T> factory);
 
     /**
+     * ArmorMaterialを登録する
+     */
+    net.minecraft.core.Holder<net.minecraft.world.item.ArmorMaterial> registerArmorMaterial(String name, Supplier<net.minecraft.world.item.ArmorMaterial> materialSupplier);
+
+    /**
      * Curios (NeoForge) または Accessories / Trinkets (Fabric) のアクセサリースロットにアイテムが装備されているか判定
      */
     default boolean isCurioOrAccessoryEquipped(net.minecraft.world.entity.LivingEntity entity, Item item) {

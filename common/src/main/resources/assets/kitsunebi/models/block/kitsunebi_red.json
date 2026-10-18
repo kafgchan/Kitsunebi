@@ -2,7 +2,7 @@
   "parent": "minecraft:block/block",
   "textures": {
     "palette": "kitsunebi:block/model_palette",
-    "particle": "kitsunebi:block/model_palette"
+    "particle": "kitsunebi:block/kitsunebi_red"
   },
   "elements": [
     {

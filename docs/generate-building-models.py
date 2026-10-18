@@ -177,6 +177,7 @@ for path in (ASSETS / 'models/item').glob('*.json'):
 # Final dedicated cosmetic geometry and per-item presentation overrides.
 import runpy
 runpy.run_path(str(ROOT / 'docs/generate-cosmetic-models.py'))
+runpy.run_path(str(ROOT / 'docs/generate-altar-model.py'))
 
 # Occupied quarter slices are rendered once each, preserving old layer states.
 for name, vertical in [('phantom_quarter_slab', False), ('phantom_vertical_quarter', True)]:

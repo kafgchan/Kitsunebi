@@ -22,6 +22,7 @@ public final class SlopeMovementVerifier {
         try {
             var level=event.getServer().overworld();
             StackingVerifier.verify(level);
+            AltarMenuVerifier.verify(level);
             var slopes=java.util.List.of(ModBlocks.PHANTOM_SLOPE_HIGH.get(),ModBlocks.PHANTOM_SLOPE_MID.get(),ModBlocks.PHANTOM_SLOPE_LOW.get());
             var stairs=java.util.List.of(ModBlocks.PHANTOM_STAIRS_HIGH.get(),ModBlocks.PHANTOM_STAIRS_MID.get(),ModBlocks.PHANTOM_STAIRS_LOW.get());
             int fixture=0,runs=0;

@@ -21,12 +21,14 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Constants.MOD_ID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Constants.MOD_ID);
     public static final DeferredRegister<net.minecraft.world.inventory.MenuType<?>> MENU_TYPES = DeferredRegister.create(Registries.MENU, Constants.MOD_ID);
+    public static final DeferredRegister<net.minecraft.world.item.ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, Constants.MOD_ID);
 
     public static void registerBuses(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         MENU_TYPES.register(modEventBus);
+        ARMOR_MATERIALS.register(modEventBus);
     }
 
     @Override
@@ -57,6 +59,11 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     @Override
     public <T extends net.minecraft.world.inventory.AbstractContainerMenu> Supplier<net.minecraft.world.inventory.MenuType<T>> registerMenuType(String name, MenuFactory<T> factory) {
         return MENU_TYPES.register(name, () -> new net.minecraft.world.inventory.MenuType<>(factory::create, net.minecraft.world.flag.FeatureFlagSet.of()));
+    }
+
+    @Override
+    public net.minecraft.core.Holder<net.minecraft.world.item.ArmorMaterial> registerArmorMaterial(String name, Supplier<net.minecraft.world.item.ArmorMaterial> materialSupplier) {
+        return ARMOR_MATERIALS.register(name, materialSupplier);
     }
 
     @Override

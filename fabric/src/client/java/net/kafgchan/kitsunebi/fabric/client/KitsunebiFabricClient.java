@@ -25,9 +25,13 @@ public class KitsunebiFabricClient implements ClientModInitializer {
                 net.kafgchan.kitsunebi.client.KitsunebiAltarScreen::new
         );
 
-        // 装備・手持ちの変更時のみ可視化モデルを再構築
+        // キーバインド初期化
+        KitsunebiFabricKeyHandler.init();
+
+        // 装備・手持ちの変更時のみ可視化モデルを再構築、およびキー入力処理
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client != null) {
+                KitsunebiFabricKeyHandler.onClientTick(client);
                 if (KitsunebiClientHelper.tickClient(client.player, client.level) && client.level != null && client.player != null) {
                     KitsunebiClientHelper.refreshVisionSections(client.level, client.player.blockPosition(),
                             client.options.renderDistance().get() + 1, client.levelRenderer::setSectionDirty);

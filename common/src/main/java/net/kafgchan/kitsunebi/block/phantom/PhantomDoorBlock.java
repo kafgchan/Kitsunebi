@@ -29,12 +29,9 @@ public class PhantomDoorBlock extends DoorBlock implements IPhantomBlock {
 
     @Override
     public void playerDestroy(net.minecraft.world.level.Level level, net.minecraft.world.entity.player.Player player, BlockPos pos, BlockState state, @org.jetbrains.annotations.Nullable net.minecraft.world.level.block.entity.BlockEntity blockEntity, net.minecraft.world.item.ItemStack tool) {
-        if (state.getValue(HALF) == net.minecraft.world.level.block.state.properties.DoubleBlockHalf.LOWER) {
-            IPhantomBlock.handlePlayerDestroy(this, level, player, pos, state, blockEntity, tool, 1);
-        } else {
-            player.awardStat(net.minecraft.stats.Stats.BLOCK_MINED.get(this));
-            player.causeFoodExhaustion(0.005F);
-        }
+        // UPPER / LOWER のどちらをプレイヤーが直接破壊しても1回だけ回収判定を行う
+        // 相方の半分は近傍更新（updateShape）により playerDestroy を経由せず消滅するため二重ドロップしない
+        IPhantomBlock.handlePlayerDestroy(this, level, player, pos, state, blockEntity, tool, 1);
     }
 
     @Override

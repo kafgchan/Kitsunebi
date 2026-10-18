@@ -36,7 +36,7 @@ public class KitsunebiVisionHelper {
 
         // 1. バニラ頭防具スロット
         ItemStack headStack = player.getItemBySlot(EquipmentSlot.HEAD);
-        if (!headStack.isEmpty() && headStack.getItem() instanceof KitsunebiGogglesItem) {
+        if (!headStack.isEmpty() && (headStack.getItem() instanceof KitsunebiGogglesItem || headStack.getItem() instanceof net.kafgchan.kitsunebi.item.armor.KitsunebiHeaddressItem)) {
             return true;
         }
 

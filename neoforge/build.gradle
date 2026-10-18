@@ -28,6 +28,12 @@ neoForge {
     }
 
     runs {
+        altarVerifyClient {
+            client()
+            gameDirectory = file('build/altar-verify-client')
+            programArguments.addAll '--width', '960', '--height', '720'
+            systemProperty 'kitsunebi.verifyAltarGui', 'true'
+        }
         slopeVerifyServer {
             server()
             gameDirectory = file('build/slope-verify-server')

@@ -18,7 +18,8 @@ public class AltarCraftingEngine {
     public enum Category {
         KITSUNEBI("category.kitsunebi.fire"),
         ARCHITECTURAL("category.kitsunebi.block"),
-        PHANTOM("category.kitsunebi.phantom");
+        PHANTOM("category.kitsunebi.phantom"),
+        EQUIPMENT("category.kitsunebi.equipment");
 
         private final String translationKey;
         Category(String translationKey) { this.translationKey = translationKey; }
@@ -136,10 +137,100 @@ public class AltarCraftingEngine {
                 int providedStick = countItems(input, Items.STICK);
                 required.add(new RequiredIngredient("Stick", q, providedStick));
             }
+        } else if (category == Category.EQUIPMENT) {
+            Item whiteFire = ModItems.getItem("white").get();
+            Item redFire = ModItems.getItem("red").get();
+            Item phantomBlock = ModBlocks.PHANTOM_BLOCK.get().asItem();
+
+            switch (selectionIndex) {
+                case 0 -> { // 狐火の頭飾り (白3 + 赤2)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_HEADDRESS.get(), 1);
+                    int providedWhite = countItems(input, whiteFire);
+                    required.add(new RequiredIngredient("White Kitsunebi", 3, providedWhite));
+                    int providedRed = countItems(input, redFire);
+                    required.add(new RequiredIngredient("Red Kitsunebi", 2, providedRed));
+                }
+                case 1 -> { // 狐火の羽織 (白5 + 赤3)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_HAORI.get(), 1);
+                    int providedWhite = countItems(input, whiteFire);
+                    required.add(new RequiredIngredient("White Kitsunebi", 5, providedWhite));
+                    int providedRed = countItems(input, redFire);
+                    required.add(new RequiredIngredient("Red Kitsunebi", 3, providedRed));
+                }
+                case 2 -> { // 狐火の袴 (白3 + 赤4)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_HAKAMA.get(), 1);
+                    int providedWhite = countItems(input, whiteFire);
+                    required.add(new RequiredIngredient("White Kitsunebi", 3, providedWhite));
+                    int providedRed = countItems(input, redFire);
+                    required.add(new RequiredIngredient("Red Kitsunebi", 4, providedRed));
+                }
+                case 3 -> { // 狐火の足袋 (白2 + 赤2)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_TABI.get(), 1);
+                    int providedWhite = countItems(input, whiteFire);
+                    required.add(new RequiredIngredient("White Kitsunebi", 2, providedWhite));
+                    int providedRed = countItems(input, redFire);
+                    required.add(new RequiredIngredient("Red Kitsunebi", 2, providedRed));
+                }
+                case 4 -> { // 狐火の剣 (幻影ブロック2 + 棒1)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_SWORD.get(), 1);
+                    int providedFull = countItems(input, phantomBlock);
+                    required.add(new RequiredIngredient("Phantom Block", 2, providedFull));
+                    int providedStick = countItems(input, Items.STICK);
+                    required.add(new RequiredIngredient("Stick", 1, providedStick));
+                }
+                case 5 -> { // 狐火のツルハシ (幻影ブロック3 + 棒2)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_PICKAXE.get(), 1);
+                    int providedFull = countItems(input, phantomBlock);
+                    required.add(new RequiredIngredient("Phantom Block", 3, providedFull));
+                    int providedStick = countItems(input, Items.STICK);
+                    required.add(new RequiredIngredient("Stick", 2, providedStick));
+                }
+                case 6 -> { // 狐火の斧 (幻影ブロック3 + 棒2)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_AXE.get(), 1);
+                    int providedFull = countItems(input, phantomBlock);
+                    required.add(new RequiredIngredient("Phantom Block", 3, providedFull));
+                    int providedStick = countItems(input, Items.STICK);
+                    required.add(new RequiredIngredient("Stick", 2, providedStick));
+                }
+                case 7 -> { // 狐火のシャベル (幻影ブロック1 + 棒2)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_SHOVEL.get(), 1);
+                    int providedFull = countItems(input, phantomBlock);
+                    required.add(new RequiredIngredient("Phantom Block", 1, providedFull));
+                    int providedStick = countItems(input, Items.STICK);
+                    required.add(new RequiredIngredient("Stick", 2, providedStick));
+                }
+                case 8 -> { // 狐火のクワ (幻影ブロック2 + 棒2)
+                    outputStack = new ItemStack(ModItems.KITSUNEBI_HOE.get(), 1);
+                    int providedFull = countItems(input, phantomBlock);
+                    required.add(new RequiredIngredient("Phantom Block", 2, providedFull));
+                    int providedStick = countItems(input, Items.STICK);
+                    required.add(new RequiredIngredient("Stick", 2, providedStick));
+                }
+                case 9 -> { // 神器修理サブタブ
+                    ItemStack damaged = findDamagedKitsunebiItem(input);
+                    if (!damaged.isEmpty()) {
+                        int damage = damaged.getDamageValue();
+                        int neededFireBlocks = damage / 32768;
+                        int rem = damage % 32768;
+                        int neededFire = (int) Math.ceil(rem / 4096.0);
+                        if (neededFireBlocks == 0 && neededFire == 0) neededFire = 1;
+
+                        int providedFire = countKitsunebiFire(input);
+                        int providedBlock = countItems(input, ModBlocks.ARCHITECTURAL_KITSUNEBI.get().asItem());
+
+                        outputStack = damaged.copy();
+                        outputStack.setDamageValue(0);
+                        required.add(new RequiredIngredient("Kitsunebi Fire (4,096 rep)", neededFire, providedFire));
+                        if (neededFireBlocks > 0) {
+                            required.add(new RequiredIngredient("Kitsunebi Block (32,768 rep)", neededFireBlocks, providedBlock));
+                        }
+                    }
+                }
+            }
         }
 
         boolean canCraft = !required.isEmpty() && required.stream().allMatch(RequiredIngredient::isSatisfied);
-        return new RecipeResult(canCraft ? outputStack : ItemStack.EMPTY, required, canCraft);
+        return new RecipeResult(outputStack, required, canCraft);
     }
 
     /**
@@ -193,6 +284,67 @@ public class AltarCraftingEngine {
             } else if (selectionIndex == 15) {
                 consumeAny(input, q, ModBlocks.PHANTOM_BLOCK.get().asItem());
                 consumeAny(input, q, Items.STICK);
+            }
+        } else if (category == Category.EQUIPMENT) {
+            Item whiteFire = ModItems.getItem("white").get();
+            Item redFire = ModItems.getItem("red").get();
+            Item phantomBlock = ModBlocks.PHANTOM_BLOCK.get().asItem();
+
+            switch (selectionIndex) {
+                case 0 -> {
+                    consumeAny(input, 3, whiteFire);
+                    consumeAny(input, 2, redFire);
+                }
+                case 1 -> {
+                    consumeAny(input, 5, whiteFire);
+                    consumeAny(input, 3, redFire);
+                }
+                case 2 -> {
+                    consumeAny(input, 3, whiteFire);
+                    consumeAny(input, 4, redFire);
+                }
+                case 3 -> {
+                    consumeAny(input, 2, whiteFire);
+                    consumeAny(input, 2, redFire);
+                }
+                case 4 -> {
+                    consumeAny(input, 2, phantomBlock);
+                    consumeAny(input, 1, Items.STICK);
+                }
+                case 5 -> {
+                    consumeAny(input, 3, phantomBlock);
+                    consumeAny(input, 2, Items.STICK);
+                }
+                case 6 -> {
+                    consumeAny(input, 3, phantomBlock);
+                    consumeAny(input, 2, Items.STICK);
+                }
+                case 7 -> {
+                    consumeAny(input, 1, phantomBlock);
+                    consumeAny(input, 2, Items.STICK);
+                }
+                case 8 -> {
+                    consumeAny(input, 2, phantomBlock);
+                    consumeAny(input, 2, Items.STICK);
+                }
+                case 9 -> {
+                    ItemStack damaged = findDamagedKitsunebiItem(input);
+                    if (!damaged.isEmpty()) {
+                        int damage = damaged.getDamageValue();
+                        int neededFireBlocks = damage / 32768;
+                        int rem = damage % 32768;
+                        int neededFire = (int) Math.ceil(rem / 4096.0);
+                        if (neededFireBlocks == 0 && neededFire == 0) neededFire = 1;
+
+                        if (neededFireBlocks > 0) {
+                            consumeAny(input, neededFireBlocks, ModBlocks.ARCHITECTURAL_KITSUNEBI.get().asItem());
+                        }
+                        if (neededFire > 0) {
+                            consumeKitsunebiFire(input, neededFire);
+                        }
+                        damaged.shrink(1);
+                    }
+                }
             }
         }
     }
@@ -282,5 +434,18 @@ public class AltarCraftingEngine {
                 if (remaining <= 0) break;
             }
         }
+    }
+
+    public static ItemStack findDamagedKitsunebiItem(Container input) {
+        for (int i = 0; i < input.getContainerSize(); i++) {
+            ItemStack stack = input.getItem(i);
+            if (!stack.isEmpty() && stack.isDamageableItem() && stack.isDamaged()) {
+                if (stack.getItem() instanceof net.kafgchan.kitsunebi.item.armor.KitsunebiArmorItem
+                        || stack.getItem() instanceof net.kafgchan.kitsunebi.item.tool.IKitsunebiTool) {
+                    return stack;
+                }
+            }
+        }
+        return ItemStack.EMPTY;
     }
 }
