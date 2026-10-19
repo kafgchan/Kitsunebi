@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 
 /** Client-only renderer. Fabric embeds the compiled shared class in its client jar. */
+@SuppressWarnings("deprecation")
 public final class SmoothSlopeModel implements BakedModel {
     private final BakedModel original;
     private final List<BakedQuad> quads;

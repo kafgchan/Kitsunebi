@@ -6,7 +6,6 @@ import net.kafgchan.kitsunebi.network.KitsunebiNetworkHandler;
 import net.kafgchan.kitsunebi.network.KitsunebiSkillPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 

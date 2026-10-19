@@ -1,7 +1,6 @@
 package net.kafgchan.kitsunebi.item.armor;
 
 import net.kafgchan.kitsunebi.Constants;
-import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
