@@ -67,8 +67,8 @@ final class AltarMenuVerifier {
         check(!menu.getSlot(14).hasItem()&&player.getInventory().countItem(Items.DIAMOND)==1,"last input slot shift-click");
         check(menu.slots.size()==52&&menu.getSlot(14).x==48&&menu.getSlot(14).y==118,"3 by 5 input layout");
         check(menu.clickMenuButton(player,2)&&menu.getQuantity()==1,"equipment quantity must be one");
-        check(!menu.clickMenuButton(player,1064)&&!menu.clickMenuButton(player,2000),"reserved equipment can craft or accept quantities");
-        check(menu.getSelectionCount()==5&&menu.getSelectionStack(0).isEmpty(),"equipment placeholders");
+        check(!menu.clickMenuButton(player,1064)&&!menu.clickMenuButton(player,2000),"equipment cannot craft without materials or accept quantities");
+        check(menu.getSelectionCount()==10&&!menu.getSelectionStack(0).isEmpty(),"equipment items populated");
         player.setPos(0,250,100);
         check(!menu.clickMenuButton(player,0),"distant menu access accepted");
         player.discard();

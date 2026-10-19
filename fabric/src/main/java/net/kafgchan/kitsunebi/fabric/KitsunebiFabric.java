@@ -8,10 +8,7 @@ public class KitsunebiFabric implements ModInitializer {
     public void onInitialize() {
         KitsunebiCommon.init();
 
-        net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents.ALLOW_DAMAGE.register((entity, source, amount) -> {
-            float processed = net.kafgchan.kitsunebi.item.armor.KitsunebiArmorHandler.processDamage(entity, source, amount);
-            return processed > 0.0F;
-        });
+        // 被ダメージ処理およびノックバック抑止は LivingEntityMixin にて実行
 
         // 妖術・空中走行ネットワークパケット登録
         net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playC2S().register(net.kafgchan.kitsunebi.network.KitsunebiSkillPacket.TYPE, net.kafgchan.kitsunebi.network.KitsunebiSkillPacket.STREAM_CODEC);
@@ -29,6 +26,10 @@ public class KitsunebiFabric implements ModInitializer {
             for (net.minecraft.server.level.ServerPlayer player : server.getPlayerList().getPlayers()) {
                 net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.tickPlayer(player);
             }
+        });
+
+        net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
+            net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.clearPlayer(handler.player.getUUID());
         });
     }
 }

@@ -20,6 +20,7 @@ public class KitsunebiShovelItem extends ShovelItem implements IKitsunebiTool {
     public KitsunebiShovelItem(Properties properties) {
         super(ModToolTiers.KITSUNEBI, properties
                 .durability(ModToolTiers.KITSUNEBI.getUses())
+                .attributes(ShovelItem.createAttributes(ModToolTiers.KITSUNEBI, 1.5F, -3.0F))
                 .fireResistant()
                 .rarity(Rarity.EPIC));
     }

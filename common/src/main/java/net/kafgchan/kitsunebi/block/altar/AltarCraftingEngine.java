@@ -448,4 +448,17 @@ public class AltarCraftingEngine {
         }
         return ItemStack.EMPTY;
     }
+
+    public static int findDamagedKitsunebiSlot(Container input) {
+        for (int i = 0; i < input.getContainerSize(); i++) {
+            ItemStack stack = input.getItem(i);
+            if (!stack.isEmpty() && stack.isDamageableItem() && stack.isDamaged()) {
+                if (stack.getItem() instanceof net.kafgchan.kitsunebi.item.armor.KitsunebiArmorItem
+                        || stack.getItem() instanceof net.kafgchan.kitsunebi.item.tool.IKitsunebiTool) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
 }

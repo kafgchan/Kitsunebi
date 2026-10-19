@@ -71,18 +71,7 @@ public class KitsunebiArmorHandler {
         int armorCount = getKitsunebiArmorCount(victim);
         if (armorCount == 0) return amount;
 
-        // 1. 足袋装備時の落下ダメージ完全無効化
-        if (hasTabi(victim) && source.is(DamageTypeTags.IS_FALL)) {
-            return 0.0F;
-        }
-
-        // 2. 羽織装備時の炎・溶岩ダメージ完全無効化
-        if (hasHaori(victim) && source.is(DamageTypeTags.IS_FIRE)) {
-            return 0.0F;
-        }
-
-        // 3. 狐火反撃ロジック
-        // 被ダメージが0になる前、または0であっても攻撃元が存在すれば反撃を実行
+        // 1. 狐火反撃ロジック (被ダメージが無効化される前、攻撃元が存在すれば反撃を実行)
         if (hasHaori(victim)) {
             Entity attacker = source.getEntity();
             if (attacker == null) {
@@ -91,6 +80,16 @@ public class KitsunebiArmorHandler {
             if (attacker instanceof LivingEntity livingAttacker && attacker != victim) {
                 executeRetaliation(victim, livingAttacker, armorCount);
             }
+        }
+
+        // 2. 足袋装備時の落下ダメージ完全無効化
+        if (hasTabi(victim) && source.is(DamageTypeTags.IS_FALL)) {
+            return 0.0F;
+        }
+
+        // 3. 羽織装備時の炎・溶岩ダメージ完全無効化
+        if (hasHaori(victim) && source.is(DamageTypeTags.IS_FIRE)) {
+            return 0.0F;
         }
 
         // 4. 防具装着数によるダメージ軽減

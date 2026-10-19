@@ -9,14 +9,16 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
+import net.kafgchan.kitsunebi.api.AltarEquipmentView;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
 /** Server-authoritative selection and atomic, explicit crafting into a paid output buffer. */
-public class KitsunebiAltarMenu extends AbstractContainerMenu {
+public class KitsunebiAltarMenu extends AbstractContainerMenu implements AltarEquipmentView {
     public static final int INPUT_SLOT_COUNT=15, RESULT_SLOT=15, INV_SLOT_START=16, USE_ROW_SLOT_END=52;
     public static final int CRAFT_BUTTON=2000;
     private final ContainerLevelAccess access;
-    private final ContainerData data=new SimpleContainerData(3);
+    private final ContainerData data=new SimpleContainerData(4);
     private boolean crafting;
     private final Container inputContainer=new SimpleContainer(INPUT_SLOT_COUNT) {
         @Override public void setChanged() {
@@ -31,6 +33,7 @@ public class KitsunebiAltarMenu extends AbstractContainerMenu {
         super(ModMenus.KITSUNEBI_ALTAR_MENU.get(),id);
         this.access=access;
         data.set(2,1);
+        data.set(3,0);
         addDataSlots(data);
         for(int row=0;row<5;row++) for(int col=0;col<3;col++)
             addSlot(new Slot(inputContainer,col+row*3,12+col*18,46+row*18));
@@ -49,7 +52,10 @@ public class KitsunebiAltarMenu extends AbstractContainerMenu {
             default -> getSelectionIndex()==7?AltarCraftingEngine.Category.ARCHITECTURAL:AltarCraftingEngine.Category.KITSUNEBI;
         };
     }
-    private int getRecipeSelection(){return getCategoryIndex()==0&&getSelectionIndex()==7?0:getSelectionIndex();}
+    private int getRecipeSelection(){
+        if(isEquipment() && data.get(3)==1) return 9; // 修理サブタブ
+        return getCategoryIndex()==0&&getSelectionIndex()==7?0:getSelectionIndex();
+    }
     public boolean isEquipment(){return getCategoryIndex()==2;}
     public int getCategoryIndex(){return Math.max(0,Math.min(2,data.get(0)));}
     public int getSelectionIndex(){return Math.max(0,Math.min(getSelectionCount()-1,data.get(1)));}
@@ -105,10 +111,34 @@ public class KitsunebiAltarMenu extends AbstractContainerMenu {
         if(id>=0&&id<=2){data.set(0,id);data.set(1,0);if(isEquipment())data.set(2,1);}
         else if(id>=100&&id<100+getSelectionCount()) data.set(1,id-100);
         else if(id>=1001&&id<=1064&&!isEquipment()) data.set(2,id-1000);
-        else if(id==CRAFT_BUTTON) return craft(player);
+        else if(id==SELECT_CRAFT){data.set(3,0);data.set(1,0);}
+        else if(id==SELECT_REPAIR){data.set(3,1);data.set(1,9);}
+        else if(id==CRAFT_BUTTON||id==EXECUTE_REPAIR) return craft(player);
         else return false;
         broadcastChanges();
         return true;
+    }
+
+    @Override
+    public AltarEquipmentView.State kitsunebiEquipmentView() {
+        int tab = Math.max(0, Math.min(1, data.get(3)));
+        int selection = getSelectionIndex();
+        java.util.List<ItemStack> choices = java.util.List.of(
+                new ItemStack(ModItems.KITSUNEBI_HEADDRESS.get()),
+                new ItemStack(ModItems.KITSUNEBI_HAORI.get()),
+                new ItemStack(ModItems.KITSUNEBI_HAKAMA.get()),
+                new ItemStack(ModItems.KITSUNEBI_TABI.get()),
+                new ItemStack(ModItems.KITSUNEBI_SWORD.get()),
+                new ItemStack(ModItems.KITSUNEBI_PICKAXE.get()),
+                new ItemStack(ModItems.KITSUNEBI_AXE.get()),
+                new ItemStack(ModItems.KITSUNEBI_SHOVEL.get()),
+                new ItemStack(ModItems.KITSUNEBI_HOE.get())
+        );
+        var preview = getCurrentResult(1);
+        boolean canExec = canCraft(1);
+        int targetSlot = tab == 1 ? AltarCraftingEngine.findDamagedKitsunebiSlot(inputContainer) : -1;
+        Component status = canExec ? Component.translatable("ui.kitsunebi.ready") : Component.translatable("ui.kitsunebi.insufficient_materials");
+        return new AltarEquipmentView.State(tab, selection, choices, preview, true, canExec, status, targetSlot);
     }
 
     private boolean craft(Player player) {

@@ -37,4 +37,8 @@ public class ModArmorMaterials {
                     0.1F
             )
     );
+
+    public static void init() {
+        // Ensure class is loaded and ARMOR_MATERIALS is registered before modEventBus registers DeferredRegisters
+    }
 }

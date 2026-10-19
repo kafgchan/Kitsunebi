@@ -30,6 +30,16 @@ public class KitsunebiConfig {
         return INSTANCE;
     }
 
+    public void validate() {
+        swordSlashRange = Math.max(1, Math.min(128, swordSlashRange));
+        swordDanceRadius = Math.max(1, Math.min(32, swordDanceRadius));
+        maxVeinBlocks = Math.max(1, Math.min(1024, maxVeinBlocks));
+        tunnelLength = Math.max(1, Math.min(64, tunnelLength));
+        maxTreeFellLogs = Math.max(1, Math.min(2048, maxTreeFellLogs));
+        blocksPerTick = Math.max(1, Math.min(256, blocksPerTick));
+        maxAttackTargets = Math.max(1, Math.min(256, maxAttackTargets));
+    }
+
     public static void load() {
         try {
             if (CONFIG_FILE.exists()) {
@@ -43,6 +53,7 @@ public class KitsunebiConfig {
         } catch (Exception e) {
             INSTANCE = new KitsunebiConfig();
         }
+        INSTANCE.validate();
     }
 
     public static void save() {

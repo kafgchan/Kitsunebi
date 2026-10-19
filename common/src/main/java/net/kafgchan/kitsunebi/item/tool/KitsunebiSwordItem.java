@@ -26,6 +26,7 @@ public class KitsunebiSwordItem extends SwordItem implements IKitsunebiTool {
     public KitsunebiSwordItem(Properties properties) {
         super(ModToolTiers.KITSUNEBI, properties
                 .durability(ModToolTiers.KITSUNEBI.getUses())
+                .attributes(SwordItem.createAttributes(ModToolTiers.KITSUNEBI, 9999, -2.4F))
                 .fireResistant()
                 .rarity(Rarity.EPIC));
     }
@@ -49,44 +50,61 @@ public class KitsunebiSwordItem extends SwordItem implements IKitsunebiTool {
         if (!ToolStateHelper.isActive(stack)) return;
         int mode = ToolStateHelper.getMode(stack);
         ServerLevel level = player.serverLevel();
+        net.kafgchan.kitsunebi.config.KitsunebiConfig config = net.kafgchan.kitsunebi.config.KitsunebiConfig.get();
 
         if (mode == 1) {
-            // 飛炎斬: 射程64ブロック遠距離斬撃
+            // 飛炎斬: 射程 (config.swordSlashRange) 遠距離斬撃 (重複排除・最大数制限付き)
             Vec3 eyePos = player.getEyePosition();
             Vec3 lookVec = player.getLookAngle();
             DamageSource source = level.damageSources().playerAttack(player);
+            java.util.Set<LivingEntity> hitTargets = new java.util.HashSet<>();
+            int range = config.swordSlashRange;
+            int maxTargets = config.maxAttackTargets;
 
-            for (double d = 1.0; d <= 64.0; d += 1.0) {
+            for (double d = 1.0; d <= range && hitTargets.size() < maxTargets; d += 1.0) {
                 Vec3 point = eyePos.add(lookVec.scale(d));
-                level.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, point.x, point.y, point.z, 2, 0.1, 0.1, 0.1, 0.02);
-                level.sendParticles(ParticleTypes.FLAME, point.x, point.y, point.z, 1, 0.05, 0.05, 0.05, 0.01);
+                if (config.enableParticles) {
+                    level.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, point.x, point.y, point.z, 2, 0.1, 0.1, 0.1, 0.02);
+                    level.sendParticles(ParticleTypes.FLAME, point.x, point.y, point.z, 1, 0.05, 0.05, 0.05, 0.01);
+                }
 
                 AABB box = new AABB(point.x - 1.2, point.y - 1.2, point.z - 1.2, point.x + 1.2, point.y + 1.2, point.z + 1.2);
-                List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, box, e -> e != player && e.isAlive());
+                List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, box, e -> e != player && e.isAlive() && !hitTargets.contains(e));
                 for (LivingEntity target : targets) {
-                    target.hurt(source, 5000.0F);
+                    if (hitTargets.add(target)) {
+                        target.hurt(source, 5000.0F);
+                        if (hitTargets.size() >= maxTargets) break;
+                    }
                 }
             }
             stack.hurtAndBreak(1, player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
 
         } else if (mode == 2) {
-            // 九尾乱舞: 半径16ブロック範囲殲滅
+            // 九尾乱舞: 半径 (config.swordDanceRadius) 範囲殲滅
             Vec3 pos = player.position();
-            AABB area = new AABB(pos.x - 16.0, pos.y - 8.0, pos.z - 16.0, pos.x + 16.0, pos.y + 8.0, pos.z + 16.0);
+            double radius = config.swordDanceRadius;
+            AABB area = new AABB(pos.x - radius, pos.y - 8.0, pos.z - radius, pos.x + radius, pos.y + 8.0, pos.z + radius);
             List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class, area, e -> e != player && e.isAlive() && (e instanceof Enemy || e.isInvulnerableTo(level.damageSources().generic())));
 
             DamageSource source = level.damageSources().playerAttack(player);
+            int count = 0;
+            int maxTargets = config.maxAttackTargets;
             for (LivingEntity target : targets) {
+                if (count >= maxTargets) break;
                 target.hurt(source, 5000.0F);
-                level.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, target.getX(), target.getY() + 0.5, target.getZ(), 15, 0.3, 0.5, 0.3, 0.05);
+                if (config.enableParticles) {
+                    level.sendParticles(ParticleTypes.SOUL_FIRE_FLAME, target.getX(), target.getY() + 0.5, target.getZ(), 15, 0.3, 0.5, 0.3, 0.05);
+                }
+                count++;
             }
 
-            // プレイヤー周囲の乱舞パーティクル
-            for (int i = 0; i < 9; i++) {
-                double angle = i * (Math.PI * 2.0 / 9.0);
-                double px = pos.x + Math.cos(angle) * 3.0;
-                double pz = pos.z + Math.sin(angle) * 3.0;
-                level.sendParticles(ParticleTypes.FLAME, px, pos.y + 1.0, pz, 10, 0.2, 0.5, 0.2, 0.08);
+            if (config.enableParticles) {
+                for (int i = 0; i < 9; i++) {
+                    double angle = i * (Math.PI * 2.0 / 9.0);
+                    double px = pos.x + Math.cos(angle) * 3.0;
+                    double pz = pos.z + Math.sin(angle) * 3.0;
+                    level.sendParticles(ParticleTypes.FLAME, px, pos.y + 1.0, pz, 10, 0.2, 0.5, 0.2, 0.08);
+                }
             }
             stack.hurtAndBreak(1, player, net.minecraft.world.entity.EquipmentSlot.MAINHAND);
         }

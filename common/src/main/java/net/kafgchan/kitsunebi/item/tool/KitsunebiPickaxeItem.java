@@ -21,6 +21,7 @@ public class KitsunebiPickaxeItem extends PickaxeItem implements IKitsunebiTool 
     public KitsunebiPickaxeItem(Properties properties) {
         super(ModToolTiers.KITSUNEBI, properties
                 .durability(ModToolTiers.KITSUNEBI.getUses())
+                .attributes(PickaxeItem.createAttributes(ModToolTiers.KITSUNEBI, 1.0F, -2.8F))
                 .fireResistant()
                 .rarity(Rarity.EPIC));
     }
@@ -47,11 +48,12 @@ public class KitsunebiPickaxeItem extends PickaxeItem implements IKitsunebiTool 
         if (!level.isClientSide && miner instanceof ServerPlayer player && ToolStateHelper.isActive(stack)) {
             int mode = ToolStateHelper.getMode(stack);
             ServerLevel serverLevel = (ServerLevel) level;
+            net.kafgchan.kitsunebi.config.KitsunebiConfig config = net.kafgchan.kitsunebi.config.KitsunebiConfig.get();
             switch (mode) {
                 case 1 -> MiningHelper.breakArea(serverLevel, player, pos, 1, stack); // 3x3
                 case 2 -> MiningHelper.breakArea(serverLevel, player, pos, 2, stack); // 5x5
-                case 3 -> MiningHelper.breakVein(serverLevel, player, pos, stack, 128); // 鉱脈
-                case 4 -> MiningHelper.breakTunnel(serverLevel, player, pos, stack, 32); // トンネル
+                case 3 -> MiningHelper.breakVein(serverLevel, player, pos, stack, config.maxVeinBlocks); // 鉱脈
+                case 4 -> MiningHelper.breakTunnel(serverLevel, player, pos, stack, config.tunnelLength); // トンネル
             }
         }
         return result;
@@ -63,9 +65,10 @@ public class KitsunebiPickaxeItem extends PickaxeItem implements IKitsunebiTool 
         int mode = ToolStateHelper.getMode(stack);
         BlockPos origin = player.blockPosition().relative(player.getDirection());
         ServerLevel level = player.serverLevel();
+        net.kafgchan.kitsunebi.config.KitsunebiConfig config = net.kafgchan.kitsunebi.config.KitsunebiConfig.get();
 
         if (mode == 4) {
-            MiningHelper.breakTunnel(level, player, origin, stack, 32);
+            MiningHelper.breakTunnel(level, player, origin, stack, config.tunnelLength);
         } else if (mode == 2) {
             MiningHelper.breakArea(level, player, origin, 2, stack);
         } else if (mode == 1) {

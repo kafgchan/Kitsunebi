@@ -34,4 +34,14 @@ public class KitsunebiNeoForgeEvents {
             net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.tickPlayer(serverPlayer);
         }
     }
+
+    @SubscribeEvent
+    public static void onPlayerLoggedOut(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
+        net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.clearPlayer(event.getEntity().getUUID());
+    }
+
+    @SubscribeEvent
+    public static void onPlayerChangedDimension(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerChangedDimensionEvent event) {
+        net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.clearPlayer(event.getEntity().getUUID());
+    }
 }

@@ -1,0 +1,11 @@
+gradle.projectsEvaluated {
+    def neo = gradle.rootProject.project(':neoforge')
+    neo.tasks.register('compileCodexVisualModel', JavaCompile) {
+        dependsOn neo.tasks.named('compileJava')
+        source gradle.rootProject.fileTree('docs/v04-codex/integration/java') { include '**/*.java' }
+        classpath = neo.sourceSets.main.compileClasspath + neo.sourceSets.main.output
+        destinationDirectory = neo.layout.buildDirectory.dir('codex-visual-model')
+        javaCompiler = neo.tasks.named('compileJava', JavaCompile).get().javaCompiler
+        options.encoding = 'UTF-8'
+    }
+}

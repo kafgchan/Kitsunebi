@@ -20,6 +20,7 @@ public class KitsunebiAxeItem extends AxeItem implements IKitsunebiTool {
     public KitsunebiAxeItem(Properties properties) {
         super(ModToolTiers.KITSUNEBI, properties
                 .durability(ModToolTiers.KITSUNEBI.getUses())
+                .attributes(AxeItem.createAttributes(ModToolTiers.KITSUNEBI, 6.0F, -3.0F))
                 .fireResistant()
                 .rarity(Rarity.EPIC));
     }
@@ -43,7 +44,7 @@ public class KitsunebiAxeItem extends AxeItem implements IKitsunebiTool {
         if (!level.isClientSide && miner instanceof ServerPlayer player && ToolStateHelper.isActive(stack)) {
             int mode = ToolStateHelper.getMode(stack);
             if (mode == 1) {
-                MiningHelper.fellTree((ServerLevel) level, player, pos, stack, 512);
+                MiningHelper.fellTree((ServerLevel) level, player, pos, stack, net.kafgchan.kitsunebi.config.KitsunebiConfig.get().maxTreeFellLogs);
             }
         }
         return result;
@@ -51,8 +52,9 @@ public class KitsunebiAxeItem extends AxeItem implements IKitsunebiTool {
 
     @Override
     public void executeSkill(ItemStack stack, ServerPlayer player) {
+        if (!ToolStateHelper.isActive(stack)) return;
         // 斧のVキー発動: 目の前の原木を一括伐採
         BlockPos origin = player.blockPosition().relative(player.getDirection());
-        MiningHelper.fellTree(player.serverLevel(), player, origin, stack, 512);
+        MiningHelper.fellTree(player.serverLevel(), player, origin, stack, net.kafgchan.kitsunebi.config.KitsunebiConfig.get().maxTreeFellLogs);
     }
 }

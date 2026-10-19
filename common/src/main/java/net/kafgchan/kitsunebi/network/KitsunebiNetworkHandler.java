@@ -15,7 +15,13 @@ public class KitsunebiNetworkHandler {
         ItemStack stack = player.getMainHandItem();
         if (stack.getItem() instanceof IKitsunebiTool tool) {
             switch (action) {
-                case 0 -> tool.executeSkill(stack, player);
+                case 0 -> {
+                    if (net.kafgchan.kitsunebi.item.tool.ToolStateHelper.isActive(stack)) {
+                        tool.executeSkill(stack, player);
+                    } else {
+                        player.displayClientMessage(net.minecraft.network.chat.Component.translatable("kitsunebi.skill.state.off"), true);
+                    }
+                }
                 case 1 -> tool.cycleMode(stack, player, true);  // Shift+V 次
                 case 2 -> tool.cycleMode(stack, player, false); // Ctrl+V 前
                 case 3 -> tool.toggleActive(stack, player);     // B トグル
