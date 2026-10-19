@@ -58,6 +58,7 @@ sourceSets.main.java {
     srcDir file('../common/src/main/java')
     exclude 'net/kafgchan/kitsunebi/client/SmoothSlopeModel.java'
     exclude 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen.java'
+    exclude 'net/kafgchan/kitsunebi/client/KitsunebiKeyHandler.java'
     exclude 'net/kafgchan/kitsunebi/client/model/**'
 }
 
@@ -67,6 +68,7 @@ sourceSets.client.java {
     include 'net/kafgchan/kitsunebi/fabric/client/**'
     include 'net/kafgchan/kitsunebi/client/SmoothSlopeModel.java'
     include 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen.java'
+    include 'net/kafgchan/kitsunebi/client/KitsunebiKeyHandler.java'
     include 'net/kafgchan/kitsunebi/client/model/**'
     include 'net/kafgchan/kitsunebi/compat/**'
 }

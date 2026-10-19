@@ -14,7 +14,47 @@ public class KitsunebiNeoForge {
         KitsunebiCommon.init();
         NeoForgePlatformHelper.registerBuses(modEventBus);
         if(net.neoforged.fml.ModList.get().isLoaded("curios"))net.kafgchan.kitsunebi.neoforge.compat.CuriosCompat.register(modEventBus);
-        modEventBus.addListener(net.kafgchan.kitsunebi.neoforge.network.KitsunebiNeoForgeNetwork::registerPayloadHandlers);
+
+        // Architectury NetworkManager パケット受信登録
+        dev.architectury.networking.NetworkManager.registerReceiver(
+                dev.architectury.networking.NetworkManager.c2s(),
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.TYPE,
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.STREAM_CODEC,
+                (payload, context) -> context.queue(() -> {
+                    if (context.getPlayer() instanceof net.minecraft.server.level.ServerPlayer player) {
+                        net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.setVerticalInput(player, payload.vertical());
+                    }
+                })
+        );
+        dev.architectury.networking.NetworkManager.registerReceiver(
+                dev.architectury.networking.NetworkManager.s2c(),
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.TYPE,
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.STREAM_CODEC,
+                (payload, context) -> context.queue(() -> {
+                    net.kafgchan.kitsunebi.client.KitsunebiAirWalkClientState.apply(context.getPlayer(), payload.active());
+                })
+        );
+        dev.architectury.networking.NetworkManager.registerReceiver(
+                dev.architectury.networking.NetworkManager.c2s(),
+                net.kafgchan.kitsunebi.network.KitsunebiSkillPacket.TYPE,
+                net.kafgchan.kitsunebi.network.KitsunebiSkillPacket.STREAM_CODEC,
+                (payload, context) -> context.queue(() -> {
+                    if (context.getPlayer() instanceof net.minecraft.server.level.ServerPlayer player) {
+                        net.kafgchan.kitsunebi.network.KitsunebiNetworkHandler.handleSkillAction(player, payload.action());
+                    }
+                })
+        );
+        dev.architectury.networking.NetworkManager.registerReceiver(
+                dev.architectury.networking.NetworkManager.c2s(),
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkPacket.TYPE,
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkPacket.STREAM_CODEC,
+                (payload, context) -> context.queue(() -> {
+                    if (context.getPlayer() instanceof net.minecraft.server.level.ServerPlayer player) {
+                        net.kafgchan.kitsunebi.network.KitsunebiNetworkHandler.handleAirWalk(player, payload.jump());
+                    }
+                })
+        );
+
         if (Boolean.getBoolean("kitsunebi.verifySlopeMovement")) {
             net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(
                     net.kafgchan.kitsunebi.neoforge.verification.SlopeMovementVerifier::verify);

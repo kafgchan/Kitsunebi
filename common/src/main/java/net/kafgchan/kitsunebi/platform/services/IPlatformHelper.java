@@ -57,4 +57,14 @@ public interface IPlatformHelper {
     default boolean isCurioOrAccessoryEquipped(net.minecraft.world.entity.LivingEntity entity, Item item) {
         return false;
     }
+
+    /**
+     * クライアントからサーバーへパケットを送信
+     */
+    void sendToServer(net.minecraft.network.protocol.common.custom.CustomPacketPayload packet);
+
+    /**
+     * サーバーからプレイヤーへパケットを送信
+     */
+    void sendToPlayer(net.minecraft.server.level.ServerPlayer player, net.minecraft.network.protocol.common.custom.CustomPacketPayload packet);
 }

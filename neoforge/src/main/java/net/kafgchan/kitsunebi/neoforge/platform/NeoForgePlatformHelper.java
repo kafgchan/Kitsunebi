@@ -71,4 +71,14 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
         if (!net.neoforged.fml.ModList.get().isLoaded("curios")) return false;
         return net.kafgchan.kitsunebi.neoforge.compat.CuriosCompat.equipped(entity,item);
     }
+
+    @Override
+    public void sendToServer(net.minecraft.network.protocol.common.custom.CustomPacketPayload packet) {
+        dev.architectury.networking.NetworkManager.sendToServer(packet);
+    }
+
+    @Override
+    public void sendToPlayer(net.minecraft.server.level.ServerPlayer player, net.minecraft.network.protocol.common.custom.CustomPacketPayload packet) {
+        dev.architectury.networking.NetworkManager.sendToPlayer(player, packet);
+    }
 }

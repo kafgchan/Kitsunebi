@@ -13,8 +13,12 @@ import java.util.function.Supplier;
 public class KitsunebiFabricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.registerGlobalReceiver(net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.TYPE,
-                (payload,context)->context.client().execute(()->net.kafgchan.kitsunebi.client.KitsunebiAirWalkClientState.apply(context.player(),payload.active())));
+        dev.architectury.networking.NetworkManager.registerReceiver(
+                dev.architectury.networking.NetworkManager.s2c(),
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.TYPE,
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.STREAM_CODEC,
+                (payload, context) -> context.queue(() -> net.kafgchan.kitsunebi.client.KitsunebiAirWalkClientState.apply(context.getPlayer(), payload.active()))
+        );
         KitsunebiArmorRendering.register();
         net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin.register(plugin ->
                 plugin.modifyModelAfterBake().register((model, context) ->

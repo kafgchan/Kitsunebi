@@ -1,39 +1,61 @@
 package net.kafgchan.kitsunebi.fabric;
 
+import dev.architectury.networking.NetworkManager;
 import net.fabricmc.api.ModInitializer;
 import net.kafgchan.kitsunebi.KitsunebiCommon;
+import net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager;
+import net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket;
+import net.kafgchan.kitsunebi.network.KitsunebiAirWalkPacket;
+import net.kafgchan.kitsunebi.network.KitsunebiNetworkHandler;
+import net.kafgchan.kitsunebi.network.KitsunebiSkillPacket;
+import net.minecraft.server.level.ServerPlayer;
 
 public class KitsunebiFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         KitsunebiCommon.init();
-        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playC2S().register(net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.TYPE,net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.STREAM_CODEC);
-        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.registerGlobalReceiver(net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.TYPE,
-                (payload,context)->context.server().execute(()->net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.setVerticalInput(context.player(),payload.vertical())));
-        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playS2C().register(net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.TYPE,net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.STREAM_CODEC);
 
-        // 被ダメージ処理およびノックバック抑止は LivingEntityMixin にて実行
-
-        // 妖術・空中走行ネットワークパケット登録
-        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playC2S().register(net.kafgchan.kitsunebi.network.KitsunebiSkillPacket.TYPE, net.kafgchan.kitsunebi.network.KitsunebiSkillPacket.STREAM_CODEC);
-        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playC2S().register(net.kafgchan.kitsunebi.network.KitsunebiAirWalkPacket.TYPE, net.kafgchan.kitsunebi.network.KitsunebiAirWalkPacket.STREAM_CODEC);
-
-        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.registerGlobalReceiver(net.kafgchan.kitsunebi.network.KitsunebiSkillPacket.TYPE, (payload, context) -> {
-            context.server().execute(() -> net.kafgchan.kitsunebi.network.KitsunebiNetworkHandler.handleSkillAction(context.player(), payload.action()));
-        });
-        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.registerGlobalReceiver(net.kafgchan.kitsunebi.network.KitsunebiAirWalkPacket.TYPE, (payload, context) -> {
-            context.server().execute(() -> net.kafgchan.kitsunebi.network.KitsunebiNetworkHandler.handleAirWalk(context.player(), payload.jump()));
-        });
+        // Architectury NetworkManager を用いたパケット受信登録
+        NetworkManager.registerReceiver(
+                NetworkManager.c2s(),
+                KitsunebiAirWalkMovePacket.TYPE,
+                KitsunebiAirWalkMovePacket.STREAM_CODEC,
+                (payload, context) -> context.queue(() -> {
+                    if (context.getPlayer() instanceof ServerPlayer player) {
+                        KitsunebiAirWalkManager.setVerticalInput(player, payload.vertical());
+                    }
+                })
+        );
+        NetworkManager.registerReceiver(
+                NetworkManager.c2s(),
+                KitsunebiSkillPacket.TYPE,
+                KitsunebiSkillPacket.STREAM_CODEC,
+                (payload, context) -> context.queue(() -> {
+                    if (context.getPlayer() instanceof ServerPlayer player) {
+                        KitsunebiNetworkHandler.handleSkillAction(player, payload.action());
+                    }
+                })
+        );
+        NetworkManager.registerReceiver(
+                NetworkManager.c2s(),
+                KitsunebiAirWalkPacket.TYPE,
+                KitsunebiAirWalkPacket.STREAM_CODEC,
+                (payload, context) -> context.queue(() -> {
+                    if (context.getPlayer() instanceof ServerPlayer player) {
+                        KitsunebiNetworkHandler.handleAirWalk(player, payload.jump());
+                    }
+                })
+        );
 
         // プレイヤーtick（足袋の空中走行等）
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.END_SERVER_TICK.register(server -> {
-            for (net.minecraft.server.level.ServerPlayer player : server.getPlayerList().getPlayers()) {
-                net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.tickPlayer(player);
+            for (ServerPlayer player : server.getPlayerList().getPlayers()) {
+                KitsunebiAirWalkManager.tickPlayer(player);
             }
         });
 
         net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
-            net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.clearPlayer(handler.player.getUUID());
+            KitsunebiAirWalkManager.clearPlayer(handler.player.getUUID());
         });
     }
 }

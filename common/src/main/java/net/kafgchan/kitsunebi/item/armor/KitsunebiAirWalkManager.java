@@ -58,7 +58,7 @@ public final class KitsunebiAirWalkManager {
         player.setNoGravity(true);
         var motion=player.getDeltaMovement();player.setDeltaMovement(motion.x,0,motion.z);
         player.fallDistance=0;player.hasImpulse=true;
-        player.connection.send(new ClientboundCustomPayloadPacket(new KitsunebiAirWalkStatePacket(true)));
+        net.kafgchan.kitsunebi.network.KitsunebiNetwork.sendToPlayer(player, new KitsunebiAirWalkStatePacket(true));
         player.connection.send(new ClientboundSetEntityMotionPacket(player));
         player.displayClientMessage(Component.translatable("message.kitsunebi.air_walk_on"),true);
     }
@@ -93,7 +93,7 @@ public final class KitsunebiAirWalkManager {
         ServerPlayer player=session.owner;
         player.setNoGravity(false);player.fallDistance=0;
         var motion=player.getDeltaMovement();player.setDeltaMovement(motion.x,0,motion.z);
-        player.connection.send(new ClientboundCustomPayloadPacket(new KitsunebiAirWalkStatePacket(false)));
+        net.kafgchan.kitsunebi.network.KitsunebiNetwork.sendToPlayer(player, new KitsunebiAirWalkStatePacket(false));
         player.connection.send(new ClientboundSetEntityMotionPacket(player));
         player.displayClientMessage(Component.translatable("message.kitsunebi.air_walk_off"),true);
     }

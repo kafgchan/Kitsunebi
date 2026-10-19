@@ -99,4 +99,14 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
         return false;
     }
+
+    @Override
+    public void sendToServer(net.minecraft.network.protocol.common.custom.CustomPacketPayload packet) {
+        dev.architectury.networking.NetworkManager.sendToServer(packet);
+    }
+
+    @Override
+    public void sendToPlayer(net.minecraft.server.level.ServerPlayer player, net.minecraft.network.protocol.common.custom.CustomPacketPayload packet) {
+        dev.architectury.networking.NetworkManager.sendToPlayer(player, packet);
+    }
 }
