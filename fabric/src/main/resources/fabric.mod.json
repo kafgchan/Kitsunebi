@@ -9,6 +9,7 @@
     "Kaede"
   ],
   "license": "LGPL-3.0-or-later",
+  "icon": "assets/kitsunebi/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

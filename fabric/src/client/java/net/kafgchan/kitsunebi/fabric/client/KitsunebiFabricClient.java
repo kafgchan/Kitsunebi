@@ -39,6 +39,7 @@ public class KitsunebiFabricClient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client != null) {
                 CompatClientVerifier.tick(client);
+                FabricNetworkClientVerifier.tick(client);
                 KitsunebiFabricKeyHandler.onClientTick(client);
                 if (KitsunebiClientHelper.tickClient(client.player, client.level) && client.level != null && client.player != null) {
                     KitsunebiClientHelper.refreshVisionSections(client.level, client.player.blockPosition(),

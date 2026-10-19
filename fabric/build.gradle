@@ -19,6 +19,19 @@ loom {
             programArgs '--width', '960', '--height', '720', '--quickPlaySingleplayer', 'compat-test'
             vmArg '-Dkitsunebi.verifyCompat=true'
         }
+        networkVerifyClient {
+            client()
+            runDir 'build/network-verify-client'
+            programArgs '--width', '960', '--height', '720', '--quickPlayMultiplayer', '127.0.0.1:25587'
+            vmArg '-Dkitsunebi.verifyNetworkClient=true'
+        }
+        networkVerifyServer {
+            server()
+            runDir 'build/network-verify-server'
+            programArg '--nogui'
+            vmArg '-Dkitsunebi.verifyNetwork=true'
+            vmArg "-Dkitsunebi.verifyNetworkConnection=${providers.gradleProperty('verifyNetworkConnection').getOrElse('false')}"
+        }
         slopeVerifyServer {
             server()
             runDir 'build/slope-verify-server'
@@ -102,4 +115,25 @@ dependencies {
     if (viewer == 'jei') modClientRuntimeOnly("mezz.jei:jei-1.21.1-fabric:19.21.0.247") { transitive = false }
     if (viewer == 'emi') modClientRuntimeOnly "dev.emi:emi-fabric:1.1.24+1.21.1"
     if (viewer == 'rei') modClientRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:16.0.799"
+}
+
+// A runtime assertion must fail the Gradle task, rather than merely print FAIL to the server log.
+tasks.named('runNetworkVerifyServer') {
+    doFirst { file('build/network-verify-server/network-verification.txt').delete() }
+    doLast {
+        def result = file('build/network-verify-server/network-verification.txt')
+        if (!result.exists() || !result.getText('UTF-8').startsWith('PASS:')) {
+            throw new GradleException(result.exists() ? result.getText('UTF-8') : 'Fabric network verification did not finish')
+        }
+    }
+}
+
+tasks.named('runNetworkVerifyClient') {
+    doFirst { file('build/network-verify-client/network-client-verification.txt').delete() }
+    doLast {
+        def result = file('build/network-verify-client/network-client-verification.txt')
+        if (!result.exists() || !result.getText('UTF-8').startsWith('PASS:')) {
+            throw new GradleException(result.exists() ? result.getText('UTF-8') : 'Fabric connection verification did not finish')
+        }
+    }
 }

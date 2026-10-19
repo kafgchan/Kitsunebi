@@ -6,6 +6,7 @@ import net.kafgchan.kitsunebi.KitsunebiCommon;
 import net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager;
 import net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket;
 import net.kafgchan.kitsunebi.network.KitsunebiAirWalkPacket;
+import net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket;
 import net.kafgchan.kitsunebi.network.KitsunebiNetworkHandler;
 import net.kafgchan.kitsunebi.network.KitsunebiSkillPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,6 +15,13 @@ public class KitsunebiFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         KitsunebiCommon.init();
+        if (Boolean.getBoolean("kitsunebi.verifyNetwork"))
+            net.kafgchan.kitsunebi.fabric.verification.FabricNetworkVerifier.init();
+
+        // The integrated server shares the client registry; dedicated servers need their own S2C codec.
+        if (net.fabricmc.loader.api.FabricLoader.getInstance().getEnvironmentType() == net.fabricmc.api.EnvType.SERVER) {
+            NetworkManager.registerS2CPayloadType(KitsunebiAirWalkStatePacket.TYPE, KitsunebiAirWalkStatePacket.STREAM_CODEC);
+        }
 
         // Architectury NetworkManager を用いたパケット受信登録
         NetworkManager.registerReceiver(
