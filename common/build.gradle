@@ -26,6 +26,7 @@ dependencies {
     compileOnly "net.fabricmc:fabric-loader:${project.loader_version}"
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
+    compileOnly "dev.architectury:architectury:${project.architectury_version}"
 }
 
 sourceSets.main.resources {

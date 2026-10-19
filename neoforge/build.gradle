@@ -84,7 +84,8 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_name               : mod_name,
             mod_license            : mod_license,
             mod_version            : mod_version,
-            mod_group_id           : mod_group_id
+            mod_group_id           : mod_group_id,
+            architectury_version   : architectury_version
     ]
     inputs.properties replaceProperties
     expand replaceProperties
@@ -102,6 +103,7 @@ processResources {
 // Optional integrations: only the selected viewer is loaded in development.
 sourceSets.main.java.srcDir file("../compat/src/main/java")
 dependencies {
+    implementation "dev.architectury:architectury-neoforge:${project.architectury_version}"
     compileOnly "mezz.jei:jei-1.21.1-neoforge:19.21.0.247"
     compileOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
     compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:16.0.799"

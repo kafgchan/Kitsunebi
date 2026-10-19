@@ -48,6 +48,7 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    modImplementation "dev.architectury:architectury-fabric:${project.architectury_version}"
 
     compileOnly project(':common')
     clientCompileOnly project(':common')
@@ -81,7 +82,8 @@ processResources {
         "mod_version": project.mod_version,
         "version": project.mod_version,
         "minecraft_version": project.minecraft_version,
-        "loader_version": project.loader_version
+        "loader_version": project.loader_version,
+        "architectury_version": project.architectury_version
     ]
     filesMatching("fabric.mod.json") {
         expand expandProps

@@ -4,6 +4,7 @@ dependencies {
     mappings loom.officialMojangMappings()
     compileOnly project(':common')
     compileOnly "net.fabricmc:fabric-loader:${project.loader_version}"
+    compileOnly "dev.architectury:architectury:${project.architectury_version}"
     compileOnly "mezz.jei:jei-1.21.1-common-api:19.21.0.247"
     compileOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
     compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:16.0.799"
