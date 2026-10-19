@@ -61,19 +61,23 @@ public class KitsunebiHoeItem extends HoeItem implements IKitsunebiTool {
 
         if (mode == 1 || mode == 2) {
             // 3x3 または 5x5 耕作 (super.useOn が内部で1マス毎に耐久を適正消費するため、二重消費を防止)
+            if (level.isClientSide) return InteractionResult.SUCCESS;
+            if (!(context.getPlayer() instanceof ServerPlayer sp)) return InteractionResult.PASS;
             int radius = (mode == 1) ? 1 : 2;
             int count = 0;
             for (int dx = -radius; dx <= radius; dx++) {
                 for (int dz = -radius; dz <= radius; dz++) {
                     if (stack.isEmpty() || stack.getDamageValue() >= stack.getMaxDamage()) break;
                     BlockPos pos = clickedPos.offset(dx, 0, dz);
+                    if (!level.mayInteract(sp, pos) || !sp.mayUseItemAt(pos, context.getClickedFace(), stack)) continue;
                     UseOnContext subContext = new UseOnContext(context.getPlayer(), context.getHand(),
-                            new net.minecraft.world.phys.BlockHitResult(context.getClickLocation(), context.getClickedFace(), pos, context.isInside()));
+                            new net.minecraft.world.phys.BlockHitResult(context.getClickLocation().add(dx,0,dz), context.getClickedFace(), pos, context.isInside()));
                     if (super.useOn(subContext).consumesAction()) {
                         count++;
                     }
                 }
             }
+            report(sp, "till", count);
             return count > 0 ? InteractionResult.SUCCESS : InteractionResult.PASS;
         } else if (mode == 3 && !level.isClientSide && context.getPlayer() instanceof ServerPlayer sp) {
             // 9x9 一括収穫＆自動植え直し
@@ -92,9 +96,14 @@ public class KitsunebiHoeItem extends HoeItem implements IKitsunebiTool {
     public void executeSkill(ItemStack stack, ServerPlayer player) {
         if (!ToolStateHelper.isActive(stack)) return;
         // Vキー発動: プレイヤー足元中心の 9x9 成長促進または収穫
-        BlockPos center = player.blockPosition();
+        var hit=player.pick(6.0,0,false);
+        BlockPos center=hit.getType()==net.minecraft.world.phys.HitResult.Type.BLOCK ? ((net.minecraft.world.phys.BlockHitResult)hit).getBlockPos() : player.blockPosition().below();
         int mode = ToolStateHelper.getMode(stack);
-        if (mode == 3) {
+        if (mode <= 2) {
+            var context=new UseOnContext(player,net.minecraft.world.InteractionHand.MAIN_HAND,new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(center),net.minecraft.core.Direction.UP,center,false));
+            var result=useOn(context);
+            if(mode==0)report(player,"till",result.consumesAction()?1:0);
+        } else if (mode == 3) {
             harvestAndReplant(player.serverLevel(), center, player, stack);
         } else if (mode == 4) {
             applyGrowth(player.serverLevel(), center, player, stack);
@@ -103,6 +112,7 @@ public class KitsunebiHoeItem extends HoeItem implements IKitsunebiTool {
 
     private void harvestAndReplant(ServerLevel level, BlockPos center, ServerPlayer player, ItemStack tool) {
         int radius = 4; // 9x9
+        int harvested=0;
         for (int dx = -radius; dx <= radius; dx++) {
             for (int dz = -radius; dz <= radius; dz++) {
                 for (int dy = -1; dy <= 1; dy++) {
@@ -112,9 +122,12 @@ public class KitsunebiHoeItem extends HoeItem implements IKitsunebiTool {
                     if (state.getBlock() instanceof CropBlock crop && crop.isMaxAge(state)) {
                         net.minecraft.world.item.Item seedItem = getSeedForCrop(crop);
                         // 通常の採掘破壊経路（保護判定・幸運等）を経由して破壊
+                        int damageBefore=tool.getDamageValue();
                         if (player.gameMode.destroyBlock(pos)) {
+                            harvested++;
+                            if(tool.getDamageValue()==damageBefore)tool.hurtAndBreak(1,player,EquipmentSlot.MAINHAND);
                             // ドロップまたは所持品から種を確保・消費できた場合のみ再播種
-                            if (consumeSeed(player, seedItem)) {
+                            if (consumeSeed(level, pos, player, seedItem)) {
                                 level.setBlock(pos, crop.getStateForAge(0), 3);
                             }
                         }
@@ -122,6 +135,7 @@ public class KitsunebiHoeItem extends HoeItem implements IKitsunebiTool {
                 }
             }
         }
+        report(player,"harvest",harvested);
     }
 
     private static net.minecraft.world.item.Item getSeedForCrop(CropBlock crop) {
@@ -132,7 +146,7 @@ public class KitsunebiHoeItem extends HoeItem implements IKitsunebiTool {
         return crop.asItem();
     }
 
-    private static boolean consumeSeed(ServerPlayer player, net.minecraft.world.item.Item seedItem) {
+    private static boolean consumeSeed(ServerLevel level, BlockPos pos, ServerPlayer player, net.minecraft.world.item.Item seedItem) {
         if (player.isCreative()) return true;
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             ItemStack item = player.getInventory().getItem(i);
@@ -141,7 +155,19 @@ public class KitsunebiHoeItem extends HoeItem implements IKitsunebiTool {
                 return true;
             }
         }
+        for(var drop:level.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class,new net.minecraft.world.phys.AABB(pos).inflate(1))) {
+            if(drop.getItem().is(seedItem)) {
+                drop.getItem().shrink(1);
+                if(drop.getItem().isEmpty())drop.discard();
+                return true;
+            }
+        }
         return false;
+    }
+
+    private static void report(ServerPlayer player,String action,int count) {
+        player.displayClientMessage(net.minecraft.network.chat.Component.translatable("message.kitsunebi.farming_"+action,count),true);
+        if(count>0)player.serverLevel().playSound(null,player.blockPosition(),net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,net.minecraft.sounds.SoundSource.PLAYERS,.6F,1.3F);
     }
 
     private void applyGrowth(ServerLevel serverLevel, BlockPos center, ServerPlayer player, ItemStack tool) {
@@ -164,6 +190,7 @@ public class KitsunebiHoeItem extends HoeItem implements IKitsunebiTool {
                 }
             }
         }
+        report(player,"growth",affected);
         if (affected > 0) {
             tool.hurtAndBreak(affected, player, EquipmentSlot.MAINHAND);
         }

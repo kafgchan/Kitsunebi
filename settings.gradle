@@ -22,3 +22,5 @@ rootProject.name = 'Kitsunebi'
 include 'common'
 include 'fabric'
 include 'neoforge'
+
+include 'compat'

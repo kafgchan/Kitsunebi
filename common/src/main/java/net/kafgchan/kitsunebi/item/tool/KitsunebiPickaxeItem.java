@@ -52,7 +52,7 @@ public class KitsunebiPickaxeItem extends PickaxeItem implements IKitsunebiTool 
             switch (mode) {
                 case 1 -> MiningHelper.breakArea(serverLevel, player, pos, 1, stack); // 3x3
                 case 2 -> MiningHelper.breakArea(serverLevel, player, pos, 2, stack); // 5x5
-                case 3 -> MiningHelper.breakVein(serverLevel, player, pos, stack, config.maxVeinBlocks); // 鉱脈
+                case 3 -> MiningHelper.breakVein(serverLevel, player, pos, state, stack, config.maxVeinBlocks, false); // 鉱脈
                 case 4 -> MiningHelper.breakTunnel(serverLevel, player, pos, stack, config.tunnelLength); // トンネル
             }
         }
@@ -63,11 +63,15 @@ public class KitsunebiPickaxeItem extends PickaxeItem implements IKitsunebiTool 
     public void executeSkill(ItemStack stack, ServerPlayer player) {
         if (!ToolStateHelper.isActive(stack)) return;
         int mode = ToolStateHelper.getMode(stack);
-        BlockPos origin = player.blockPosition().relative(player.getDirection());
+        var hit=player.pick(6.0,0,false);
+        if(hit.getType()!=net.minecraft.world.phys.HitResult.Type.BLOCK)return;
+        BlockPos origin=((net.minecraft.world.phys.BlockHitResult)hit).getBlockPos();
         ServerLevel level = player.serverLevel();
         net.kafgchan.kitsunebi.config.KitsunebiConfig config = net.kafgchan.kitsunebi.config.KitsunebiConfig.get();
 
-        if (mode == 4) {
+        if(mode==3) {
+            MiningHelper.breakVein(level,player,origin,stack,config.maxVeinBlocks);
+        } else if (mode == 4) {
             MiningHelper.breakTunnel(level, player, origin, stack, config.tunnelLength);
         } else if (mode == 2) {
             MiningHelper.breakArea(level, player, origin, 2, stack);

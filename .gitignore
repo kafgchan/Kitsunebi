@@ -22,6 +22,8 @@ runs/
 .classpath
 .project
 .settings/
+.eclipse/
+*/.eclipse/
 
 # OS files
 .DS_Store

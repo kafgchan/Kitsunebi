@@ -1,6 +1,22 @@
 # v0.4 Codex 制作物・Antigravity向け接続手順
 
+最新の防具・狐面・御幣は、ユーザー提供のGemini図を基準に再制作済み。詳細は `SHRINE-REFERENCE.md`。再生成は `generate-shrine-outfit.py` を使用し、旧生成器を単独実行しない。
+
 2026-10-19。既存の登録・能力・祭壇メニュー・ネットワーク・レシピ・Config・共有lang・build.gradleは変更していません。
+
+## 実機表示不一致の修正（同日、追加依頼）
+
+以下の追補が、以降に記載した初回納品時の「接続未完了」等の状態に優先します。
+
+- 実機ログで9モデルの `kitsunebi:entity/kitsunebi_equipment` がmissing spriteになることを確認。`assets/minecraft/atlases/blocks.json` にsingle sourceを追加し、ゲームのアトラスへ登録。
+- 装着モデルをcommonのclient/modelへ収録。NeoForgeのRegisterClientExtensionsEventとFabricのArmorRendererへ登録。NeoForgeの防具レイヤー画像も同じ素材アトラスへ変更。頭・胴・腕・脚のポーズを親モデルから引き継ぎ、尾は袴の描画時だけ表示。
+- Fabricビルドにはclient/modelのクライアント専用収録設定を追加。防具能力、祭壇メニュー、レシピ、通信の実処理は変更なし。
+- ツール5点の一人称スケール0.9→1.2、三人称0.85→1.1。GUI・額縁・地面スケールは維持。
+- 不足素材／準備完了の不足翻訳キーを6言語へ追加。修理説明の長い連続文を素材アイコンと回復量2行に置換。中央・回復量欄の狐火／狐火ブロックにアイテムツールチップを追加。
+- 検証用NeoForgeクライアントで3カテゴリ・修理画面・9モデル・装着形状を描画。実アトラスのsprite存在チェック成功。初回修正後のコンパイルは両ローダーで成功。
+- 最終検証では4部位のNeoForge描画拡張が実際にカスタム装着モデルを返すことも確認。修理画面の狐火ブロック名を実描画し、Fabric remapJarも成功。配布JAR内の装着モデル2クラスとアトラス登録・画像の収録を検査済み。
+
+`neoforge/build/altar-verify-client/altar-gui-2.png` は製作、`altar-gui-3.png` は修理素材ツールチップ、`altar-gui-4.png` はゲームレンダラーによる装備確認画像です。
 
 ## 適用した内容
 

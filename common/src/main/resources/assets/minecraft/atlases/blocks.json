@@ -1,0 +1,14 @@
+{
+  "sources": [
+    {
+      "type": "minecraft:single",
+      "resource": "kitsunebi:entity/kitsunebi_equipment",
+      "sprite": "kitsunebi:entity/kitsunebi_equipment"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "kitsunebi:entity/kitsunebi_shrine_palette",
+      "sprite": "kitsunebi:entity/kitsunebi_shrine_palette"
+    }
+  ]
+}

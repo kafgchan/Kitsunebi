@@ -13,6 +13,7 @@ public class KitsunebiNeoForge {
     public KitsunebiNeoForge(IEventBus modEventBus) {
         KitsunebiCommon.init();
         NeoForgePlatformHelper.registerBuses(modEventBus);
+        if(net.neoforged.fml.ModList.get().isLoaded("curios"))net.kafgchan.kitsunebi.neoforge.compat.CuriosCompat.register(modEventBus);
         modEventBus.addListener(net.kafgchan.kitsunebi.neoforge.network.KitsunebiNeoForgeNetwork::registerPayloadHandlers);
         if (Boolean.getBoolean("kitsunebi.verifySlopeMovement")) {
             net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(
@@ -20,6 +21,8 @@ public class KitsunebiNeoForge {
         }
 
         if (FMLLoader.getDist().isClient()) {
+            if(net.neoforged.fml.ModList.get().isLoaded("curios"))net.kafgchan.kitsunebi.neoforge.compat.CuriosCompat.registerClient(modEventBus);
+            modEventBus.addListener(net.kafgchan.kitsunebi.neoforge.client.KitsunebiArmorRendering::register);
             modEventBus.addListener(KitsunebiNeoForgeClient::onClientSetup);
             modEventBus.addListener(KitsunebiNeoForgeClient::onModifyModels);
             modEventBus.addListener(KitsunebiNeoForgeClient::onRegisterMenuScreens);

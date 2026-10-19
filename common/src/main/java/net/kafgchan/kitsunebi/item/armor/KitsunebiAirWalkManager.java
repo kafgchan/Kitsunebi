@@ -1,97 +1,101 @@
 package net.kafgchan.kitsunebi.item.armor;
 
-import net.kafgchan.kitsunebi.config.KitsunebiConfig;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.phys.Vec3;
-
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
+import net.kafgchan.kitsunebi.config.KitsunebiConfig;
+import net.kafgchan.kitsunebi.item.tool.ToolStateHelper;
+import net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.phys.AABB;
 
-/**
- * 狐火の足袋: 空中走行（仮想足場）マネージャー
- * - 状態機械 (GROUND -> FIRST_JUMP -> AIR_WALKING -> FALLING_LOCKED)
- * - 2段ジャンプで起動、走行/停止/待機、3段ジャンプで解除
- * - 解除後は着地するまで再起動不可（着地ラッチ）
- * - ログアウト・ディメンション移動・クリエイティブ飛行時の状態クリア
- */
-public class KitsunebiAirWalkManager {
-
-    public enum AirWalkState {
-        GROUND,
-        FIRST_JUMP,
-        AIR_WALKING,
-        FALLING_LOCKED
+/** Server-authoritative sneak+jump toggle. No real blocks or creative flight are granted. */
+public final class KitsunebiAirWalkManager {
+    public static final double VERTICAL_SPEED=.18;
+    public static final double DESCENT_SPEED=.30;
+    public static double verticalVelocity(int axis){return axis<0?-DESCENT_SPEED:axis>0?VERTICAL_SPEED:0;}
+    private static final Map<UUID,Session> ACTIVE=new HashMap<>();
+    private static final class Session {
+        final ServerPlayer owner;
+        final net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> dimension;
+        double height;
+        int vertical;
+        long lastInput;
+        boolean leftSupport;
+        Session(ServerPlayer player) {
+            owner=player;dimension=player.level().dimension();height=player.getY();
+            lastInput=player.level().getGameTime();
+            leftSupport=!supported(player);
+        }
     }
-
-    private static final Map<UUID, AirWalkState> PLAYER_STATES = new ConcurrentHashMap<>();
-
+    public static boolean isActive(ServerPlayer player){return ACTIVE.containsKey(player.getUUID());}
+    public static void setVerticalInput(ServerPlayer player,int vertical) {
+        Session session=ACTIVE.get(player.getUUID());
+        if(session==null||!eligible(player)||vertical< -1||vertical>1)return;
+        // Both buttons are reserved for cancellation, never simultaneous ascent/descent.
+        if(vertical<0&&!player.isShiftKeyDown()||vertical>0&&player.isShiftKeyDown())return;
+        session.height=player.getY();session.vertical=vertical;
+        session.lastInput=player.level().getGameTime();
+    }
+    public static boolean skillEnabled(net.minecraft.world.entity.player.Player player) {
+        return KitsunebiArmorHandler.hasTabi(player)&&ToolStateHelper.isActive(player.getItemBySlot(EquipmentSlot.FEET));
+    }
+    private static boolean eligible(ServerPlayer player) {
+        return player.isAlive()&&!player.isSpectator()&&!player.getAbilities().flying&&!player.isFallFlying()
+                &&!player.isPassenger()&&!player.isInLava()&&skillEnabled(player);
+    }
     public static void onPlayerJumpInput(ServerPlayer player) {
-        if (!KitsunebiArmorHandler.hasTabi(player) || player.getAbilities().flying) {
-            PLAYER_STATES.remove(player.getUUID());
-            return;
-        }
-
-        UUID uuid = player.getUUID();
-        AirWalkState current = PLAYER_STATES.getOrDefault(uuid, AirWalkState.GROUND);
-
-        if (player.onGround()) {
-            // 地上でのジャンプ: 1段ジャンプ状態へ
-            PLAYER_STATES.put(uuid, AirWalkState.FIRST_JUMP);
-        } else if (current == AirWalkState.FIRST_JUMP) {
-            // 空中でのジャンプ（2段ジャンプ）: 空中走行起動
-            PLAYER_STATES.put(uuid, AirWalkState.AIR_WALKING);
-            Vec3 motion = player.getDeltaMovement();
-            player.setDeltaMovement(motion.x, 0.0, motion.z);
-            player.hasImpulse = true;
-        } else if (current == AirWalkState.AIR_WALKING) {
-            // 3回目のジャンプ: 解除して落下、着地まで再起動ロック
-            PLAYER_STATES.put(uuid, AirWalkState.FALLING_LOCKED);
-        }
-        // FALLING_LOCKED の場合は着地するまで何もしない
+        if(!player.isShiftKeyDown()||!eligible(player))return;
+        if(isActive(player)){clearPlayer(player.getUUID());return;}
+        // Another flight mechanic already owns gravity; never overwrite it.
+        if(player.isNoGravity())return;
+        ACTIVE.put(player.getUUID(),new Session(player));
+        player.setNoGravity(true);
+        var motion=player.getDeltaMovement();player.setDeltaMovement(motion.x,0,motion.z);
+        player.fallDistance=0;player.hasImpulse=true;
+        player.connection.send(new ClientboundCustomPayloadPacket(new KitsunebiAirWalkStatePacket(true)));
+        player.connection.send(new ClientboundSetEntityMotionPacket(player));
+        player.displayClientMessage(Component.translatable("message.kitsunebi.air_walk_on"),true);
     }
-
     public static void tickPlayer(ServerPlayer player) {
-        UUID uuid = player.getUUID();
-        AirWalkState state = PLAYER_STATES.get(uuid);
-        if (state == null && !player.onGround()) return;
-
-        // 地面に着地したら状態を GROUND にリセット
-        if (player.onGround()) {
-            PLAYER_STATES.put(uuid, AirWalkState.GROUND);
-            return;
+        Session session=ACTIVE.get(player.getUUID());if(session==null)return;
+        if(session.owner!=player||session.dimension!=player.level().dimension()||!eligible(player)) {
+            clearPlayer(player.getUUID());return;
         }
-
-        // 足袋未装備、死亡、飛行中は即時解除
-        if (!KitsunebiArmorHandler.hasTabi(player) || !player.isAlive() || player.getAbilities().flying) {
-            PLAYER_STATES.remove(uuid);
-            return;
+        boolean support=supported(player);
+        if(session.leftSupport&&support){clearPlayer(player.getUUID());return;}
+        if(!support)session.leftSupport=true;
+        if(player.level().getGameTime()-session.lastInput>20) {
+            session.vertical=0;session.height=player.getY();
         }
-
-        if (state == AirWalkState.AIR_WALKING) {
-            // 落下を防止（Y速度を0に保ちつつ、プレイヤーの水平移動は維持）
-            Vec3 motion = player.getDeltaMovement();
-            if (motion.y < 0.0) {
-                player.setDeltaMovement(motion.x, 0.0, motion.z);
-                player.hasImpulse = true;
-            }
-            player.fallDistance = 0.0F;
-
-            // 白・朱赤の狐火パーティクル同期
-            if (KitsunebiConfig.get().enableParticles && player.level() instanceof ServerLevel serverLevel) {
-                double px = player.getX();
-                double py = player.getY();
-                double pz = player.getZ();
-
-                serverLevel.sendParticles(ParticleTypes.END_ROD, px, py, pz, 1, 0.2, 0.0, 0.2, 0.01);
-                serverLevel.sendParticles(ParticleTypes.FLAME, px, py, pz, 1, 0.2, 0.0, 0.2, 0.01);
-            }
+        player.setNoGravity(true);
+        var motion=player.getDeltaMovement();player.setDeltaMovement(motion.x,verticalVelocity(session.vertical),motion.z);
+        player.fallDistance=0;
+        if(session.vertical!=0)session.height=player.getY();
+        // The owner simulates the same zero-gravity movement; correct only genuine height drift.
+        if(Math.abs(player.getY()-session.height)>.125)player.connection.teleport(player.getX(),session.height,player.getZ(),player.getYRot(),player.getXRot());
+        if(KitsunebiConfig.get().enableParticles&&player.tickCount%3==0) {
+            player.serverLevel().sendParticles(ParticleTypes.END_ROD,player.getX(),player.getY(),player.getZ(),1,.2,0,.2,.01);
+            player.serverLevel().sendParticles(ParticleTypes.FLAME,player.getX(),player.getY(),player.getZ(),1,.2,0,.2,.01);
         }
     }
-
+    private static boolean supported(ServerPlayer player) {
+        var box=player.getBoundingBox();
+        return !player.level().noCollision(player,new AABB(box.minX+.001,box.minY-.06,box.minZ+.001,box.maxX-.001,box.minY,box.maxZ-.001));
+    }
     public static void clearPlayer(UUID uuid) {
-        PLAYER_STATES.remove(uuid);
+        Session session=ACTIVE.remove(uuid);if(session==null)return;
+        ServerPlayer player=session.owner;
+        player.setNoGravity(false);player.fallDistance=0;
+        var motion=player.getDeltaMovement();player.setDeltaMovement(motion.x,0,motion.z);
+        player.connection.send(new ClientboundCustomPayloadPacket(new KitsunebiAirWalkStatePacket(false)));
+        player.connection.send(new ClientboundSetEntityMotionPacket(player));
+        player.displayClientMessage(Component.translatable("message.kitsunebi.air_walk_off"),true);
     }
+    private KitsunebiAirWalkManager(){}
 }

@@ -34,20 +34,23 @@ def model(name,elements,armor=False):
                      'firstperson_lefthand':{'rotation':[0,-90,25],'translation':[1,1,0],'scale':[.9,.9,.9]},
                      'thirdperson_righthand':{'rotation':[0,90,0],'translation':[0,1,0],'scale':[.85,.85,.85]},
                      'thirdperson_lefthand':{'rotation':[0,-90,0],'translation':[0,1,0],'scale':[.85,.85,.85]}}}
+    if not armor:
+        for hand in ('firstperson_righthand','firstperson_lefthand'):data['display'][hand]['scale']=[1.2]*3
+        for hand in ('thirdperson_righthand','thirdperson_lefthand'):data['display'][hand]['scale']=[1.1]*3
     write(A/f'models/item/kitsunebi_{name}.json',data)
 
 # Headband and tapering three-dimensional ears.
-e=[box((3.5,6,5,12.5,7.25,11),'red')]
+e=[box((3.5,6,5,12.5,6.6,11),'ivory')]
 for x in (3.5,9):
     e += [box((x,7,6,x+3.5,11,9),'fur'),box((x+.5,11,6.25,x+3,14,8.75),'fur'),box((x+1,14,6.5,x+2.5,15.5,8.5),'fur'),box((x+1,8,5.8,x+2.5,12.5,6.1),'tip')]
 e+=[box((7.25,6,4.5,8.75,7.6,5.2),5)]
 model('headdress',e,True)
 
 # White kimono under an open vermilion haori; modeled sleeves and sash.
-e=[box((5,2,6,11,13,10),'ivory'),box((4,2,9.8,12,13.5,10.8),'red')]
+e=[box((5,2,6,11,13,10),'ivory'),box((4,2,9.8,12,13.5,10.8),'ivory')]
 for x in (3.8,10.3):e.append(box((x,2,5.7,x+1.9,13.5,6.4),'red'))
 for x in (1,11):
-    e += [box((x,7,5.5,x+4,13,10.5),'red'),box((x,7,5.3,x+4,8.2,10.7),'ivory')]
+    e += [box((x,7,5.5,x+4,13,10.5),'ivory'),box((x,7,5.3,x+4,8.2,10.7),'red')]
 e += [box((5,11.5,5.5,8,13.5,5.9),'ivory'),box((8,10.5,5.4,10.6,12.5,5.8),'ivory'),box((4.8,4.5,5.3,11.2,5.5,6),5),box((7.3,3.8,4.8,8.7,5.8,5.5),'red')]
 model('haori',e,True)
 
@@ -85,25 +88,30 @@ def cb(x,y,z,w,h,d,mat=0):return {'from':[x,y,z],'size':[w,h,d],'material':mat}
 bone('head','root',boxes=[]);bone('hat','root')
 bone('body','root');bone('right_arm','root',(-5,2,0));bone('left_arm','root',(5,2,0))
 bone('right_leg','root',(-1.9,12,0));bone('left_leg','root',(1.9,12,0))
-ears=[cb(-4.3,-8.1,-4.3,8.6,.9,8.6,1)]
-for x in (-4.2,1):
-    ears += [cb(x,-11.5,-1.5,3.2,4.2,2.5,2),cb(x+.4,-14,-1.2,2.4,2.5,2,2),cb(x+.9,-15,-.9,1.4,1,1.6,2),cb(x+1,-12.8,-1.7,1.2,4.3,.25,3)]
+# Softer fox ears, ivory haori, bell sleeves and a large back ribbon.
+ears=[cb(-4.15,-8.05,-4.15,8.3,.35,8.3,0),cb(-4.25,-8.1,-1.5,1.7,.5,3,1)]
 bone('ears','head',boxes=ears)
-bone('kimono','body',boxes=[cb(-4.2,-.1,-2.2,8.4,12.3,4.4),cb(-2.5,.3,-2.55,2.5,2,.35,1),cb(0,2,-2.6,2.5,2,.35,1)])
-bone('haori','body',boxes=[cb(-4.6,-.2,2.2,9.2,12.6,.55,1),cb(-4.6,-.2,-2.5,1.6,12.6,4.9,1),cb(3,-.2,-2.5,1.6,12.6,4.9,1),cb(-4.5,11.6,-2.5,9,1,5.1,1)])
+for side,sign in [('right',-1),('left',1)]:
+    bone(side+'_ear','ears',(sign*2.6,-7.8,0),[cb(-1.5,-2.8,-1.2,3,3,2.4,2),cb(-1.1,-4.7,-.95,2.2,2.1,1.9,2),cb(-.65,-5.6,-.7,1.3,1.1,1.4,2),cb(-.8,-3.8,-1.25,1.6,3.1,.28,3)],(0,0,sign*.24))
+# Small red flower beside the ear.
+for x,y,w,h in [(-4.6,-9,1.3,1.3),(-5,-8.2,2.1,.9),(-4.4,-7.5,1.2,.8)]:ears.append(cb(x,y,-3,w,h,.5,1))
+# bone() copies the list, so append flower directly to the stored headband bone.
+next(b for b in bones if b['name']=='ears')['boxes']=ears
+bone('kimono','body',boxes=[cb(-4.15,0,-2.15,8.3,12,4.3),cb(-2.5,.4,-2.5,2.4,1.3,.4,1),cb(-.2,1.5,-2.55,2.3,1.2,.4,1)])
+bone('haori','body',boxes=[cb(-4.4,0,2.1,8.8,10.5,.55,0),cb(-4.4,0,-2.4,1.25,10.5,4.7,0),cb(3.15,0,-2.4,1.25,10.5,4.7,0),cb(-4.45,9.5,-2.45,8.9,1,5,1),cb(-3.2,.3,-2.6,.55,9.2,.4,1),cb(2.65,.3,-2.6,.55,9.2,.4,1)])
 for side in ('right','left'):
-    x=-3.3 if side=='right' else -1.1
-    bone(side+'_sleeve',side+'_arm',boxes=[cb(x,-2.2,-2.5,4.4,9.5,5,1),cb(x,6.7,-2.6,4.4,1.1,5.2)])
-    bone(side+'_hakama',side+'_leg',boxes=[cb(-2.25,-.1,-2.5,4.5,10.8,5),cb(-2.3,9.7,-2.6,4.6,1.1,5.2,1),cb(-2.5,0,-2.55,.6,10,5.1,1)])
-    bone(side+'_tabi',side+'_leg',boxes=[cb(-2.1,6,-2.1,4.2,5.7,4.2),cb(-2.2,10.5,-3.4,4.4,1.2,5.6,1),cb(-.5,9.9,-3.6,1,1,3.5,1)])
-bone('obi','body',boxes=[cb(-4.4,9,-2.5,8.8,3.3,5,1),cb(-1,9,-3.1,2,2,1),cb(-2.6,9,-2.9,1.8,1.8,.7),cb(.8,9,-2.9,1.8,1.8,.7)])
+    x=-3.25 if side=='right' else -1.15
+    bone(side+'_sleeve',side+'_arm',boxes=[cb(x,-2.1,-2.45,4.4,6.2,4.9,0),cb(x-.4,3.6,-2.7,5.2,3.5,5.4,0),cb(x-.45,6.5,-2.75,5.3,.9,5.5,1),cb(x+1.45,4,-2.8,1.5,2.2,.3,1)])
+    bone(side+'_hakama',side+'_leg',boxes=[cb(-2.15,0,-2.3,4.3,10.5,4.6,0),cb(-2.2,8.8,-2.4,4.4,1.4,4.8,1),cb(-1.1,.4,-2.55,.45,8.3,.3,1),cb(.65,.4,-2.55,.45,8.3,.3,1)])
+    bone(side+'_tabi',side+'_leg',boxes=[cb(-2.05,8,-2.05,4.1,3.7,4.1),cb(-2.15,10.7,-3.3,4.3,.9,5.4,1),cb(-.45,10.2,-3.4,.9,.8,3.2,1)])
+bone('obi','body',boxes=[cb(-4.3,8.3,-2.5,8.6,3.3,5,1),cb(-.8,8.8,-3,1.6,1.7,.7,0),cb(-4.8,7.8,2.5,3.8,3.1,1.6,1),cb(1,7.8,2.5,3.8,3.1,1.6,1),cb(-1,8.5,2.5,2,2,2,0),cb(-3.2,10.1,2.9,1.7,3.1,.7,1),cb(1.5,10.1,2.9,1.7,3.1,.7,1)])
 for i in range(9):
     parent=f'tail_{i}'
-    bone(parent,'body',(0,10,2.7))
-    bone(parent+'_base',parent,boxes=[cb(-1.9,-1.9,0,3.8,3.8,4,2)])
-    bone(parent+'_mid',parent,(0,-.8,3),[cb(-1.7,-1.7,0,3.4,3.4,4.5,2)],(-.12,0,0))
-    bone(parent+'_end',parent+'_mid',(0,-1,3.5),[cb(-1.4,-1.4,0,2.8,2.8,4,2)],(-.18,0,0))
-    bone(parent+'_tip',parent+'_end',(0,-.7,3),[cb(-1.25,-1.25,0,2.5,2.5,3,3),cb(-.8,-.8,3,1.6,1.6,1.2,3)],(-.2,0,0))
+    bone(parent,'body',(0,10,3.7))
+    bone(parent+'_base',parent,boxes=[cb(-.9,-.9,0,1.8,1.8,4.5,2)])
+    bone(parent+'_mid',parent,(0,-.3,3.5),[cb(-1.7,-1.7,0,3.4,3.4,5,2)],(.12,0,0))
+    bone(parent+'_end',parent+'_mid',(0,-.4,4),[cb(-1.8,-1.8,0,3.6,3.6,4,2)],(.22,0,0))
+    bone(parent+'_tip',parent+'_end',(0,-.3,3),[cb(-1.4,-1.4,0,2.8,2.8,2.4,3),cb(-.75,-.75,2.2,1.5,1.5,1.5,3)],(.25,0,0))
 geometry={'format':'kitsunebi.humanoid.v1','texture':'kitsunebi:textures/entity/kitsunebi_equipment.png','texture_size':[64,64],'tail_counts':[1,3,6,9],'bones':bones}
 write(A/'codex/v04/armor_geometry.json',geometry)
 
@@ -122,7 +130,8 @@ for b in bones:
         mat=c['material'];u=(mat%2)*32;v=(mat//2)*32
         builder+=f'.texOffs({u},{v}).addBox('+','.join(f(n) for n in c['from']+c['size'])+')'
     pose='PartPose.offsetAndRotation('+','.join(f(n) for n in list(b['pivot'])+list(b['rotation']))+')'
-    lines.append(f'        PartDefinition {b["name"]}={b["parent"]}.addOrReplaceChild("{b["name"]}",{builder},{pose});')
+    binding=f'PartDefinition {b["name"]}=' if any(child['parent']==b['name'] for child in bones) else ''
+    lines.append(f'        {binding}{b["parent"]}.addOrReplaceChild("{b["name"]}",{builder},{pose});')
 lines += ['        return LayerDefinition.create(mesh,64,64);','    }',
  '    public void configure(EquipmentSlot slot,int count,float age) {',
  '        setAllVisible(false);hat.visible=false;',
@@ -140,8 +149,9 @@ lines += ['        return LayerDefinition.create(mesh,64,64);','    }',
  '        int tails=new int[]{1,3,6,9}[Math.max(1,Math.min(4,count))-1];',
  '        for(int i=0;i<9;i++){ModelPart tail=body.getChild("tail_"+i);',
  '            tail.visible=slot==EquipmentSlot.LEGS&&i<tails;',
- '            tail.yRot=(i-(tails-1)/2F)*0.26F+(float)Math.sin(age*.045F+i*.7F)*.07F;',
- '            tail.xRot=-.35F+(float)Math.sin(age*.04F+i*.9F)*.06F;',
+ '            tail.x=(i-(tails-1)/2F)*.7F;',
+ '            tail.yRot=(i-(tails-1)/2F)*0.34F+(float)Math.sin(age*.045F+i*.7F)*.07F;',
+ '            tail.xRot=.68F+(float)Math.sin(age*.04F+i*.9F)*.06F;',
  '        }','    }','}']
 (OUT/'integration/java/net/kafgchan/kitsunebi/client/model/KitsunebiArmorVisualModel.java').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print('Generated 9 item models, material palette, humanoid hierarchy and animated 1/3/6/9-tail integration model.')

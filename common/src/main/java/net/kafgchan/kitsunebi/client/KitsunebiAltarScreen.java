@@ -185,13 +185,19 @@ public class KitsunebiAltarScreen extends AbstractContainerScreen<KitsunebiAltar
         g.pose().popPose();
         g.drawString(font,playerInventoryTitle,12,142,MUTED,false);
         if(!menu.isEquipment())g.drawString(font,text("quantity"),184,148,MUTED,false);
-        else g.drawWordWrap(font,repairView()?text("repair_materials"):equipmentState().status(),184,150,112,MUTED);
+        else if(repairView()) {
+            label(g,text("repair_materials_title"),184,148,112,MUTED);
+            g.renderItem(repairFire(),184,161);
+            g.drawString(font,text("repair_fire_gain"),206,165,INK,false);
+            g.renderItem(repairBlock(),184,179);
+            g.drawString(font,text("repair_block_gain"),206,183,INK,false);
+        }
         label(g,menu.isEquipment()?equipmentState().status():text(uiCanExecute()?"ready":result.canCraft()?"output_full":"missing"),184,199,112,uiCanExecute()?0xFFA8D6A3:MUTED);
         // Full selected name is available on hover, independent of truncation.
         if(repairView()) {
             g.drawWordWrap(font,text("repair_hint"),78,54,90,MUTED);
-            g.renderItem(new ItemStack(ModItems.getItem("white").get()),80,99);
-            g.renderItem(new ItemStack(ModBlocks.ARCHITECTURAL_KITSUNEBI.get()),105,99);
+            g.renderItem(repairFire(),80,99);
+            g.renderItem(repairBlock(),105,99);
         }
         Component selected=selectedStack().isEmpty()?text("repair_target"):selectedStack().getHoverName();
         var lines=font.split(selected,90);
@@ -206,6 +212,8 @@ public class KitsunebiAltarScreen extends AbstractContainerScreen<KitsunebiAltar
     private List<Component> ingredientParts(String label) {
         // Vanilla item names provide exact material identity and the player's language.
         switch(label) {
+            case "Kitsunebi Fire (4,096 rep)":return List.of(text("any_fire"));
+            case "Kitsunebi Block (32,768 rep)":return List.of(repairBlock().getHoverName());
             case "White Kitsunebi":return List.of(new ItemStack(ModItems.getItem("white").get()).getHoverName());
             case "Red Kitsunebi":return List.of(new ItemStack(ModItems.getItem("red").get()).getHoverName());
             case "Phantom Block": return List.of(new ItemStack(ModBlocks.PHANTOM_BLOCK.get()).getHoverName());
@@ -225,6 +233,8 @@ public class KitsunebiAltarScreen extends AbstractContainerScreen<KitsunebiAltar
         return List.of(key==null?Component.literal(label):text("ingredient."+key));
     }
     private record IngredientLine(FormattedCharSequence text,String count,int color,Component tooltip){}
+    private ItemStack repairFire(){int color=(int)((System.currentTimeMillis()/1200)%ModBlocks.COLORS.length);return new ItemStack(ModItems.getItem(ModBlocks.COLORS[color]).get());}
+    private ItemStack repairBlock(){return new ItemStack(ModBlocks.ARCHITECTURAL_KITSUNEBI.get());}
     private record IngredientLayout(List<IngredientLine> lines,float scale){}
     private IngredientLayout ingredientLayout() {
         List<IngredientLine> rows=ingredientLines(1);
@@ -252,6 +262,12 @@ public class KitsunebiAltarScreen extends AbstractContainerScreen<KitsunebiAltar
     @Override public void render(GuiGraphics g,int mx,int my,float partialTick) {
         equipmentSnapshot=null;
         super.render(g,mx,my,partialTick);renderTooltip(g,mx,my);
+        if(repairView()) {
+            if(isHovering(80,99,16,16,mx,my)||isHovering(184,161,112,16,mx,my))
+                g.renderTooltip(font,text("any_fire"),mx,my);
+            else if(isHovering(105,99,16,16,mx,my)||isHovering(184,179,112,16,mx,my))
+                g.renderTooltip(font,repairBlock(),mx,my);
+        }
         if(isHovering(210,50,16,16,mx,my)||isHovering(184,72,112,10,mx,my))
             g.renderTooltip(font,selectedStack(),mx,my);
         IngredientLayout layout=ingredientLayout();

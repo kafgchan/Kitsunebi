@@ -13,6 +13,14 @@ public class KitsunebiNetworkHandler {
     public static void handleSkillAction(ServerPlayer player, int action) {
         if (player == null) return;
         ItemStack stack = player.getMainHandItem();
+        if(action==4&&net.kafgchan.kitsunebi.item.armor.KitsunebiArmorHandler.hasTabi(player)) {
+            var feet=player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.FEET);
+            boolean enabled=!net.kafgchan.kitsunebi.item.tool.ToolStateHelper.isActive(feet);
+            net.kafgchan.kitsunebi.item.tool.ToolStateHelper.setActive(feet,enabled);
+            if(!enabled)KitsunebiAirWalkManager.clearPlayer(player.getUUID());
+            player.displayClientMessage(net.minecraft.network.chat.Component.translatable(enabled?"message.kitsunebi.air_walk_skill_on":"message.kitsunebi.air_walk_skill_off"),true);
+            return;
+        }
         if (stack.getItem() instanceof IKitsunebiTool tool) {
             switch (action) {
                 case 0 -> {
@@ -22,8 +30,8 @@ public class KitsunebiNetworkHandler {
                         player.displayClientMessage(net.minecraft.network.chat.Component.translatable("kitsunebi.skill.state.off"), true);
                     }
                 }
-                case 1 -> tool.cycleMode(stack, player, true);  // Shift+V 次
-                case 2 -> tool.cycleMode(stack, player, false); // Ctrl+V 前
+                case 1 -> tool.cycleMode(stack, player, true);  // 次のモード
+                case 2 -> tool.cycleMode(stack, player, false); // 前のモード
                 case 3 -> tool.toggleActive(stack, player);     // B トグル
             }
         }

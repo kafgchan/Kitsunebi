@@ -7,6 +7,10 @@ public class KitsunebiFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         KitsunebiCommon.init();
+        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playC2S().register(net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.TYPE,net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.STREAM_CODEC);
+        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.registerGlobalReceiver(net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.TYPE,
+                (payload,context)->context.server().execute(()->net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.setVerticalInput(context.player(),payload.vertical())));
+        net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry.playS2C().register(net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.TYPE,net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.STREAM_CODEC);
 
         // 被ダメージ処理およびノックバック抑止は LivingEntityMixin にて実行
 

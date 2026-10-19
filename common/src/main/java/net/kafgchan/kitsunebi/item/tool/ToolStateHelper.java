@@ -25,8 +25,9 @@ public class ToolStateHelper {
 
     public static int getMode(ItemStack stack) {
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);
-        if (data == null) return 0;
-        return data.copyTag().getInt(KEY_MODE);
+        if (data == null) return stack.getItem() instanceof KitsunebiAxeItem ? 1 : 0;
+        CompoundTag tag = data.copyTag();
+        return tag.contains(KEY_MODE) ? tag.getInt(KEY_MODE) : (stack.getItem() instanceof KitsunebiAxeItem ? 1 : 0);
     }
 
     public static void setMode(ItemStack stack, int mode) {

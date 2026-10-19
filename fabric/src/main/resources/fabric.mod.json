@@ -16,6 +16,15 @@
     ],
     "client": [
       "net.kafgchan.kitsunebi.fabric.client.KitsunebiFabricClient"
+    ],
+    "jei_mod_plugin": [
+      "net.kafgchan.kitsunebi.compat.AltarJeiPlugin"
+    ],
+    "emi": [
+      "net.kafgchan.kitsunebi.compat.AltarEmiPlugin"
+    ],
+    "rei_client": [
+      "net.kafgchan.kitsunebi.compat.AltarReiPlugin"
     ]
   },
   "depends": {

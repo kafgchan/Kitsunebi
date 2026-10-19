@@ -20,6 +20,7 @@ public class KitsunebiNeoForgeClient {
             Minecraft mc = Minecraft.getInstance();
             if (mc != null) {
                 net.kafgchan.kitsunebi.neoforge.verification.AltarGuiVerifier.tick(mc);
+                net.kafgchan.kitsunebi.neoforge.verification.CompatClientVerifier.tick(mc);
                 if (KitsunebiClientHelper.tickClient(mc.player, mc.level) && mc.level != null && mc.player != null) {
                     KitsunebiClientHelper.refreshVisionSections(mc.level, mc.player.blockPosition(),
                             mc.options.renderDistance().get() + 1, mc.levelRenderer::setSectionDirty);

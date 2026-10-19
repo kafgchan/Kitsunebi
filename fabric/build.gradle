@@ -13,6 +13,12 @@ loom {
     }
 
     runs {
+        compatVerifyClient {
+            client()
+            runDir 'build/compat-verify-client'
+            programArgs '--width', '960', '--height', '720', '--quickPlaySingleplayer', 'compat-test'
+            vmArg '-Dkitsunebi.verifyCompat=true'
+        }
         slopeVerifyServer {
             server()
             runDir 'build/slope-verify-server'
@@ -51,14 +57,17 @@ sourceSets.main.java {
     srcDir file('../common/src/main/java')
     exclude 'net/kafgchan/kitsunebi/client/SmoothSlopeModel.java'
     exclude 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen.java'
+    exclude 'net/kafgchan/kitsunebi/client/model/**'
 }
 
-tasks.named('jar') {
-    dependsOn ':common:classes'
-    from(project(':common').sourceSets.main.output) {
-        include 'net/kafgchan/kitsunebi/client/SmoothSlopeModel*.class'
-        include 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen*.class'
-    }
+// Compile shared client code into the client source set, including development runs.
+sourceSets.client.java {
+    srcDir file('../common/src/main/java')
+    include 'net/kafgchan/kitsunebi/fabric/client/**'
+    include 'net/kafgchan/kitsunebi/client/SmoothSlopeModel.java'
+    include 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen.java'
+    include 'net/kafgchan/kitsunebi/client/model/**'
+    include 'net/kafgchan/kitsunebi/compat/**'
 }
 
 processResources {
@@ -77,4 +86,16 @@ processResources {
     filesMatching("fabric.mod.json") {
         expand expandProps
     }
+}
+
+// Optional integrations: only the selected viewer is loaded in development.
+sourceSets.client.java.srcDir file("../compat/src/main/java")
+dependencies {
+    modClientCompileOnly("mezz.jei:jei-1.21.1-fabric:19.21.0.247") { transitive = false }
+    modClientCompileOnly "dev.emi:emi-fabric:1.1.24+1.21.1"
+    modClientCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:16.0.799"
+    def viewer = providers.gradleProperty('recipeViewer').getOrElse('jei')
+    if (viewer == 'jei') modClientRuntimeOnly("mezz.jei:jei-1.21.1-fabric:19.21.0.247") { transitive = false }
+    if (viewer == 'emi') modClientRuntimeOnly "dev.emi:emi-fabric:1.1.24+1.21.1"
+    if (viewer == 'rei') modClientRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:16.0.799"
 }

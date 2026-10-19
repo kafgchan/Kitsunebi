@@ -5,13 +5,17 @@
     "equipment_repair": "Repair",
     "equipment_select": "Select equipment",
     "repair_target": "Repair target",
-    "repair_hint": "Place damaged equipment in the highlighted input slot.",
+    "repair_hint": "Place damaged equipment and repair materials in the input slots on the left.",
     "repair_materials": "Foxfire: +4,096 durability. Foxfire block: +32,768.",
     "backend_pending": "This action is currently unavailable.",
     "repair": "Repair",
     "repair_preview": "After repair",
     "white_fire": "White Foxfire",
-    "red_fire": "Red Foxfire"
+    "red_fire": "Red Foxfire",
+    "repair_materials_title": "Repair materials",
+    "repair_fire_gain": "+4,096",
+    "repair_block_gain": "+32,768",
+    "any_fire": "Foxfire (any color)"
   },
   "ja_jp": {
     "blocks": "ブロック",
@@ -19,13 +23,17 @@
     "equipment_repair": "修理",
     "equipment_select": "装備を選択",
     "repair_target": "修理対象",
-    "repair_hint": "損傷した装備を、指定された素材枠に入れてください。",
+    "repair_hint": "損傷した装備と修理素材を左の素材欄に入れてください。",
     "repair_materials": "狐火1個で耐久4,096回復。狐火ブロック1個で32,768回復。",
     "backend_pending": "現在この操作は利用できません。",
     "repair": "修理する",
     "repair_preview": "修理後",
     "white_fire": "白い狐火",
-    "red_fire": "赤い狐火"
+    "red_fire": "赤い狐火",
+    "repair_materials_title": "修理素材と回復量",
+    "repair_fire_gain": "+4,096",
+    "repair_block_gain": "+32,768",
+    "any_fire": "狐火（色指定なし）"
   },
   "ko_kr": {
     "blocks": "블록",
@@ -33,13 +41,17 @@
     "equipment_repair": "수리",
     "equipment_select": "장비 선택",
     "repair_target": "수리 대상",
-    "repair_hint": "손상된 장비를 지정된 재료 슬롯에 넣으세요.",
+    "repair_hint": "손상된 장비와 수리 재료를 왼쪽 재료 슬롯에 넣으세요.",
     "repair_materials": "여우불: 내구도 +4,096. 여우불 블록: +32,768.",
     "backend_pending": "현재 이 작업을 사용할 수 없습니다.",
     "repair": "수리",
     "repair_preview": "수리 후",
     "white_fire": "하얀 여우불",
-    "red_fire": "빨간 여우불"
+    "red_fire": "빨간 여우불",
+    "repair_materials_title": "수리 재료",
+    "repair_fire_gain": "+4,096",
+    "repair_block_gain": "+32,768",
+    "any_fire": "여우불 (모든 색상)"
   },
   "zh_cn": {
     "blocks": "方块",
@@ -47,13 +59,17 @@
     "equipment_repair": "修理",
     "equipment_select": "选择装备",
     "repair_target": "修理目标",
-    "repair_hint": "请将受损装备放入指定材料栏。",
+    "repair_hint": "请将受损装备与修理材料放入左侧材料栏。",
     "repair_materials": "狐火恢复4,096耐久。狐火方块恢复32,768。",
     "backend_pending": "当前无法进行此操作。",
     "repair": "修理",
     "repair_preview": "修理后",
     "white_fire": "白色狐火",
-    "red_fire": "红色狐火"
+    "red_fire": "红色狐火",
+    "repair_materials_title": "修理材料",
+    "repair_fire_gain": "+4,096",
+    "repair_block_gain": "+32,768",
+    "any_fire": "狐火（任意颜色）"
   },
   "zh_tw": {
     "blocks": "方塊",
@@ -61,13 +77,17 @@
     "equipment_repair": "修理",
     "equipment_select": "選擇裝備",
     "repair_target": "修理目標",
-    "repair_hint": "請將受損裝備放入指定材料欄。",
+    "repair_hint": "請將受損裝備與修理材料放入左側材料欄。",
     "repair_materials": "狐火恢復4,096耐久。狐火方塊恢復32,768。",
     "backend_pending": "目前無法進行此操作。",
     "repair": "修理",
     "repair_preview": "修理後",
     "white_fire": "白色狐火",
-    "red_fire": "紅色狐火"
+    "red_fire": "紅色狐火",
+    "repair_materials_title": "修理材料",
+    "repair_fire_gain": "+4,096",
+    "repair_block_gain": "+32,768",
+    "any_fire": "狐火（任意顏色）"
   },
   "zh_hk": {
     "blocks": "方塊",
@@ -75,12 +95,16 @@
     "equipment_repair": "修理",
     "equipment_select": "選擇裝備",
     "repair_target": "修理目標",
-    "repair_hint": "請將受損裝備放入指定材料欄。",
+    "repair_hint": "請將受損裝備與修理材料放入左側材料欄。",
     "repair_materials": "狐火恢復4,096耐久。狐火方塊恢復32,768。",
     "backend_pending": "目前無法進行此操作。",
     "repair": "修理",
     "repair_preview": "修理後",
     "white_fire": "白色狐火",
-    "red_fire": "紅色狐火"
+    "red_fire": "紅色狐火",
+    "repair_materials_title": "修理材料",
+    "repair_fire_gain": "+4,096",
+    "repair_block_gain": "+32,768",
+    "any_fire": "狐火（任何顏色）"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "kitsunebi:kitsunebi_white",
+    "kitsunebi:kitsunebi_blue",
+    "kitsunebi:kitsunebi_cyan",
+    "kitsunebi:kitsunebi_green",
+    "kitsunebi:kitsunebi_purple",
+    "kitsunebi:kitsunebi_orange",
+    "kitsunebi:kitsunebi_red"
+  ]
+}

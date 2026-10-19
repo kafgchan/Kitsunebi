@@ -68,19 +68,7 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
 
     @Override
     public boolean isCurioOrAccessoryEquipped(net.minecraft.world.entity.LivingEntity entity, Item item) {
-        try {
-            Class<?> curiosApiClass = Class.forName("top.theillusivec4.curios.api.CuriosApi");
-            Object curiosHelper = curiosApiClass.getMethod("getCuriosHelper").invoke(null);
-            if (curiosHelper != null) {
-                java.lang.reflect.Method findFirstCurio = curiosHelper.getClass().getMethod("findFirstCurio", net.minecraft.world.entity.LivingEntity.class, Item.class);
-                Object result = findFirstCurio.invoke(curiosHelper, entity, item);
-                if (result instanceof java.util.Optional<?> opt) {
-                    return opt.isPresent();
-                }
-            }
-        } catch (Throwable ignored) {
-            // Curios が導入されていない、または API が異なる場合は安全に無視
-        }
-        return false;
+        if (!net.neoforged.fml.ModList.get().isLoaded("curios")) return false;
+        return net.kafgchan.kitsunebi.neoforge.compat.CuriosCompat.equipped(entity,item);
     }
 }

@@ -20,12 +20,14 @@ import java.util.*;
  */
 public class MiningHelper {
 
-    private static final Set<BlockPos> CURRENTLY_BREAKING = Collections.newSetFromMap(new WeakHashMap<>());
+    // Server-thread only. Suppress expansion from secondary harvest callbacks, even at a different position.
+    private static final Set<UUID> SECONDARY_HARVEST_PLAYERS = new HashSet<>();
 
     /**
      * 面採掘 (3x3 または 5x5)
      */
     public static void breakArea(ServerLevel level, ServerPlayer player, BlockPos centerPos, int radius, ItemStack tool) {
+        if (SECONDARY_HARVEST_PLAYERS.contains(player.getUUID())) return;
         Direction face = player.getDirection();
         double pitch = player.getXRot();
         boolean vertical = pitch > 60 || pitch < -60;
@@ -50,7 +52,12 @@ public class MiningHelper {
      * 同種連結鉱脈採掘 (最大上限は Config に準拠)
      */
     public static void breakVein(ServerLevel level, ServerPlayer player, BlockPos origin, ItemStack tool, int requestedMax) {
-        BlockState targetState = level.getBlockState(origin);
+        if (SECONDARY_HARVEST_PLAYERS.contains(player.getUUID())) return;
+        breakVein(level, player, origin, level.getBlockState(origin), tool, requestedMax, true);
+    }
+
+    public static void breakVein(ServerLevel level, ServerPlayer player, BlockPos origin, BlockState targetState, ItemStack tool, int requestedMax, boolean includeOrigin) {
+        if (SECONDARY_HARVEST_PLAYERS.contains(player.getUUID())) return;
         Block targetBlock = targetState.getBlock();
         if (targetState.isAir()) return;
 
@@ -60,7 +67,8 @@ public class MiningHelper {
         queue.add(origin);
         visited.add(origin);
 
-        int broken = 0;
+        int broken = includeOrigin ? 0 : 1;
+        if (broken == 0) { if (!tryHarvestBlock(level, player, origin, tool)) return; broken = 1; }
         while (!queue.isEmpty() && broken < maxBlocks) {
             if (tool.isEmpty() || tool.getDamageValue() >= tool.getMaxDamage()) break;
             BlockPos current = queue.poll();
@@ -81,11 +89,18 @@ public class MiningHelper {
         }
     }
 
+    /** Use the actual digging view, including upward and downward tunnels. */
+    public static Direction tunnelDirection(ServerPlayer player) {
+        var look = player.getLookAngle();
+        return Direction.getNearest(look.x, look.y, look.z);
+    }
+
     /**
      * トンネル掘削 (5x5x32、Config上限準拠)
      */
     public static void breakTunnel(ServerLevel level, ServerPlayer player, BlockPos start, ItemStack tool, int requestedLength) {
-        Direction dir = player.getDirection();
+        if (SECONDARY_HARVEST_PLAYERS.contains(player.getUUID())) return;
+        Direction dir = tunnelDirection(player);
         int length = Math.min(requestedLength, KitsunebiConfig.get().tunnelLength);
 
         for (int dist = 0; dist < length; dist++) {
@@ -96,9 +111,11 @@ public class MiningHelper {
                 for (int dy = 0; dy <= 4; dy++) {
                     if (tool.isEmpty() || tool.getDamageValue() >= tool.getMaxDamage()) return;
 
-                    BlockPos target = (dir.getAxis() == Direction.Axis.Z)
-                            ? sliceCenter.offset(dx, dy, 0)
-                            : sliceCenter.offset(0, dy, dx);
+                    BlockPos target = switch (dir.getAxis()) {
+                        case Y -> sliceCenter.offset(dx, 0, dy - 2);
+                        case Z -> sliceCenter.offset(dx, dy, 0);
+                        case X -> sliceCenter.offset(0, dy, dx);
+                    };
 
                     tryHarvestBlock(level, player, target, tool);
                 }
@@ -110,7 +127,12 @@ public class MiningHelper {
      * 単木一括伐採 (自然木判定付き、最大上限は Config に準拠)
      */
     public static void fellTree(ServerLevel level, ServerPlayer player, BlockPos origin, ItemStack tool, int requestedMax) {
-        BlockState originState = level.getBlockState(origin);
+        if (SECONDARY_HARVEST_PLAYERS.contains(player.getUUID())) return;
+        fellTree(level, player, origin, level.getBlockState(origin), tool, requestedMax, true);
+    }
+
+    public static void fellTree(ServerLevel level, ServerPlayer player, BlockPos origin, BlockState originState, ItemStack tool, int requestedMax, boolean includeOrigin) {
+        if (SECONDARY_HARVEST_PLAYERS.contains(player.getUUID())) return;
         if (!originState.is(BlockTags.LOGS)) return;
 
         // 自然木判定: 原木塊の周囲に葉が存在するか検証（葉のない原木建築物の破壊を防止）
@@ -124,7 +146,8 @@ public class MiningHelper {
         queue.add(origin);
         visited.add(origin);
 
-        int broken = 0;
+        int broken = includeOrigin ? 0 : 1;
+        if (broken == 0) { if (!tryHarvestBlock(level, player, origin, tool)) return; broken = 1; }
         while (!queue.isEmpty() && broken < maxLogs) {
             if (tool.isEmpty() || tool.getDamageValue() >= tool.getMaxDamage()) break;
             BlockPos current = queue.poll();
@@ -138,7 +161,7 @@ public class MiningHelper {
                         BlockPos neighbor = current.offset(dx, dy, dz);
                         if (visited.add(neighbor)) {
                             BlockState state = level.getBlockState(neighbor);
-                            if (state.is(BlockTags.LOGS)) {
+                            if (state.is(originState.getBlock()) && neighbor.getY() >= origin.getY() && Math.abs(neighbor.getX()-origin.getX()) <= 4 && Math.abs(neighbor.getZ()-origin.getZ()) <= 4) {
                                 queue.add(neighbor);
                                 if (tryHarvestBlock(level, player, neighbor, tool)) {
                                     broken++;
@@ -182,19 +205,19 @@ public class MiningHelper {
         if (state.isAir() || state.getDestroySpeed(level, pos) < 0) {
             return false; // 岩盤などの破壊不能ブロックは保護
         }
-        if (CURRENTLY_BREAKING.contains(pos)) {
+        if (SECONDARY_HARVEST_PLAYERS.contains(player.getUUID())) {
             return false;
         }
         if (!level.mayInteract(player, pos)) {
             return false; // 保護領域や操作権限の確認
         }
 
-        CURRENTLY_BREAKING.add(pos);
+        SECONDARY_HARVEST_PLAYERS.add(player.getUUID());
         try {
             // ServerPlayerGameMode.destroyBlock はツール情報、イベント発火、保護判定をすべて処理する
             return player.gameMode.destroyBlock(pos);
         } finally {
-            CURRENTLY_BREAKING.remove(pos);
+            SECONDARY_HARVEST_PLAYERS.remove(player.getUUID());
         }
     }
 }

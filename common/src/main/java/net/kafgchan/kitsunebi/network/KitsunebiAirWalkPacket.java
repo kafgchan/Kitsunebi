@@ -8,7 +8,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 
 /**
- * 空中ジャンプ（足袋の仮想足場）パケット
+ * スニーク＋ジャンプによる空中歩行の切り替え要求
  */
 public record KitsunebiAirWalkPacket(boolean jump) implements CustomPacketPayload {
     public static final Type<KitsunebiAirWalkPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "air_walk"));

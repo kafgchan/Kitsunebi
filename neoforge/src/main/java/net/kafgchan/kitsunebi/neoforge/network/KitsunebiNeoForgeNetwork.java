@@ -17,6 +17,14 @@ public class KitsunebiNeoForgeNetwork {
     @SubscribeEvent
     public static void registerPayloadHandlers(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar(Constants.MOD_ID).versioned("1.0.0");
+        registrar.playToServer(net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.TYPE,
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkMovePacket.STREAM_CODEC,
+                (payload,context)->context.enqueueWork(()->{
+                    if(context.player() instanceof ServerPlayer player)net.kafgchan.kitsunebi.item.armor.KitsunebiAirWalkManager.setVerticalInput(player,payload.vertical());
+                }));
+        registrar.playToClient(net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.TYPE,
+                net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.STREAM_CODEC,
+                (payload,context)->context.enqueueWork(()->net.kafgchan.kitsunebi.client.KitsunebiAirWalkClientState.apply(context.player(),payload.active())));
 
         registrar.playToServer(
                 KitsunebiSkillPacket.TYPE,

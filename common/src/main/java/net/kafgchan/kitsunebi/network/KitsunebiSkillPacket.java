@@ -11,8 +11,9 @@ import net.minecraft.resources.ResourceLocation;
  * 妖術操作パケット
  * action:
  * 0 = 妖術発動 (V)
- * 1 = 次のモード (Shift+V)
- * 2 = 前のモード (Ctrl+V)
+ * 1 = 次のモード (N)
+ * 2 = 前のモード (M)
+ * 4 = Tabi skill ON/OFF (G)
  * 3 = 妖術ON/OFFトグル (B)
  */
 public record KitsunebiSkillPacket(int action) implements CustomPacketPayload {

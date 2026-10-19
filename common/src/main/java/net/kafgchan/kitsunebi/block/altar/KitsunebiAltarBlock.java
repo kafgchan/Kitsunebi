@@ -25,6 +25,7 @@ public class KitsunebiAltarBlock extends Block {
 
     public KitsunebiAltarBlock(BlockBehaviour.Properties properties) {
         super(properties
+                .noOcclusion()
                 .mapColor(MapColor.COLOR_BLACK)
                 .strength(3.0F, 1200.0F)
                 .sound(SoundType.STONE));

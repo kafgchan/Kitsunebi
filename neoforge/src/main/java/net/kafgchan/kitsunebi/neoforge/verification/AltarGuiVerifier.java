@@ -28,9 +28,11 @@ public final class AltarGuiVerifier {
         Preview(){super(Component.literal("Altar GUI verification"));}
         @Override protected void init(){create();}
         private void create() {
+            if(category==4)return;
             Inventory inventory=new Inventory(null);
             KitsunebiAltarMenu menu=new KitsunebiAltarMenu(0,inventory);
-            menu.setData(0,category);menu.setData(1,category==0?2:0);menu.setData(2,16);
+            menu.setData(0,Math.min(category,2));menu.setData(1,category==0?2:0);menu.setData(2,16);
+            if(category==3)menu.setData(3,1);
             menu.getSlot(0).set(new ItemStack(Items.BAMBOO,64));
             menu.getSlot(1).set(new ItemStack(Items.LAPIS_LAZULI,32));
             menu.getSlot(2).set(new ItemStack(Items.GLOW_INK_SAC,16));
@@ -89,7 +91,8 @@ public final class AltarGuiVerifier {
             } catch(ReflectiveOperationException e){throw new RuntimeException(e);}
         }
         @Override public void render(GuiGraphics g,int mx,int my,float partialTick) {
-            altar.render(g,-999,-999,partialTick);
+            if(category==4)renderAssets(g);
+            else altar.render(g,category==3?(width-312)/2+(frames<15?85:110):-999,category==3?(height-236)/2+104:-999,partialTick);
             if(++frames==30) {
                 g.flush();
                 try(var image=Screenshot.takeScreenshot(minecraft.getMainRenderTarget())) {
@@ -97,12 +100,60 @@ public final class AltarGuiVerifier {
                     image.writeToFile(path);
                     System.out.println("PASS: rendered altar category "+category+" at "+width+"x"+height+" GUI pixels");
                 }catch(Exception e){throw new RuntimeException(e);}
-                if(++category<3){frames=0;create();}
+                if(++category<5){frames=0;create();}
                 else {
-                    try{Files.writeString(Path.of("altar-gui-verification.txt"),"PASS: all three categories rendered at "+width+"x"+height);}
+                    try{Files.writeString(Path.of("altar-gui-verification.txt"),"PASS: categories, repair tooltip, stitched equipment sprite and armor model rendered at "+width+"x"+height);}
                     catch(Exception e){throw new RuntimeException(e);}
                     minecraft.stop();
                 }
+            }
+        }
+        private void renderAssets(GuiGraphics g) {
+            var atlas=minecraft.getTextureAtlas(net.minecraft.world.inventory.InventoryMenu.BLOCK_ATLAS);
+            var id=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("kitsunebi","entity/kitsunebi_shrine_palette");
+            if(!atlas.apply(id).contents().name().equals(id))throw new AssertionError("Equipment atlas sprite missing");
+            g.fill(0,0,width,height,0xFF20232D);
+            g.drawString(minecraft.font,"Equipment materials / actual game renderer",8,8,0xFFFFFFFF);
+            var items=java.util.List.of(net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_HEADDRESS,net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_HAORI,
+                    net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_HAKAMA,net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_TABI,
+                    net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_SWORD,net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_PICKAXE,
+                    net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_AXE,net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_SHOVEL,net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_HOE,
+                    net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_GOHEI,net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_GOGGLES);
+            for(int i=0;i<items.size();i++) {
+                g.pose().pushPose();g.pose().translate(10+(i%3)*30,35+(i/3)*35,0);g.pose().scale(1.7F,1.7F,1.7F);
+                g.renderItem(new ItemStack(items.get(i).get()),0,0);g.pose().popPose();
+            }
+            g.flush();
+            var model=net.kafgchan.kitsunebi.client.model.KitsunebiArmorVisuals.create();
+            model.young=false;
+            var wearer=new net.minecraft.world.entity.decoration.ArmorStand(net.minecraft.world.entity.EntityType.ARMOR_STAND,null) {
+                @Override public ItemStack getItemBySlot(net.minecraft.world.entity.EquipmentSlot slot) {
+                    return switch(slot) {
+                        case HEAD->new ItemStack(net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_HEADDRESS.get());
+                        case CHEST->new ItemStack(net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_HAORI.get());
+                        case LEGS->new ItemStack(net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_HAKAMA.get());
+                        case FEET->new ItemStack(net.kafgchan.kitsunebi.registry.ModItems.KITSUNEBI_TABI.get());
+                        default->ItemStack.EMPTY;
+                    };
+                }
+            };
+            for(var slot:new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.HEAD,net.minecraft.world.entity.EquipmentSlot.CHEST,net.minecraft.world.entity.EquipmentSlot.LEGS,net.minecraft.world.entity.EquipmentSlot.FEET}) {
+                var stack=wearer.getItemBySlot(slot);
+                var hooked=net.neoforged.neoforge.client.extensions.common.IClientItemExtensions.of(stack).getGenericArmorModel(wearer,stack,slot,model);
+                if(!(hooked instanceof net.kafgchan.kitsunebi.client.model.KitsunebiArmorVisualModel<?>))throw new AssertionError("Armor render hook absent: "+slot);
+            }
+            for(int count=1;count<=4;count++) {
+                g.pose().pushPose();g.pose().translate(120+(count-1)*52,65,80);g.pose().scale(42,42,42);
+                g.pose().mulPose(com.mojang.math.Axis.YP.rotationDegrees(count==1?150:0));
+                var mannequin=net.minecraft.client.model.geom.builders.LayerDefinition.create(net.minecraft.client.model.HumanoidModel.createMesh(net.minecraft.client.model.geom.builders.CubeDeformation.NONE,0),128,128).bakeRoot();
+                mannequin.getChild("head").render(g.pose(),g.bufferSource().getBuffer(net.minecraft.client.renderer.RenderType.entityCutoutNoCull(net.kafgchan.kitsunebi.client.model.KitsunebiArmorVisuals.TEXTURE)),15728880,net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,-1);
+                for(var slot:new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.HEAD,net.minecraft.world.entity.EquipmentSlot.CHEST,net.minecraft.world.entity.EquipmentSlot.LEGS,net.minecraft.world.entity.EquipmentSlot.FEET}) {
+                    model.configure(slot,count,0);
+                    var buffer=g.bufferSource().getBuffer(net.minecraft.client.renderer.RenderType.entityCutoutNoCull(net.kafgchan.kitsunebi.client.model.KitsunebiArmorVisuals.TEXTURE));
+                    model.renderToBuffer(g.pose(),buffer,15728880,net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,-1);
+                }
+                g.flush();g.pose().popPose();
+                g.drawString(minecraft.font,new int[]{1,3,6,9}[count-1]+" tails",104+(count-1)*52,165,0xFFFFFFFF);
             }
         }
     }

@@ -28,6 +28,12 @@ neoForge {
     }
 
     runs {
+        compatVerifyClient {
+            client()
+            gameDirectory = file('build/compat-verify-client')
+            programArguments.addAll '--width', '960', '--height', '720', '--quickPlaySingleplayer', 'compat-test'
+            systemProperty 'kitsunebi.verifyCompat', 'true'
+        }
         altarVerifyClient {
             client()
             gameDirectory = file('build/altar-verify-client')
@@ -91,4 +97,18 @@ neoForge.ideSyncTask generateModMetadata
 
 processResources {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+// Optional integrations: only the selected viewer is loaded in development.
+sourceSets.main.java.srcDir file("../compat/src/main/java")
+dependencies {
+    compileOnly "mezz.jei:jei-1.21.1-neoforge:19.21.0.247"
+    compileOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
+    compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:16.0.799"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1"
+    if (providers.gradleProperty('curiosEnabled').getOrElse('true').toBoolean()) runtimeOnly "top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1"
+    def viewer = providers.gradleProperty('recipeViewer').getOrElse('jei')
+    if (viewer == 'jei') runtimeOnly "mezz.jei:jei-1.21.1-neoforge:19.21.0.247"
+    if (viewer == 'emi') runtimeOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
+    if (viewer == 'rei') runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:16.0.799"
 }

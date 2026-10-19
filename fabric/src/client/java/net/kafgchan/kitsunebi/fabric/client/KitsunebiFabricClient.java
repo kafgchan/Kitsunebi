@@ -13,6 +13,9 @@ import java.util.function.Supplier;
 public class KitsunebiFabricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.registerGlobalReceiver(net.kafgchan.kitsunebi.network.KitsunebiAirWalkStatePacket.TYPE,
+                (payload,context)->context.client().execute(()->net.kafgchan.kitsunebi.client.KitsunebiAirWalkClientState.apply(context.player(),payload.active())));
+        KitsunebiArmorRendering.register();
         net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin.register(plugin ->
                 plugin.modifyModelAfterBake().register((model, context) ->
                         net.kafgchan.kitsunebi.client.SmoothSlopeModel.replace(context.topLevelId(), model)));
@@ -31,6 +34,7 @@ public class KitsunebiFabricClient implements ClientModInitializer {
         // 装備・手持ちの変更時のみ可視化モデルを再構築、およびキー入力処理
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client != null) {
+                CompatClientVerifier.tick(client);
                 KitsunebiFabricKeyHandler.onClientTick(client);
                 if (KitsunebiClientHelper.tickClient(client.player, client.level) && client.level != null && client.player != null) {
                     KitsunebiClientHelper.refreshVisionSections(client.level, client.player.blockPosition(),

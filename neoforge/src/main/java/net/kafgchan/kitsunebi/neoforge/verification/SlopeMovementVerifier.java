@@ -21,6 +21,10 @@ public final class SlopeMovementVerifier {
         String result;
         try {
             var level=event.getServer().overworld();
+            AltarCompatVerifier.verify(level);
+            AirWalkVerifier.verify(level);
+            MiningRegressionVerifier.verify(level);
+            EquipmentFeaturesVerifier.verify(level);
             StackingVerifier.verify(level);
             AltarMenuVerifier.verify(level);
             var slopes=java.util.List.of(ModBlocks.PHANTOM_SLOPE_HIGH.get(),ModBlocks.PHANTOM_SLOPE_MID.get(),ModBlocks.PHANTOM_SLOPE_LOW.get());
