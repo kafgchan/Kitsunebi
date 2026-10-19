@@ -13,8 +13,9 @@ dependencies {
 // Keep common as an explicit source-project reference in JDT, not only a Gradle artifact.
 eclipse.project.referencedProjects 'common'
 eclipse.classpath.file.whenMerged { classpath ->
-    if (!classpath.entries.any { it instanceof org.gradle.plugins.ide.eclipse.model.ProjectDependency && it.path == '/common' }) {
-        def commonProject = new org.gradle.plugins.ide.eclipse.model.ProjectDependency('/common')
+    if (!classpath.entries.any { it.getClass().simpleName == 'ProjectDependency' && it.path == '/common' }) {
+        def projectDepClass = Class.forName('org.gradle.plugins.ide.eclipse.model.ProjectDependency')
+        def commonProject = projectDepClass.getConstructor(String).newInstance('/common')
         commonProject.exported = true
         commonProject.entryAttributes['gradle_scope'] = 'main'
         commonProject.entryAttributes['gradle_used_by_scope'] = 'main,test'
