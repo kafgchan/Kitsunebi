@@ -1,7 +1,7 @@
 """Keep the altar's compact UI labels consistent across the six supported locales."""
 import json
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]/'common/src/main/resources/assets/kitsunebi/lang'
+ROOT=Path(__file__).resolve().parents[1]/'common-1.21.1/src/main/resources/assets/kitsunebi/lang'
 keys=['input','color','shape','preview','output','quantity','craft','ready','missing','output_full',
       'ingredient.light','ingredient.amethyst','ingredient.bamboo','ingredient.lapis','ingredient.dye',
       'ingredient.fire','ingredient.amethyst_block','ingredient.block','ingredient.slime','ingredient.soul',

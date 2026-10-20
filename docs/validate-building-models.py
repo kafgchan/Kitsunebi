@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-ASSETS = Path(__file__).resolve().parents[1] / 'common/src/main/resources/assets/kitsunebi'
+ASSETS = Path(__file__).resolve().parents[1] / 'common-1.21.1/src/main/resources/assets/kitsunebi'
 count = 0
 for path in (ASSETS / 'models').rglob('*.json'):
     data = json.loads(path.read_text(encoding='utf-8'))

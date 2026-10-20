@@ -3,7 +3,7 @@ import json, math
 from pathlib import Path
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parents[2]
-A=ROOT/'common/src/main/resources/assets/kitsunebi'
+A=ROOT/'common-1.21.1/src/main/resources/assets/kitsunebi'
 names=['headdress','haori','hakama','tabi','sword','pickaxe','axe','shovel','hoe']
 textures={'#fabric':Image.open(A/'textures/entity/kitsunebi_equipment.png').convert('RGB'),'#palette':Image.open(A/'textures/item/kitsunebi_equipment_palette.png').convert('RGB')}
 sheet=Image.new('RGB',(1200,1200),(31,34,45))

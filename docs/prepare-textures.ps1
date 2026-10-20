@@ -2,8 +2,9 @@ param([string]$Manifest = "$PSScriptRoot/texture-generation.json")
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $project = Split-Path $PSScriptRoot -Parent
-$assets = Join-Path $project 'common/src/main/resources/assets/kitsunebi/textures'
-$backup = Join-Path $PSScriptRoot 'texture-backup-2026-10-18'
+$assets = Join-Path $project 'common-1.21.1/src/main/resources/assets/kitsunebi/textures'
+$archiveRoot = Join-Path (Split-Path $project -Parent) 'Kitsunebi-Archive'
+$backup = Join-Path $archiveRoot ('texture-backups/' + (Get-Date -Format 'yyyyMMdd-HHmmss-fff'))
 $sources = Join-Path $PSScriptRoot 'texture-sources'
 New-Item -ItemType Directory -Force -Path $backup,$sources | Out-Null
 $entries = Get-Content -LiteralPath $Manifest -Raw | ConvertFrom-Json

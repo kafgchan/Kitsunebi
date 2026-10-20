@@ -16,7 +16,7 @@
 - 検証用NeoForgeクライアントで3カテゴリ・修理画面・9モデル・装着形状を描画。実アトラスのsprite存在チェック成功。初回修正後のコンパイルは両ローダーで成功。
 - 最終検証では4部位のNeoForge描画拡張が実際にカスタム装着モデルを返すことも確認。修理画面の狐火ブロック名を実描画し、Fabric remapJarも成功。配布JAR内の装着モデル2クラスとアトラス登録・画像の収録を検査済み。
 
-`neoforge/build/altar-verify-client/altar-gui-2.png` は製作、`altar-gui-3.png` は修理素材ツールチップ、`altar-gui-4.png` はゲームレンダラーによる装備確認画像です。
+`neoforge-1.21.1/build/altar-verify-client/altar-gui-2.png` は製作、`altar-gui-3.png` は修理素材ツールチップ、`altar-gui-4.png` はゲームレンダラーによる装備確認画像です。
 
 ## 適用した内容
 
@@ -68,10 +68,10 @@ State の意味：
 - common、Fabric client、NeoForge mainのJavaコンパイルは初回成功。
 - 独立した装着モデルも次の追加タスクでコンパイル成功。既存buildファイルの変更は不要。
 
-- 最終再確認では、並行作業中の `common/src/main/java/net/kafgchan/kitsunebi/item/armor/ModArmorMaterials.java:38` の構文エラー（`)` または `,` が必要）でコンパイルが停止。このファイルはCodex側で変更していません。9モデルの範囲・UV参照、6言語のキー、ボーン親子関係、尾9本の整合性チェックは成功。
+- 最終再確認では、並行作業中の `common-1.21.1/src/main/java/net/kafgchan/kitsunebi/item/armor/ModArmorMaterials.java:38` の構文エラー（`)` または `,` が必要）でコンパイルが停止。このファイルはCodex側で変更していません。9モデルの範囲・UV参照、6言語のキー、ボーン親子関係、尾9本の整合性チェックは成功。
 
 ```powershell
-java -jar gradle/wrapper/gradle-wrapper.jar -I docs/v04-codex/verify-visuals.gradle :common:compileJava :fabric:compileClientJava :neoforge:compileCodexVisualModel --offline --console=plain
+java -jar gradle/wrapper/gradle-wrapper.jar -I docs/v04-codex/verify-visuals.gradle :common-1.21.1:compileJava :fabric-1.21.1:compileClientJava :neoforge-1.21.1:compileCodexVisualModel --offline --console=plain
 ```
 
 - `equipment-preview.png` は本番アイテムJSONとUVをソフトウェアで描画した確認画像。

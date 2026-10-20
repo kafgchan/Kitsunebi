@@ -36,3 +36,6 @@ ehthumbs.db
 logs/
 */logs/
 docs/*-backup*/
+# Generated release binaries (documentation stays tracked)
+/releases/**/*.jar
+/releases/**/SHA256SUMS.txt

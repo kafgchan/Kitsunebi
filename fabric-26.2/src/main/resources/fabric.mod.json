@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "kitsunebi",
+  "version": "${version}",
+  "name": "Kitsunebi (Fabric ${minecraft_version} porting preview)",
+  "description": "Development bootstrap. Gameplay features from 1.21.1 are not yet available.",
+  "authors": ["kafgchan (楓 / Kaede)"],
+  "license": "LGPL-3.0-or-later",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": { "main": ["net.kafgchan.kitsunebi.fabric.KitsunebiFabric"] },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

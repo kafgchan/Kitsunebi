@@ -4,7 +4,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / 'common/src/main/resources/assets/kitsunebi'
+ASSETS = ROOT / 'common-1.21.1/src/main/resources/assets/kitsunebi'
 TEXTURE = 'kitsunebi:block/phantom_block'
 FACES = ('down', 'up', 'north', 'south', 'west', 'east')
 

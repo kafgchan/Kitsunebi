@@ -1,0 +1,157 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+version = mod_version
+group = mod_group_id
+base { archivesName = 'kitsunebi-forge-1.20.1' }
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    withSourcesJar()
+}
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+    copyIdeResources = true
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'info'
+            // Optional mods ship SRG refmaps; development uses Mojang names.
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', project.file('build/createSrgToMcp/output.srg').absolutePath
+            mods { kitsunebi { source sourceSets.main } }
+        }
+        client { }
+        visualVerifyClient {
+            parent runs.client
+            workingDirectory project.file('build/visual-verify-client')
+            property 'kitsunebi.verifyAltarGui', 'true'
+            args '--width', '1200', '--height', '900'
+        }
+        server {
+            args '--nogui'
+            if (project.hasProperty('verifyConnection')) {
+                workingDirectory project.file('build/connection-verify-server')
+                property 'kitsunebi.verifyConnectionServer', 'true'
+            }
+        }
+        verificationServer {
+            parent runs.server
+            workingDirectory project.file('build/verification-server')
+            property 'kitsunebi.verifyPort', 'true'
+        }
+        connectionVerifyClient {
+            parent runs.client
+            workingDirectory project.file('build/connection-verify-client')
+            property 'kitsunebi.verifyConnection', 'true'
+            property 'kitsunebi.verifyCompat', providers.gradleProperty('recipeViewer').map { it != 'none' }.getOrElse(false).toString()
+            args '--width', '1200', '--height', '900', '--quickPlayMultiplayer', '127.0.0.1:25590'
+        }
+    }
+}
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.blamejared.com' }
+    maven { url = 'https://maven.theillusivec4.top' }
+    maven { url = 'https://maven.terraformersmc.com/releases' }
+    maven { url = 'https://maven.shedaniel.me' }
+    maven { url = 'https://maven.architectury.dev' }
+}
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    compileOnly fg.deobf('top.theillusivec4.curios:curios-forge:5.14.1+1.20.1')
+    compileOnly fg.deobf('mezz.jei:jei-1.20.1-forge:15.20.0.135')
+    compileOnly fg.deobf('dev.emi:emi-forge:1.1.24+1.20.1')
+    compileOnly fg.deobf('me.shedaniel:RoughlyEnoughItems-forge:12.1.785')
+    compileOnly fg.deobf('me.shedaniel.cloth:cloth-config-forge:11.0.99')
+    compileOnly fg.deobf('dev.architectury:architectury-forge:9.0.7')
+    if (providers.gradleProperty('curiosEnabled').getOrElse('false').toBoolean()) runtimeOnly fg.deobf('top.theillusivec4.curios:curios-forge:5.14.1+1.20.1')
+    def viewer = providers.gradleProperty('recipeViewer').getOrElse('none')
+    if (viewer == 'jei') runtimeOnly fg.deobf('mezz.jei:jei-1.20.1-forge:15.20.0.135')
+    if (viewer == 'emi') runtimeOnly fg.deobf('dev.emi:emi-forge:1.1.24+1.20.1')
+    if (viewer == 'rei') {
+        runtimeOnly fg.deobf('me.shedaniel:RoughlyEnoughItems-forge:12.1.785')
+        runtimeOnly fg.deobf('me.shedaniel.cloth:cloth-config-forge:11.0.99')
+        runtimeOnly fg.deobf('dev.architectury:architectury-forge:9.0.7')
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
+}
+tasks.named('processResources', ProcessResources) {
+    def values = [mod_version: project.mod_version]
+    inputs.properties values
+    filesMatching('META-INF/mods.toml') { expand values }
+    from('../common-1.21.1/src/main/resources/icon.png')
+    from('../common-1.21.1/src/main/resources') { include 'assets/**' }
+}
+
+// Minecraft 1.20 uses plural datapack directories and recipe result.item.
+def legacyData = tasks.register('generateLegacyData') {
+    def sources = files('../common-1.21.1/src/main/resources/data', '../common-1.21.1/src/generated/resources/data')
+    inputs.files sources
+    def output = layout.buildDirectory.dir('generated/legacyResources')
+    outputs.dir output
+    doLast {
+        delete output
+        sources.files.findAll { it.exists() }.each { root ->
+            fileTree(root).matching { include '**/*.json'; exclude '**/.cache/**' }.each { input ->
+                def relative = root.toPath().relativize(input.toPath()).toString().replace('\\', '/')
+                relative = relative.replace('/recipe/', '/recipes/').replace('/loot_table/', '/loot_tables/')
+                    .replace('/tags/block/', '/tags/blocks/').replace('/tags/item/', '/tags/items/')
+                def data = new groovy.json.JsonSlurper().parse(input)
+                if (relative.contains('/recipes/') && data.result instanceof Map && data.result.id) {
+                    data.result.item = data.result.remove('id')
+                }
+                def destination = output.get().file("data/${relative}").asFile
+                destination.parentFile.mkdirs()
+                destination.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(data)) + '\n'
+            }
+        }
+    }
+}
+sourceSets.main.resources.srcDir legacyData
+tasks.withType(Jar).configureEach {
+    from('..') {
+        include 'LICENSE', 'LICENSE-GPL-3.0', 'LICENSE-ASSETS.md', 'CREDITS.md'
+        into 'META-INF/licenses/kitsunebi'
+    }
+}
+tasks.named('jar', Jar) { finalizedBy 'reobfJar' }
+
+tasks.matching { it.name.startsWith('run') }.configureEach {
+    dependsOn 'createSrgToMcp'
+}
+
+tasks.matching { it.name == 'runVerificationServer' }.configureEach {
+    doFirst { delete 'build/verification-server/slope-verification.txt' }
+    doLast {
+        def result = file('build/verification-server/slope-verification.txt')
+        if (!result.exists() || !result.text.startsWith('PASS:')) {
+            throw new GradleException(result.exists() ? result.text : 'Forge verification did not complete')
+        }
+    }
+}
+
+['runVisualVerifyClient': 'visual-verify-client/altar-gui-verification.txt',
+ 'runConnectionVerifyClient': 'connection-verify-client/connection-verification.txt'].each { name, path ->
+    tasks.matching { it.name == name }.configureEach {
+        doFirst {
+            delete "build/${path}"
+            if (name == 'runConnectionVerifyClient') delete fileTree('build/connection-verify-client') { include 'compat-*.txt' }
+        }
+        doLast {
+            def result = file("build/${path}")
+            if (!result.exists() || !result.text.startsWith('PASS:')) throw new GradleException("Verification incomplete: ${path}")
+            def viewer = providers.gradleProperty('recipeViewer').getOrElse('none')
+            if (name == 'runConnectionVerifyClient' && viewer != 'none') {
+                def compat = file("build/connection-verify-client/compat-${viewer}.txt")
+                if (!compat.exists() || !compat.text.startsWith('PASS:')) throw new GradleException("Recipe viewer verification incomplete: ${viewer}")
+            }
+        }
+    }
+}
+
+apply from: '../gradle/stage-release.gradle'

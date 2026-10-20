@@ -3,10 +3,57 @@ plugins {
     id 'net.fabricmc.fabric-loom-remap' version "${loom_version}" apply false
 }
 
+// ForgeGradle 6 uses its own Gradle 8.8 wrapper and Java 17; do not load it
+// into the Gradle 9 / Minecraft 1.21.1 subproject graph.
+['Build': 'build', 'RunClient': 'runClient', 'RunServer': 'runServer'].each { suffix, forgeTask ->
+    tasks.register("forge1201${suffix}", JavaExec) {
+        group = 'Forge 1.20.1'
+        description = "Runs ${forgeTask} using the isolated Forge 1.20.1 MDK."
+        workingDir layout.projectDirectory.dir('forge-1.20.1')
+        classpath = files('forge-1.20.1/gradle/wrapper/gradle-wrapper.jar')
+        mainClass = 'org.gradle.wrapper.GradleWrapperMain'
+        javaLauncher = project(':common-1.21.1').javaToolchains.launcherFor {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+        args forgeTask, '--console=plain'
+        ['recipeViewer', 'curiosEnabled'].each { key ->
+            def value = providers.gradleProperty(key)
+            if (value.isPresent()) args "-P${key}=${value.get()}"
+        }
+    }
+}
+
+['26.1.2', '26.2', '26.3'].each { minecraftVersion ->
+    ['fabric', 'neoforge'].each { loader ->
+        def taskPrefix = loader + minecraftVersion.replace('.', '')
+        ['Build': 'build', 'RunClient': 'runClient', 'RunServer': 'runServer'].each { suffix, portTask ->
+            tasks.register("${taskPrefix}${suffix}", JavaExec) {
+                group = 'Minecraft 26.x porting'
+                description = "Runs ${portTask} using the isolated ${loader} ${minecraftVersion} template."
+                workingDir layout.projectDirectory.dir("${loader}-${minecraftVersion}")
+                classpath = files("${loader}-${minecraftVersion}/gradle/wrapper/gradle-wrapper.jar")
+                mainClass = 'org.gradle.wrapper.GradleWrapperMain'
+                javaLauncher = project(':common-1.21.1').javaToolchains.launcherFor {
+                    languageVersion = JavaLanguageVersion.of(25)
+                }
+                args portTask, '--console=plain'
+            }
+        }
+    }
+}
+
 subprojects {
     apply plugin: 'java-library'
     apply plugin: 'eclipse'
     apply plugin: 'maven-publish'
+
+    // Include notices in binary and source JARs for both loaders.
+    tasks.withType(Jar).configureEach {
+        from(rootProject.projectDir) {
+            include 'LICENSE', 'LICENSE-GPL-3.0', 'LICENSE-ASSETS.md', 'CREDITS.md'
+            into 'META-INF/licenses/kitsunebi'
+        }
+    }
 
     // JDT owns its output; Gradle/Loom run preparation must not write into it.
     eclipse.classpath {
@@ -56,5 +103,16 @@ subprojects {
     java {
         toolchain.languageVersion = JavaLanguageVersion.of(21)
         withSourcesJar()
+    }
+
+    // JDT queries all projects from one tooling model. Resolve processor paths
+    // while this project owns its configuration lock, preserving all processors.
+    afterEvaluate {
+        tasks.withType(JavaCompile).each { compileTask ->
+            def processorPath = compileTask.options.annotationProcessorPath
+            if (processorPath != null) {
+                compileTask.options.annotationProcessorPath = files(processorPath.files)
+            }
+        }
     }
 }

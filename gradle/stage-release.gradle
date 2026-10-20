@@ -1,0 +1,27 @@
+// Shared by the independent wrappers and the 1.21.1 loader projects.
+// Stage only successful build outputs, never development/intermediate JARs.
+def module = project.projectDir.name
+def loader = module.substring(0, module.indexOf('-'))
+def minecraft = module.substring(module.indexOf('-') + 1)
+def preview = minecraft.startsWith('26.')
+def repository = project.projectDir.parentFile
+def releaseDirectory = new File(repository, "releases/${preview ? 'preview/' : ''}${minecraft}/${loader}/${project.version}")
+tasks.named('build') {
+    doLast {
+        def binaryTask = tasks.findByName('remapJar') ?: tasks.named('jar').get()
+        def sourcesTask = tasks.findByName('remapSourcesJar') ?: tasks.named('sourcesJar').get()
+        def artifacts = [binaryTask.archiveFile.get().asFile, sourcesTask.archiveFile.get().asFile]
+        artifacts.each { if (!it.isFile()) throw new GradleException("Missing release artifact: ${it}") }
+        copy { from artifacts; into releaseDirectory }
+        new File(releaseDirectory, 'SHA256SUMS.txt').text = artifacts.collect { artifact ->
+            def digest = java.security.MessageDigest.getInstance('SHA-256')
+            artifact.withInputStream { stream ->
+                byte[] buffer = new byte[65536]
+                int count
+                while ((count = stream.read(buffer)) != -1) digest.update(buffer, 0, count)
+            }
+            "${digest.digest().encodeHex()}  ${artifact.name}"
+        }.join('\n') + '\n'
+        logger.lifecycle("Release JARs: ${releaseDirectory}")
+    }
+}

@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $project = Split-Path $PSScriptRoot -Parent
-$assets = Join-Path $project 'common/src/main/resources/assets/kitsunebi'
+$assets = Join-Path $project 'common-1.21.1/src/main/resources/assets/kitsunebi'
 $names = @('block/kitsunebi_white.png','block/kitsunebi_blue.png','block/kitsunebi_cyan.png','block/kitsunebi_green.png','block/kitsunebi_purple.png','block/kitsunebi_orange.png','block/kitsunebi_red.png','item/kitsunebi_gohei.png','item/kitsunebi_goggles.png','block/phantom_block.png')
 $sheet = [System.Drawing.Bitmap]::new(800,320)
 $g = [System.Drawing.Graphics]::FromImage($sheet)

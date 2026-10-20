@@ -1,0 +1,24 @@
+plugins { id 'net.fabricmc.fabric-loom-remap' }
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    compileOnly project(':common-1.21.1')
+    compileOnly "net.fabricmc:fabric-loader:${project.loader_version}"
+    compileOnly "mezz.jei:jei-1.21.1-common-api:19.21.0.247"
+    compileOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
+    compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:16.0.799"
+}
+
+
+// Keep common as an explicit source-project reference in JDT, not only a Gradle artifact.
+eclipse.project.referencedProjects 'common-1.21.1'
+eclipse.classpath.file.whenMerged { classpath ->
+    if (!classpath.entries.any { it.getClass().simpleName == 'ProjectDependency' && it.path == '/common-1.21.1' }) {
+        def projectDepClass = Class.forName('org.gradle.plugins.ide.eclipse.model.ProjectDependency')
+        def commonProject = projectDepClass.getConstructor(String).newInstance('/common-1.21.1')
+        commonProject.exported = true
+        commonProject.entryAttributes['gradle_scope'] = 'main'
+        commonProject.entryAttributes['gradle_used_by_scope'] = 'main,test'
+        classpath.entries.add(commonProject)
+    }
+}

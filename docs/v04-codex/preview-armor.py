@@ -3,7 +3,7 @@ import json, math
 from pathlib import Path
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parents[2]
-A=ROOT/'common/src/main/resources/assets/kitsunebi'
+A=ROOT/'common-1.21.1/src/main/resources/assets/kitsunebi'
 names=['1 tail / 315 deg','3 tails / 0 deg','6 tails / 0 deg','9 tails / 0 deg']
 geometry=json.loads((A/'codex/v04/armor_geometry.json').read_text())
 textures={'#fabric':Image.open(A/'textures/entity/kitsunebi_equipment.png').convert('RGB'),'#palette':Image.open(A/'textures/item/kitsunebi_equipment_palette.png').convert('RGB')}

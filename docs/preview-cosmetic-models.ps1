@@ -1,6 +1,6 @@
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.Drawing
-$assets=Join-Path (Split-Path $PSScriptRoot -Parent) 'common/src/main/resources/assets/kitsunebi'
+$assets=Join-Path (Split-Path $PSScriptRoot -Parent) 'common-1.21.1/src/main/resources/assets/kitsunebi'
 $palette=[System.Drawing.Bitmap]::new((Join-Path $assets 'textures/block/model_palette.png'))
 $sheet=[System.Drawing.Bitmap]::new(600,720)
 $g=[System.Drawing.Graphics]::FromImage($sheet)

@@ -4,10 +4,10 @@
 
 ## 1. アセット配置ディレクトリ規約
 
-アセットはマルチローダー共通として `common/src/main/resources/` に配置する。
+アセットはマルチローダー共通として `common-1.21.1/src/main/resources/` に配置する。
 
 ```text
-common/src/main/resources/assets/kitsunebi/
+common-1.21.1/src/main/resources/assets/kitsunebi/
 ├── textures/
 │   ├── item/           # 狐火アイテム・御幣テクスチャ (.png)
 │   └── block/          # 狐火ブロックテクスチャ (.png)

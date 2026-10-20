@@ -11,7 +11,7 @@ preserves the generated alpha channel without adding filtering. Foxfire block
 and inventory textures use the same image for each color.
 
 - `texture-sources/`: full-resolution generated source images.
-- `texture-backup-2026-10-18/`: textures saved before replacement.
+- Previous texture backups are archived outside this repository; see `README.md`.
 - `texture-preview.png`: enlarged runtime texture contact sheet.
 - `prepare-textures.ps1`: repeatable conversion and replacement script.
 
@@ -60,7 +60,7 @@ only player selection queries are hidden without vision equipment. This avoids
 `ParticleEngine.crack` requesting bounds on an empty shape. Kitsunebi Block has
 solid attachment support and all six support faces while retaining empty collision.
 
-`gradlew :common:shapeRegression` tests engine shape/bounds calls, fence connections,
+`gradlew :common-1.21.1:shapeRegression` tests engine shape/bounds calls, fence connections,
 and attachment support. It also verifies all 120 smooth slope mesh combinations
 for signed volume, winding, bounds, rotation and upside-down orientation.
 It is also part of the common `check` task.
@@ -71,7 +71,7 @@ NeoForge `runSlopeVerifyServer` task opts into a runtime fixture that performs 7
 real `Player.travel` flat-ground entry and complete ascent runs, comparing slopes
 against same-size stairs across all sizes/directions and three input speed settings.
 High/mid traverse in the same tick count; low differs by at most one tick. It records
-`neoforge/build/slope-verify-server/slope-verification.txt`, and stops the server.
+`neoforge-1.21.1/build/slope-verify-server/slope-verification.txt`, and stops the server.
 Its working directory is separate from normal runs and it should bind localhost.
 `SmoothSlopeModel` lives in the standard common main source root. Fabric excludes
 that client-only source from main compilation, references the common compiled class

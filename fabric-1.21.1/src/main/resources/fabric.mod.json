@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "kitsunebi",
+  "version": "${mod_version}",
+  "name": "Kitsunebi",
+  "description": "Adds seven colors of foxfire lighting, phantom building blocks, altar crafting and repair, and Japanese-inspired Shuko equipment and tools with supernatural abilities. Inspired by the foxfire of Bamboo Mod. Requires Architectury API; the Fabric edition also requires Fabric API.",
+  "authors": ["Antigravity", "Kaede"],
+  "license": "LGPL-3.0-or-later",
+  "icon": "assets/kitsunebi/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["net.kafgchan.kitsunebi.fabric.KitsunebiFabric"],
+    "client": ["net.kafgchan.kitsunebi.fabric.client.KitsunebiFabricClient"],
+    "jei_mod_plugin": ["net.kafgchan.kitsunebi.compat.AltarJeiPlugin"],
+    "emi": ["net.kafgchan.kitsunebi.compat.AltarEmiPlugin"],
+    "rei_client": ["net.kafgchan.kitsunebi.compat.AltarReiPlugin"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*",
+    "architectury": ">=${architectury_version}"
+  },
+  "mixins": ["kitsunebi.mixins.json"]
+}

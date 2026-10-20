@@ -1,0 +1,44 @@
+package net.kafgchan.kitsunebi.registry;
+
+import net.kafgchan.kitsunebi.platform.Services;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+
+import java.util.function.Supplier;
+
+public class ModCreativeTabs {
+    public static final Supplier<CreativeModeTab> KITSUNEBI_TAB = Services.PLATFORM.registerCreativeTab(
+            "kitsunebi_tab",
+            () -> Services.PLATFORM.creativeTabBuilder()
+                    .title(Component.translatable("itemGroup.kitsunebi.kitsunebi_tab"))
+                    .icon(() -> new ItemStack(ModItems.getItem("white").get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(ModItems.KITSUNEBI_GOHEI.get());
+                        output.accept(ModItems.KITSUNEBI_GOGGLES.get());
+                        output.accept(ModItems.KITSUNEBI_ALTAR.get());
+                        // 狐火防具4種
+                        output.accept(ModItems.KITSUNEBI_HEADDRESS.get());
+                        output.accept(ModItems.KITSUNEBI_HAORI.get());
+                        output.accept(ModItems.KITSUNEBI_HAKAMA.get());
+                        output.accept(ModItems.KITSUNEBI_TABI.get());
+                        // 狐火ツール5種
+                        output.accept(ModItems.KITSUNEBI_SWORD.get());
+                        output.accept(ModItems.KITSUNEBI_PICKAXE.get());
+                        output.accept(ModItems.KITSUNEBI_AXE.get());
+                        output.accept(ModItems.KITSUNEBI_SHOVEL.get());
+                        output.accept(ModItems.KITSUNEBI_HOE.get());
+                        for (String color : ModBlocks.COLORS) {
+                            output.accept(ModItems.getItem(color).get());
+                        }
+                        for (var itemSupplier : ModItems.PHANTOM_ITEMS.values()) {
+                            output.accept(itemSupplier.get());
+                        }
+                    })
+                    .build()
+    );
+
+    public static void init() {
+        // クラスロード用
+    }
+}

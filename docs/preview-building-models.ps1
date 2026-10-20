@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $project = Split-Path $PSScriptRoot -Parent
-$assets = Join-Path $project 'common/src/main/resources/assets/kitsunebi'
+$assets = Join-Path $project 'common-1.21.1/src/main/resources/assets/kitsunebi'
 $names = @('phantom_stairs_high','phantom_stairs_mid','phantom_stairs_low','phantom_slope_high','phantom_slope_mid','phantom_slope_low','phantom_fence','phantom_wall','phantom_door','phantom_button','phantom_lever','phantom_pressure_plate')
 $sheet = [System.Drawing.Bitmap]::new(960,360)
 $g = [System.Drawing.Graphics]::FromImage($sheet)

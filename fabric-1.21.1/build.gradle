@@ -1,0 +1,145 @@
+plugins {
+    id 'net.fabricmc.fabric-loom-remap'
+}
+
+base {
+    archivesName = "${project.mod_id}-fabric-${project.minecraft_version}"
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        "${project.mod_id}" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+
+    runs {
+        compatVerifyClient {
+            client()
+            runDir 'build/compat-verify-client'
+            programArgs '--width', '960', '--height', '720', '--quickPlaySingleplayer', 'compat-test'
+            vmArg '-Dkitsunebi.verifyCompat=true'
+        }
+        networkVerifyClient {
+            client()
+            runDir 'build/network-verify-client'
+            programArgs '--width', '960', '--height', '720', '--quickPlayMultiplayer', '127.0.0.1:25587'
+            vmArg '-Dkitsunebi.verifyNetworkClient=true'
+        }
+        networkVerifyServer {
+            server()
+            runDir 'build/network-verify-server'
+            programArg '--nogui'
+            vmArg '-Dkitsunebi.verifyNetwork=true'
+            vmArg "-Dkitsunebi.verifyNetworkConnection=${providers.gradleProperty('verifyNetworkConnection').getOrElse('false')}"
+        }
+        slopeVerifyServer {
+            server()
+            runDir 'build/slope-verify-server'
+        }
+        client {
+            client()
+            name = "Fabric Client"
+            runDir = "run"
+        }
+        server {
+            server()
+            name = "Fabric Server"
+            runDir = "run"
+        }
+    }
+}
+
+fabricApi {
+    configureDataGeneration {
+        client = true
+        modId = "${project.mod_id}"
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    modImplementation "dev.architectury:architectury-fabric:${project.architectury_version}"
+
+    compileOnly project(':common-1.21.1')
+    clientCompileOnly project(':common-1.21.1')
+}
+
+sourceSets.main.java {
+    srcDir file('../common-1.21.1/src/main/java')
+    exclude 'net/kafgchan/kitsunebi/client/SmoothSlopeModel.java'
+    exclude 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen.java'
+    exclude 'net/kafgchan/kitsunebi/client/KitsunebiKeyHandler.java'
+    exclude 'net/kafgchan/kitsunebi/client/model/**'
+}
+
+// Compile shared client code into the client source set, including development runs.
+sourceSets.client.java {
+    srcDir file('../common-1.21.1/src/main/java')
+    include 'net/kafgchan/kitsunebi/fabric/client/**'
+    include 'net/kafgchan/kitsunebi/client/SmoothSlopeModel.java'
+    include 'net/kafgchan/kitsunebi/client/KitsunebiAltarScreen.java'
+    include 'net/kafgchan/kitsunebi/client/KitsunebiKeyHandler.java'
+    include 'net/kafgchan/kitsunebi/client/model/**'
+    include 'net/kafgchan/kitsunebi/compat/**'
+}
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from file('../common-1.21.1/src/main/resources')
+    from file('../common-1.21.1/src/generated/resources')
+
+    def expandProps = [
+        "mod_id": project.mod_id,
+        "mod_name": project.mod_name,
+        "mod_version": project.mod_version,
+        "version": project.mod_version,
+        "minecraft_version": project.minecraft_version,
+        "loader_version": project.loader_version,
+        "architectury_version": project.architectury_version
+    ]
+    filesMatching("fabric.mod.json") {
+        expand expandProps
+    }
+}
+
+// Optional integrations: only the selected viewer is loaded in development.
+sourceSets.client.java.srcDir file("../compat-1.21.1/src/main/java")
+dependencies {
+    modClientCompileOnly("mezz.jei:jei-1.21.1-fabric:19.21.0.247") { transitive = false }
+    modClientCompileOnly "dev.emi:emi-fabric:1.1.24+1.21.1"
+    modClientCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:16.0.799"
+    def viewer = providers.gradleProperty('recipeViewer').getOrElse('jei')
+    if (viewer == 'jei') modClientRuntimeOnly("mezz.jei:jei-1.21.1-fabric:19.21.0.247") { transitive = false }
+    if (viewer == 'emi') modClientRuntimeOnly "dev.emi:emi-fabric:1.1.24+1.21.1"
+    if (viewer == 'rei') modClientRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:16.0.799"
+}
+
+// A runtime assertion must fail the Gradle task, rather than merely print FAIL to the server log.
+tasks.named('runNetworkVerifyServer') {
+    doFirst { file('build/network-verify-server/network-verification.txt').delete() }
+    doLast {
+        def result = file('build/network-verify-server/network-verification.txt')
+        if (!result.exists() || !result.getText('UTF-8').startsWith('PASS:')) {
+            throw new GradleException(result.exists() ? result.getText('UTF-8') : 'Fabric network verification did not finish')
+        }
+    }
+}
+
+tasks.named('runNetworkVerifyClient') {
+    doFirst { file('build/network-verify-client/network-client-verification.txt').delete() }
+    doLast {
+        def result = file('build/network-verify-client/network-client-verification.txt')
+        if (!result.exists() || !result.getText('UTF-8').startsWith('PASS:')) {
+            throw new GradleException(result.exists() ? result.getText('UTF-8') : 'Fabric connection verification did not finish')
+        }
+    }
+}
+
+apply from: '../gradle/stage-release.gradle'

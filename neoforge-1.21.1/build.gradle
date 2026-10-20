@@ -1,0 +1,118 @@
+plugins {
+    id 'net.neoforged.moddev'
+    id 'idea'
+}
+
+base {
+    archivesName = "${project.mod_id}-neoforge-${project.minecraft_version}"
+}
+
+sourceSets.main.java {
+    srcDir file('../common-1.21.1/src/main/java')
+}
+
+sourceSets.main.resources {
+    srcDir('src/generated/resources')
+    srcDir file('../common-1.21.1/src/main/resources')
+    srcDir file('../common-1.21.1/src/generated/resources')
+    exclude("**/*.bbmodel")
+    exclude("src/generated/**/.cache")
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        compatVerifyClient {
+            client()
+            gameDirectory = file('build/compat-verify-client')
+            programArguments.addAll '--width', '960', '--height', '720', '--quickPlaySingleplayer', 'compat-test'
+            systemProperty 'kitsunebi.verifyCompat', 'true'
+        }
+        altarVerifyClient {
+            client()
+            gameDirectory = file('build/altar-verify-client')
+            programArguments.addAll '--width', '960', '--height', '720'
+            systemProperty 'kitsunebi.verifyAltarGui', 'true'
+        }
+        slopeVerifyServer {
+            server()
+            gameDirectory = file('build/slope-verify-server')
+            programArgument '--nogui'
+            systemProperty 'kitsunebi.verifySlopeMovement', 'true'
+        }
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('../common-1.21.1/src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing', file('../common-1.21.1/src/main/resources/').getAbsolutePath()
+        }
+
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+
+    mods {
+        "${project.mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_group_id           : mod_group_id,
+            architectury_version   : architectury_version
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+// Optional integrations: only the selected viewer is loaded in development.
+sourceSets.main.java.srcDir file("../compat-1.21.1/src/main/java")
+dependencies {
+    implementation "dev.architectury:architectury-neoforge:${project.architectury_version}"
+    compileOnly "mezz.jei:jei-1.21.1-neoforge:19.21.0.247"
+    compileOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
+    compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:16.0.799"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1"
+    if (providers.gradleProperty('curiosEnabled').getOrElse('true').toBoolean()) runtimeOnly "top.theillusivec4.curios:curios-neoforge:9.5.1+1.21.1"
+    def viewer = providers.gradleProperty('recipeViewer').getOrElse('jei')
+    if (viewer == 'jei') runtimeOnly "mezz.jei:jei-1.21.1-neoforge:19.21.0.247"
+    if (viewer == 'emi') runtimeOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
+    if (viewer == 'rei') runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:16.0.799"
+}
+
+apply from: '../gradle/stage-release.gradle'

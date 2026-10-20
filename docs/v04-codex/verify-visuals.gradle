@@ -1,5 +1,5 @@
 gradle.projectsEvaluated {
-    def neo = gradle.rootProject.project(':neoforge')
+    def neo = gradle.rootProject.project(':neoforge-1.21.1')
     neo.tasks.register('compileCodexVisualModel', JavaCompile) {
         dependsOn neo.tasks.named('compileJava')
         source gradle.rootProject.fileTree('docs/v04-codex/integration/java') { include '**/*.java' }

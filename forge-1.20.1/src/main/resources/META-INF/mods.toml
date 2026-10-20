@@ -1,0 +1,54 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="LGPL-3.0-or-later"
+[[mods]]
+modId="kitsunebi"
+version="${mod_version}"
+displayName="Kitsunebi"
+authors="kafgchan (楓 / Kaede)"
+logoFile="icon.png"
+description='''
+Adds seven colors of foxfire lighting, phantom building blocks, altar crafting and repair,
+and Japanese-inspired Shuka equipment and tools with supernatural abilities.
+Forge 1.20.1 edition. Inspired by the foxfire of Bamboo Mod.
+'''
+[[dependencies.kitsunebi]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.10,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.kitsunebi]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.kitsunebi]]
+modId="curios"
+mandatory=false
+versionRange="[5.14.1,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.kitsunebi]]
+modId="jei"
+mandatory=false
+versionRange="[15,)"
+ordering="AFTER"
+side="CLIENT"
+
+[[dependencies.kitsunebi]]
+modId="emi"
+mandatory=false
+versionRange="[1.1,)"
+ordering="AFTER"
+side="CLIENT"
+
+[[dependencies.kitsunebi]]
+modId="roughlyenoughitems"
+mandatory=false
+versionRange="[12,)"
+ordering="AFTER"
+side="CLIENT"

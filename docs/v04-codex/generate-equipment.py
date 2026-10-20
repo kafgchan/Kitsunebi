@@ -2,7 +2,7 @@
 import json, math, struct, zlib, uuid
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
-A=ROOT/'common/src/main/resources/assets/kitsunebi'
+A=ROOT/'common-1.21.1/src/main/resources/assets/kitsunebi'
 OUT=ROOT/'docs/v04-codex'
 for p in [A/'textures/item',A/'models/item',A/'codex/v04',OUT/'integration/java/net/kafgchan/kitsunebi/client/model']:
     p.mkdir(parents=True,exist_ok=True)

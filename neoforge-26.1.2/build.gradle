@@ -1,0 +1,39 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+    id 'idea'
+}
+version = mod_version
+group = mod_group_id
+base { archivesName = "kitsunebi-neoforge-${minecraft_version}-porting" }
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+neoForge {
+    version = project.neo_version
+    runs {
+        client { client() }
+        server { server(); programArgument '--nogui' }
+    }
+    mods { kitsunebi { sourceSet sourceSets.main } }
+}
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    def values = [mod_version: project.mod_version, minecraft_version: project.minecraft_version, neo_version: project.neo_version]
+    inputs.properties values
+    expand values
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+processResources { from('../common-1.21.1/src/main/resources/icon.png') }
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.release = 25 }
+tasks.withType(Jar).configureEach {
+    from('..') {
+        include 'LICENSE', 'LICENSE-GPL-3.0', 'LICENSE-ASSETS.md', 'CREDITS.md'
+        into 'META-INF/licenses/kitsunebi'
+    }
+}
+
+apply from: '../gradle/stage-release.gradle'

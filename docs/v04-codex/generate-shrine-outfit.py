@@ -1,7 +1,7 @@
 """Reference-driven shrine outfit. Native cuboids and palette; no gameplay edits."""
 from pathlib import Path
 import json,math,struct,zlib,shutil
-ROOT=Path(__file__).resolve().parents[2];A=ROOT/'common/src/main/resources/assets/kitsunebi';OUT=ROOT/'docs/v04-codex'
+ROOT=Path(__file__).resolve().parents[2];A=ROOT/'common-1.21.1/src/main/resources/assets/kitsunebi';OUT=ROOT/'docs/v04-codex'
 # Reuse only authoring utilities, without regenerating old production models.
 src=(OUT/'generate-equipment.py').read_text(encoding='utf-8')
 exec(src[:src.index('# Headband and tapering')])
@@ -65,7 +65,7 @@ java=java.replace('slot==EquipmentSlot.LEGS||slot==EquipmentSlot.FEET;', 'slot==
 java=java.replace(" '            leg.getChild(side+\"_tabi\").visible=slot==EquipmentSlot.FEET;',", " '            leg.getChild(side+\"_tabi\").visible=slot==EquipmentSlot.FEET;',\n '            leg.getChild(side+\"_coat\").visible=slot==EquipmentSlot.CHEST;',")
 java=java.replace('tail.x=(i-(tails-1)/2F)*.7F','tail.x=(i-(tails-1)/2F)*.45F').replace('tail.yRot=(i-(tails-1)/2F)*0.34F','tail.yRot=(i-(tails-1)/2F)*(tails==1?0:2.7F/(tails-1))').replace('tail.xRot=.68F','tail.xRot=-1.05F+(float)Math.sin(i*1.7F)*.025F')
 exec(java)
-shutil.copyfile(OUT/'integration/java/net/kafgchan/kitsunebi/client/model/KitsunebiArmorVisualModel.java',ROOT/'common/src/main/java/net/kafgchan/kitsunebi/client/model/KitsunebiArmorVisualModel.java')
+shutil.copyfile(OUT/'integration/java/net/kafgchan/kitsunebi/client/model/KitsunebiArmorVisualModel.java',ROOT/'common-1.21.1/src/main/java/net/kafgchan/kitsunebi/client/model/KitsunebiArmorVisualModel.java')
 
 def native_box(bounds,mat):
  u=(mat%4)*4;v=(mat//4)*4
@@ -111,8 +111,8 @@ save_item('gohei',e)
 p=A/'models/item/kitsunebi_gohei.json';d=json.loads(p.read_text())
 for hand in ['firstperson_righthand','firstperson_lefthand','thirdperson_righthand','thirdperson_lefthand']:d['display'][hand]['scale']=[1.35]*3
 write(p,d)
-p=ROOT/'common/src/main/resources/assets/minecraft/atlases/blocks.json';d=json.loads(p.read_text());entry={'type':'minecraft:single','resource':'kitsunebi:entity/kitsunebi_shrine_palette','sprite':'kitsunebi:entity/kitsunebi_shrine_palette'}
+p=ROOT/'common-1.21.1/src/main/resources/assets/minecraft/atlases/blocks.json';d=json.loads(p.read_text());entry={'type':'minecraft:single','resource':'kitsunebi:entity/kitsunebi_shrine_palette','sprite':'kitsunebi:entity/kitsunebi_shrine_palette'}
 if entry not in d['sources']:d['sources'].append(entry)
 write(p,d)
-p=ROOT/'common/src/main/java/net/kafgchan/kitsunebi/client/model/KitsunebiArmorVisuals.java';s=p.read_text().replace('textures/entity/kitsunebi_equipment.png','textures/entity/kitsunebi_shrine_palette.png');p.write_text(s)
+p=ROOT/'common-1.21.1/src/main/java/net/kafgchan/kitsunebi/client/model/KitsunebiArmorVisuals.java';s=p.read_text().replace('textures/entity/kitsunebi_equipment.png','textures/entity/kitsunebi_shrine_palette.png');p.write_text(s)
 print('Reference outfit generated: ears + temple mask, ceremonial sleeves, gold cords, black hakama, geta and staff.')

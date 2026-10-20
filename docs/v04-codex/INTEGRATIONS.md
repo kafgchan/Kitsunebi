@@ -21,7 +21,7 @@
 
 隔離NeoForgeサーバーで52件を祭壇エンジンの実出力と照合。Curios実インベントリでheadへの仮面装着と可視化、水中での空中歩行維持、既存の移動・採掘・農業・色変更・GUIメニューの回帰検証を行う。
 
-クライアント検証は `:neoforge:runCompatVerifyClient`。`neoforge/build/compat-verify-client`内の専用ワールドを使用し、ビューア別に52件登録とレシピ画面表示を確認する。結果は`compat-<viewer>.txt`、描画は`screenshots/altar-<viewer>.png`へ保存。
+クライアント検証は `:neoforge-1.21.1:runCompatVerifyClient`。`neoforge-1.21.1/build/compat-verify-client`内の専用ワールドを使用し、ビューア別に52件登録とレシピ画面表示を確認する。結果は`compat-<viewer>.txt`、描画は`screenshots/altar-<viewer>.png`へ保存。
 
 ### 実行結果
 
@@ -40,7 +40,7 @@ Fabric開発起動時の防具モデル不足を修正。配布JARだけに共�
 
 ### 2026-10-20 IDE出力の競合修正
 
-添付診断108件の起点はcommon/bin/mainのリソース競合。JDT専用出力を各プロジェクトのbuild/jdt/classesへ分離し、compatからcommonへの明示的なEclipseプロジェクト参照・ビルド順を追加。Eclipse/JDT設定を再生成し、common/compat/NeoForge/FabricのGradleコンパイル成功を確認。
+添付診断108件の起点はcommon-1.21.1/bin/mainのリソース競合。JDT専用出力を各プロジェクトのbuild/jdt/classesへ分離し、compatからcommonへの明示的なEclipseプロジェクト参照・ビルド順を追加。Eclipse/JDT設定を再生成し、common/compat/NeoForge/FabricのGradleコンパイル成功を確認。
 
 共有コードのAPI非推奨差分に必要なSuppressWarningsに対し、common側だけで不要扱いになる警告トークンの設定を整備。1.20.1 MDKサンプルの未使用importとResourceLocationコンストラクターも互換APIへ修正。
 

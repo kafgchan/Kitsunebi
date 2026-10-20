@@ -1,0 +1,32 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+base { archivesName = "kitsunebi-fabric-${minecraft_version}-porting" }
+loom {
+    splitEnvironmentSourceSets()
+    mods { kitsunebi { sourceSet sourceSets.main; sourceSet sourceSets.client } }
+}
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+    withSourcesJar()
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.release = 25 }
+processResources {
+    def values = [version: project.version, minecraft_version: project.minecraft_version, loader_version: project.loader_version]
+    inputs.properties values
+    filesMatching('fabric.mod.json') { expand values }
+    from('../common-1.21.1/src/main/resources/icon.png')
+}
+tasks.withType(Jar).configureEach {
+    from('..') {
+        include 'LICENSE', 'LICENSE-GPL-3.0', 'LICENSE-ASSETS.md', 'CREDITS.md'
+        into 'META-INF/licenses/kitsunebi'
+    }
+}
+
+apply from: '../gradle/stage-release.gradle'

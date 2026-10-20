@@ -3,7 +3,7 @@ import json, math
 from pathlib import Path
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parents[1]
-A=ROOT/'common/src/main/resources/assets/kitsunebi'
+A=ROOT/'common-1.21.1/src/main/resources/assets/kitsunebi'
 model=json.loads((A/'models/block/kitsunebi_altar.json').read_text())
 texture=Image.open(A/'textures/block/kitsunebi_altar_atlas.png').convert('RGB')
 sheet=Image.new('RGB',(1200,400),(31,34,45))

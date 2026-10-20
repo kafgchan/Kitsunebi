@@ -4,20 +4,20 @@
 
 ```text
 Kitsunebi-mod/
-├── common/             # Minecraft バニラコード・共通ロジック・共通リソース (assets)
+├── common-1.21.1/             # Minecraft バニラコード・共通ロジック・共通リソース (assets)
 │   ├── src/main/java/net/kafgchan/kitsunebi/
 │   │   ├── block/      # KitsunebiBlock（透明・当たり判定なし・水中設置）
 │   │   ├── item/       # KitsunebiItem（空中設置）、KitsunebiToolItem（御幣）
 │   │   ├── platform/   # Services, IPlatformHelper（ServiceLoaderパターン）
 │   │   └── registry/   # ModBlocks, ModItems, ModCreativeTabs
 │   └── src/main/resources/assets/kitsunebi/
-├── neoforge/           # NeoForge 固有コード（@Mod、イベント、レジストリ）
+├── neoforge-1.21.1/           # NeoForge 固有コード（@Mod、イベント、レジストリ）
 │   ├── src/main/java/net/kafgchan/kitsunebi/neoforge/
 │   │   ├── KitsunebiNeoForge.java
 │   │   ├── client/KitsunebiNeoForgeClient.java（半透明描画設定）
 │   │   └── platform/NeoForgePlatformHelper.java（DeferredRegister実装）
 │   └── src/main/resources/META-INF/services/
-├── fabric/             # Fabric 固有コード（ModInitializer、クライアント設定）
+├── fabric-1.21.1/             # Fabric 固有コード（ModInitializer、クライアント設定）
 │   ├── src/main/java/net/kafgchan/kitsunebi/fabric/
 │   │   ├── KitsunebiFabric.java
 │   │   └── platform/FabricPlatformHelper.java（Registry.register実装）

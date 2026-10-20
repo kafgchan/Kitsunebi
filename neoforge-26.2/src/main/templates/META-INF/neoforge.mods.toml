@@ -1,0 +1,22 @@
+license="LGPL-3.0-or-later"
+[[mods]]
+modId="kitsunebi"
+version="${mod_version}"
+displayName="Kitsunebi (NeoForge ${minecraft_version} porting preview)"
+authors="kafgchan (楓 / Kaede)"
+logoFile="icon.png"
+description='''
+Development bootstrap. Gameplay features from 1.21.1 are not yet available.
+'''
+[[dependencies.kitsunebi]]
+modId="neoforge"
+type="required"
+versionRange="[${neo_version},)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.kitsunebi]]
+modId="minecraft"
+type="required"
+versionRange="[${minecraft_version}]"
+ordering="NONE"
+side="BOTH"

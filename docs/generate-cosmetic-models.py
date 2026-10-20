@@ -6,7 +6,7 @@ import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-A = ROOT / 'common/src/main/resources/assets/kitsunebi'
+A = ROOT / 'common-1.21.1/src/main/resources/assets/kitsunebi'
 
 def write(path, value):
     (A / path).write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
