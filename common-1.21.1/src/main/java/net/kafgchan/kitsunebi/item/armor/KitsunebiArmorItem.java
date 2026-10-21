@@ -12,13 +12,21 @@ import net.minecraft.world.item.Rarity;
  */
 public class KitsunebiArmorItem extends ArmorItem {
     public static final int MAX_DURABILITY = 1_048_576;
+    private final FoxArmorStyle style;
 
     public KitsunebiArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties) {
+        this(material, type, properties, FoxArmorStyle.SHUKO);
+    }
+
+    public KitsunebiArmorItem(Holder<ArmorMaterial> material, Type type, Properties properties, FoxArmorStyle style) {
         super(material, type, properties
                 .durability(MAX_DURABILITY)
                 .fireResistant()
                 .rarity(Rarity.EPIC));
+        this.style = style;
     }
+
+    public FoxArmorStyle style() { return style; }
 
     @Override
     public boolean isEnchantable(ItemStack stack) {

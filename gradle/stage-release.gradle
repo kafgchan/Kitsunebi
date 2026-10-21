@@ -3,7 +3,7 @@
 def module = project.projectDir.name
 def loader = module.substring(0, module.indexOf('-'))
 def minecraft = module.substring(module.indexOf('-') + 1)
-def preview = minecraft.startsWith('26.')
+def preview = minecraft.startsWith('26.') || project.findProperty('releasePreview') == true
 def repository = project.projectDir.parentFile
 def releaseDirectory = new File(repository, "releases/${preview ? 'preview/' : ''}${minecraft}/${loader}/${project.version}")
 tasks.named('build') {
@@ -25,3 +25,4 @@ tasks.named('build') {
         logger.lifecycle("Release JARs: ${releaseDirectory}")
     }
 }
+

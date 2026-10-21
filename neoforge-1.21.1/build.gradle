@@ -34,6 +34,43 @@ neoForge {
             programArguments.addAll '--width', '960', '--height', '720', '--quickPlaySingleplayer', 'compat-test'
             systemProperty 'kitsunebi.verifyCompat', 'true'
         }
+        geckoVerifyServer {
+            server()
+            gameDirectory = file('build/gecko-network-server')
+            programArgument '--nogui'
+            systemProperty 'kitsunebi.verifyGeckoServer', 'true'
+        }
+        geckoWearerClient {
+            client()
+            gameDirectory = file('build/gecko-wearer-client')
+            programArguments.addAll '--width', '960', '--height', '720', '--username', 'GeckoWearer', '--quickPlayMultiplayer', '127.0.0.1:25612'
+            systemProperty 'kitsunebi.verifyGeckoNetwork', 'true'
+        }
+        skinFitClient {
+            client()
+            gameDirectory = file('build/gecko-skin-fit-client')
+            programArguments.addAll '--width', '1200', '--height', '900', '--username', 'GeckoWearer', '--quickPlayMultiplayer', '127.0.0.1:25612'
+            systemProperty 'kitsunebi.verifyGeckoNetwork', 'true'
+            systemProperty 'kitsunebi.verifySkinFit', 'true'
+        }
+        geckoObserverClient {
+            client()
+            gameDirectory = file('build/gecko-observer-client')
+            programArguments.addAll '--width', '1200', '--height', '900', '--username', 'GeckoObserver', '--quickPlayMultiplayer', '127.0.0.1:25612'
+            systemProperty 'kitsunebi.verifyGeckoNetwork', 'true'
+        }
+        shukoNpcVerifyClient {
+            client()
+            gameDirectory = file('build/shuko-npc-client')
+            programArguments.addAll '--width', '1200', '--height', '900'
+            systemProperty 'kitsunebi.verifyShukoNpc', 'true'
+        }
+        geckoVerifyClient {
+            client()
+            gameDirectory = file('build/gecko-verify-client')
+            programArguments.addAll '--width', '1200', '--height', '900'
+            systemProperty 'kitsunebi.verifyGecko', 'true'
+        }
         altarVerifyClient {
             client()
             gameDirectory = file('build/altar-verify-client')
@@ -115,4 +152,52 @@ dependencies {
     if (viewer == 'rei') runtimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:16.0.799"
 }
 
+// Keep this explicitly requested prototype separate from the stable JARs.
+ext.releasePreview = true
+tasks.named('jar') { archiveClassifier = 'gecko-preview' }
+tasks.named('sourcesJar') { archiveClassifier = 'gecko-preview-sources' }
 apply from: '../gradle/stage-release.gradle'
+
+// NeoForge-only Shuko armor rendering prototype.
+repositories { maven { name = 'GeckoLib'; url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'; content { includeGroup 'software.bernie.geckolib' } } }
+dependencies { implementation 'software.bernie.geckolib:geckolib-neoforge-1.21.1:4.9.3' }
+
+
+tasks.named('runGeckoVerifyClient') {
+    doFirst { delete 'build/gecko-verify-client/gecko-verification.txt' }
+    doLast {
+        def result=file('build/gecko-verify-client/gecko-verification.txt')
+        if(!result.exists()||!result.text.startsWith('PASS:')) throw new GradleException(result.exists()?result.text:'Gecko render verification incomplete')
+    }
+}
+
+tasks.named('runGeckoObserverClient') {
+    doFirst { delete 'build/gecko-observer-client/gecko-network-verification.txt'; delete 'build/gecko-observer-client/gecko-player-poses.txt' }
+    doLast {
+        def result=file('build/gecko-observer-client/gecko-network-verification.txt')
+        if(!result.exists()||!result.text.startsWith('PASS:')) throw new GradleException('Gecko multiplayer verification incomplete')
+        def poses=file('build/gecko-observer-client/gecko-player-poses.txt')
+        if(!poses.exists()||!poses.text.startsWith('PASS:')) throw new GradleException('Gecko player pose verification incomplete')
+    }
+}
+
+
+
+tasks.named('runSkinFitClient') {
+    doFirst { delete 'build/gecko-skin-fit-client/gecko-player-poses.txt' }
+    doLast {
+        def result=file('build/gecko-skin-fit-client/gecko-player-poses.txt')
+        if(!result.exists()||!result.text.startsWith('PASS:')) throw new GradleException(result.exists()?result.text:'Skin fit verification incomplete')
+    }
+}
+
+
+// A fresh flat world is created by the opt-in NPC fixture; user saves are never opened.
+tasks.named('runShukoNpcVerifyClient') {
+    doFirst { delete 'build/shuko-npc-client/shuko-npc-verification.txt' }
+    doLast {
+        def result = file('build/shuko-npc-client/shuko-npc-verification.txt')
+        if (!result.exists() || !result.text.startsWith('PASS:'))
+            throw new GradleException(result.exists() ? result.text : 'Shuko NPC world/render verification incomplete')
+    }
+}

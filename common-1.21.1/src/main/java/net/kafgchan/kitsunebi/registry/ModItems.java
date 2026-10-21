@@ -52,6 +52,59 @@ public class ModItems {
             () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiTabiItem(new Item.Properties())
     );
 
+    public static final Supplier<Item> BYAKKO_HEADDRESS = Services.PLATFORM.registerItem(
+            "byakko_headdress",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHeaddressItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.BYAKKO));
+
+    public static final Supplier<Item> BYAKKO_HAORI = Services.PLATFORM.registerItem(
+            "byakko_haori",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHaoriItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.BYAKKO));
+
+    public static final Supplier<Item> BYAKKO_HAKAMA = Services.PLATFORM.registerItem(
+            "byakko_hakama",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHakamaItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.BYAKKO));
+
+    public static final Supplier<Item> BYAKKO_TABI = Services.PLATFORM.registerItem(
+            "byakko_tabi",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiTabiItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.BYAKKO));
+
+    public static final Supplier<Item> KOKKO_HEADDRESS = Services.PLATFORM.registerItem(
+            "kokko_headdress",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHeaddressItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.KOKKO));
+
+    public static final Supplier<Item> KOKKO_HAORI = Services.PLATFORM.registerItem(
+            "kokko_haori",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHaoriItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.KOKKO));
+
+    public static final Supplier<Item> KOKKO_HAKAMA = Services.PLATFORM.registerItem(
+            "kokko_hakama",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHakamaItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.KOKKO));
+
+    public static final Supplier<Item> KOKKO_TABI = Services.PLATFORM.registerItem(
+            "kokko_tabi",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiTabiItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.KOKKO));
+
+    public static final Supplier<Item> SHINKO_HEADDRESS = Services.PLATFORM.registerItem(
+            "shinko_headdress",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHeaddressItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.SHINKO));
+
+    public static final Supplier<Item> SHINKO_HAORI = Services.PLATFORM.registerItem(
+            "shinko_haori",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHaoriItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.SHINKO));
+
+    public static final Supplier<Item> SHINKO_HAKAMA = Services.PLATFORM.registerItem(
+            "shinko_hakama",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiHakamaItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.SHINKO));
+
+    public static final Supplier<Item> SHINKO_TABI = Services.PLATFORM.registerItem(
+            "shinko_tabi",
+            () -> new net.kafgchan.kitsunebi.item.armor.KitsunebiTabiItem(new Item.Properties(), net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.SHINKO));
+
+    /** All cosmetic sets, in head/chest/legs/feet order. */
+    public static java.util.List<Supplier<Item>> foxArmorItems() {
+        return java.util.List.of(KITSUNEBI_HEADDRESS, KITSUNEBI_HAORI, KITSUNEBI_HAKAMA, KITSUNEBI_TABI, BYAKKO_HEADDRESS, BYAKKO_HAORI, BYAKKO_HAKAMA, BYAKKO_TABI, KOKKO_HEADDRESS, KOKKO_HAORI, KOKKO_HAKAMA, KOKKO_TABI, SHINKO_HEADDRESS, SHINKO_HAORI, SHINKO_HAKAMA, SHINKO_TABI);
+    }
+
     // 狐火ツール5種（耐久 1,048,576、妖術対応）
     public static final Supplier<Item> KITSUNEBI_SWORD = Services.PLATFORM.registerItem(
             "kitsunebi_sword",

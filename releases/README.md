@@ -18,3 +18,5 @@ releases/
 共同作業中の実ファイル受け渡しにはこのフォルダーを利用し、公開配布時には検証済みの対象だけを選んでください。
 
 ビルド・起動の共通手順は [scripts/README.md](../scripts/README.md) を参照してください。
+
+NeoForge 1.21.1のGeckoLib描画仮実装も `preview/1.21.1/neoforge/` へ配置します。`gecko-preview` JARはGeckoLib 4.9.3が別途必須です。通常版と同時に導入しないでください。

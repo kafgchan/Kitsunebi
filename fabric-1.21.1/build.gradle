@@ -17,6 +17,12 @@ loom {
     }
 
     runs {
+        foxArmorVerifyClient {
+            client()
+            runDir 'build/fox-armor-verify-client'
+            programArgs '--width', '1200', '--height', '900'
+            vmArg '-Dkitsunebi.verifyFoxArmor=true'
+        }
         compatVerifyClient {
             client()
             runDir 'build/compat-verify-client'
@@ -50,6 +56,14 @@ loom {
             name = "Fabric Server"
             runDir = "run"
         }
+    }
+}
+
+tasks.named('runFoxArmorVerifyClient') {
+    doFirst { file('build/fox-armor-verify-client/fox-armor-verification.txt').delete() }
+    doLast {
+        def result=file('build/fox-armor-verify-client/fox-armor-verification.txt')
+        if(!result.exists()||!result.text.startsWith('PASS:')) throw new GradleException(result.exists()?result.text:'Fox armor verification incomplete')
     }
 }
 

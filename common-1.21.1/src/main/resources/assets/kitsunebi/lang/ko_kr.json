@@ -136,5 +136,17 @@
   "key.kitsunebi.mode_previous": "이전 요술 모드",
   "key.kitsunebi.feet_toggle": "다비 요술 켜기/끄기",
   "emi.category.kitsunebi.altar": "여우불의 제단",
-  "tag.item.kitsunebi.foxfires": "여우불"
+  "tag.item.kitsunebi.foxfires": "여우불",
+  "item.kitsunebi.byakko_headdress": "백호 머리장식",
+  "item.kitsunebi.byakko_haori": "백호 하오리",
+  "item.kitsunebi.byakko_hakama": "백호 하카마",
+  "item.kitsunebi.byakko_tabi": "백호 다비",
+  "item.kitsunebi.kokko_headdress": "흑호 머리장식",
+  "item.kitsunebi.kokko_haori": "흑호 하오리",
+  "item.kitsunebi.kokko_hakama": "흑호 하카마",
+  "item.kitsunebi.kokko_tabi": "흑호 다비",
+  "item.kitsunebi.shinko_headdress": "신호 머리장식",
+  "item.kitsunebi.shinko_haori": "신호 하오리",
+  "item.kitsunebi.shinko_hakama": "신호 하카마",
+  "item.kitsunebi.shinko_tabi": "신호 다비"
 }

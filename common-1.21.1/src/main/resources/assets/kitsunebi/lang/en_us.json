@@ -136,5 +136,17 @@
   "key.kitsunebi.mode_previous": "Previous Skill Mode",
   "key.kitsunebi.feet_toggle": "Toggle Tabi Skill",
   "emi.category.kitsunebi.altar": "Altar of Kitsunebi",
-  "tag.item.kitsunebi.foxfires": "Foxfire"
+  "tag.item.kitsunebi.foxfires": "Foxfire",
+  "item.kitsunebi.byakko_headdress": "Byakko Headdress",
+  "item.kitsunebi.byakko_haori": "Byakko Haori",
+  "item.kitsunebi.byakko_hakama": "Byakko Hakama",
+  "item.kitsunebi.byakko_tabi": "Byakko Tabi",
+  "item.kitsunebi.kokko_headdress": "Kokko Headdress",
+  "item.kitsunebi.kokko_haori": "Kokko Haori",
+  "item.kitsunebi.kokko_hakama": "Kokko Hakama",
+  "item.kitsunebi.kokko_tabi": "Kokko Tabi",
+  "item.kitsunebi.shinko_headdress": "Shinko Headdress",
+  "item.kitsunebi.shinko_haori": "Shinko Haori",
+  "item.kitsunebi.shinko_hakama": "Shinko Hakama",
+  "item.kitsunebi.shinko_tabi": "Shinko Tabi"
 }

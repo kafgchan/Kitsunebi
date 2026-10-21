@@ -51,3 +51,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\Build.ps1 -Target forge-1.
 ```powershell
 .\RunClient.ps1 -Target forge-1.20.1 -RecipeViewer jei -Curios -DryRun
 ```
+
+現在のNeoForge 1.21.1ソースはGeckoLib 4.9.3の描画仮実装を含むため、NeoForgeビルドの出力先は `releases/preview/1.21.1/neoforge/` です。`RunClient.ps1 -Target neoforge-1.21.1` はGradleがGeckoLibを解決します。配布JARを通常ランチャーで使う場合はGeckoLib 4.9.3とArchitectury APIを別途導入してください。

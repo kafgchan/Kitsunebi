@@ -64,11 +64,12 @@ public final class SmoothSlopeModel implements BakedModel {
                 data[offset+1]=Float.floatToRawIntBits((float)p.y());
                 data[offset+2]=Float.floatToRawIntBits((float)p.z());
                 data[offset+3]=-1;
+                // Forge 1.20.1 expects sprite coordinates in 0..16 (1.21.1 uses 0..1).
                 // Continuous planar mapping; no repeated texture strip per step.
                 double u=Math.abs(ny)>0.1?p.x():(Math.abs(nx)>0.5?p.z():p.x());
                 double v=Math.abs(ny)>0.1?p.z():1-p.y();
-                data[offset+4]=Float.floatToRawIntBits(sprite.getU((float)u));
-                data[offset+5]=Float.floatToRawIntBits(sprite.getV((float)v));
+                data[offset+4]=Float.floatToRawIntBits(sprite.getU(u * 16.0));
+                data[offset+5]=Float.floatToRawIntBits(sprite.getV(v * 16.0));
                 data[offset+7]=normal;
             }
             result.add(new BakedQuad(data,-1,direction,sprite,true));
@@ -85,3 +86,4 @@ public final class SmoothSlopeModel implements BakedModel {
     @Override public ItemTransforms getTransforms(){return original.getTransforms();}
     @Override public ItemOverrides getOverrides(){return original.getOverrides();}
 }
+

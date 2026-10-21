@@ -28,7 +28,7 @@ public final class AltarGuiVerifier {
         Preview(){super(Component.literal("Altar GUI verification"));}
         @Override protected void init(){create();}
         private void create() {
-            if(category==4)return;
+            if(category>=4)return;
             Inventory inventory=new Inventory(null);
             KitsunebiAltarMenu menu=new KitsunebiAltarMenu(0,inventory);
             menu.setData(0,Math.min(category,2));menu.setData(1,category==0?2:0);menu.setData(2,16);
@@ -91,7 +91,8 @@ public final class AltarGuiVerifier {
             } catch(ReflectiveOperationException e){throw new RuntimeException(e);}
         }
         @Override public void render(GuiGraphics g,int mx,int my,float partialTick) {
-            if(category==4)renderAssets(g);
+            if(category==5)renderSlopes(g);
+            else if(category==4)renderAssets(g);
             else altar.render(g,category==3?(width-312)/2+(frames<15?85:110):-999,category==3?(height-236)/2+104:-999,partialTick);
             if(++frames==30) {
                 g.flush();
@@ -100,13 +101,49 @@ public final class AltarGuiVerifier {
                     image.writeToFile(path);
                     System.out.println("PASS: rendered altar category "+category+" at "+width+"x"+height+" GUI pixels");
                 }catch(Exception e){throw new RuntimeException(e);}
-                if(++category<5){frames=0;create();}
+                if(++category<6){frames=0;create();}
                 else {
-                    try{Files.writeString(Path.of("altar-gui-verification.txt"),"PASS: categories, repair tooltip, stitched equipment sprite and armor model rendered at "+width+"x"+height);}
+                    try{Files.writeString(Path.of("altar-gui-verification.txt"),"PASS: categories, repair tooltip, slope UV coverage, stitched equipment sprite and armor model rendered at "+width+"x"+height);}
                     catch(Exception e){throw new RuntimeException(e);}
                     minecraft.stop();
                 }
             }
+        }
+        private void renderSlopes(GuiGraphics g) {
+            g.fill(0,0,width,height,0xFF20232D);
+            g.drawString(minecraft.font,"Forge 1.20.1 slopes / full texture coverage",8,8,0xFFFFFFFF);
+            int index=0;
+            for(var entry:net.minecraftforge.registries.ForgeRegistries.BLOCKS.getEntries()) {
+                var block=entry.getValue();
+                if(!(block instanceof net.kafgchan.kitsunebi.block.phantom.PhantomSlopeBlock))continue;
+                var model=minecraft.getItemRenderer().getModel(new ItemStack(block),null,null,0);
+                verifySlopeUvs(model);
+                for(var state:block.getStateDefinition().getPossibleStates())
+                    verifySlopeUvs(minecraft.getBlockRenderer().getBlockModel(state));
+                g.pose().pushPose();g.pose().translate(25+index*100,55,0);g.pose().scale(4,4,4);
+                g.renderItem(new ItemStack(block),0,0);g.pose().popPose();
+                g.drawString(minecraft.font,entry.getKey().location().getPath().replace("phantom_slope_",""),10+index*100,135,0xFFFFFFFF);
+                index++;
+            }
+            if(index!=3)throw new AssertionError("Expected all three slope sizes");
+            g.pose().pushPose();g.pose().translate(35,170,0);g.pose().scale(3,3,3);
+            g.renderItem(new ItemStack(net.kafgchan.kitsunebi.registry.ModBlocks.PHANTOM_BLOCK.get()),0,0);g.pose().popPose();
+        }
+        private static void verifySlopeUvs(net.minecraft.client.resources.model.BakedModel model) {
+            if(!(model instanceof net.kafgchan.kitsunebi.client.SmoothSlopeModel))throw new AssertionError("Slope wrapper absent");
+            var sprite=model.getParticleIcon();
+            float minU=Float.POSITIVE_INFINITY,maxU=Float.NEGATIVE_INFINITY,minV=minU,maxV=maxU;
+            for(var quad:model.getQuads(null,null,net.minecraft.util.RandomSource.create(0))) {
+                var vertices=quad.getVertices();
+                for(int i=0;i<4;i++) {
+                    float u=Float.intBitsToFloat(vertices[i*8+4]),v=Float.intBitsToFloat(vertices[i*8+5]);
+                    minU=Math.min(minU,u);maxU=Math.max(maxU,u);minV=Math.min(minV,v);maxV=Math.max(maxV,v);
+                }
+            }
+            float width=sprite.getU1()-sprite.getU0(),height=sprite.getV1()-sprite.getV0();
+            // Outer corners occupy half a block in one axis; their UV span is intentionally half a sprite.
+            if((maxU-minU)/width<0.499||(maxV-minV)/height<0.499||maxU>sprite.getU1()+0.00001||maxV>sprite.getV1()+0.00001||minU<sprite.getU0()-0.00001||minV<sprite.getV0()-0.00001)
+                throw new AssertionError("Slope UV span does not match block-sized texture coordinates; U="+(maxU-minU)/width+" V="+(maxV-minV)/height);
         }
         private void renderAssets(GuiGraphics g) {
             var atlas=minecraft.getTextureAtlas(net.minecraft.world.inventory.InventoryMenu.BLOCK_ATLAS);
@@ -158,3 +195,6 @@ public final class AltarGuiVerifier {
         }
     }
 }
+
+
+

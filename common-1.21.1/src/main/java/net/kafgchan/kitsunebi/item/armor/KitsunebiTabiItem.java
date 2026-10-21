@@ -18,7 +18,11 @@ public class KitsunebiTabiItem extends KitsunebiArmorItem {
     private static final ResourceLocation SPEED_MODIFIER_ID = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "armor.tabi.speed");
 
     public KitsunebiTabiItem(Properties properties) {
-        super(ModArmorMaterials.KITSUNEBI, ArmorItem.Type.BOOTS, properties);
+        this(properties, FoxArmorStyle.SHUKO);
+    }
+
+    public KitsunebiTabiItem(Properties properties, FoxArmorStyle style) {
+        super(ModArmorMaterials.KITSUNEBI, ArmorItem.Type.BOOTS, properties, style);
     }
 
     @Override

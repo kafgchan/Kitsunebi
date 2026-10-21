@@ -12,6 +12,7 @@ import net.neoforged.fml.loading.FMLLoader;
 public class KitsunebiNeoForge {
     public KitsunebiNeoForge(IEventBus modEventBus) {
         KitsunebiCommon.init();
+        net.kafgchan.kitsunebi.neoforge.npc.ShukoNpcRegistry.register(modEventBus);
         NeoForgePlatformHelper.registerBuses(modEventBus);
         if(net.neoforged.fml.ModList.get().isLoaded("curios"))net.kafgchan.kitsunebi.neoforge.compat.CuriosCompat.register(modEventBus);
 
@@ -62,7 +63,7 @@ public class KitsunebiNeoForge {
 
         if (FMLLoader.getDist().isClient()) {
             if(net.neoforged.fml.ModList.get().isLoaded("curios"))net.kafgchan.kitsunebi.neoforge.compat.CuriosCompat.registerClient(modEventBus);
-            modEventBus.addListener(net.kafgchan.kitsunebi.neoforge.client.KitsunebiArmorRendering::register);
+            // GeckoLib GeoRenderProvider now owns armor rendering; do not also register the legacy extension.
             modEventBus.addListener(KitsunebiNeoForgeClient::onClientSetup);
             modEventBus.addListener(KitsunebiNeoForgeClient::onModifyModels);
             modEventBus.addListener(KitsunebiNeoForgeClient::onRegisterMenuScreens);
@@ -70,3 +71,4 @@ public class KitsunebiNeoForge {
         }
     }
 }
+

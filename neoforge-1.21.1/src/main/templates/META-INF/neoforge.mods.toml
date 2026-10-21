@@ -60,3 +60,14 @@ type="optional"
 versionRange="[1.1,)"
 ordering="AFTER"
 side="CLIENT"
+
+[[mixins]]
+config="kitsunebi.neoforge.gecko.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId="geckolib"
+type="required"
+versionRange="[4.9.3]"
+ordering="BEFORE"
+side="BOTH"
+

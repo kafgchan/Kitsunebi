@@ -13,6 +13,10 @@ public final class KitsunebiArmorVisuals {
     public static KitsunebiArmorVisualModel<LivingEntity> create() {
         return new KitsunebiArmorVisualModel<>(KitsunebiArmorVisualModel.createLayer().bakeRoot());
     }
+    public static KitsunebiArmorVisualModel<LivingEntity> create(net.kafgchan.kitsunebi.item.armor.FoxArmorStyle style) {
+        return style==net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.SHINKO
+                ?new ShinkoArmorVisualModel<>(ShinkoArmorVisualModel.createLayer().bakeRoot()):create();
+    }
     public static void prepare(KitsunebiArmorVisualModel<LivingEntity> model,HumanoidModel<?> original,LivingEntity entity,EquipmentSlot slot) {
         model.attackTime=original.attackTime;model.riding=original.riding;model.young=original.young;
         model.head.copyFrom(original.head);model.hat.copyFrom(original.hat);model.body.copyFrom(original.body);
@@ -20,8 +24,13 @@ public final class KitsunebiArmorVisuals {
         model.rightLeg.copyFrom(original.rightLeg);model.leftLeg.copyFrom(original.leftLeg);
         float partial=net.minecraft.client.Minecraft.getInstance().getTimer().getGameTimeDeltaPartialTick(true);
         float age=entity.tickCount+partial;
-        model.configure(slot,KitsunebiArmorHandler.getKitsunebiArmorCount(entity),age);
-        if(slot==EquipmentSlot.LEGS) {
+        boolean tailPass=net.kafgchan.kitsunebi.item.armor.FoxArmorStyle.tailOwner(entity)==slot;
+        model.configure(slot,KitsunebiArmorHandler.getKitsunebiArmorCount(entity),age,tailPass);
+        if(model instanceof ShinkoArmorVisualModel<?>) {
+            float[] baseY={2.5F,3.3F,9.4F,10.2F};
+            for(int i=0;i<4;i++)model.body.getChild("haori").getChild("divine_flame_"+i).y=baseY[i]+(float)Math.sin(age*.045F+i)*.12F;
+        }
+        if(tailPass) {
             TailMotion motion=MOTION.computeIfAbsent(entity,ignored->new TailMotion());
             var velocity=entity.getDeltaMovement();
             double radians=Math.toRadians(entity.yBodyRot);

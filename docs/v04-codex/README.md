@@ -1,5 +1,23 @@
 # v0.4 Codex 制作物・Antigravity向け接続手順
 
+## 防具の最新造形（2026-10-21）
+
+朱狐・白狐・黒狐・神狐を詳細案から再モデリング。袖の広がり、重ね襟、腰の組紐、長い袴と襞、足袋・下駄、丸い断面の尻尾を1.21.1 NeoForge / Fabricへ反映。[最新の生成手順・検証・実描画画像](FOUR-FOX-REFERENCE-REMODEL.md)。以下の旧モデルの説明や画像より、この記録を優先する。
+
+## 現在の状態（2026-10-20更新）
+
+この節を最新の引き継ぎ状態とします。下に残す2026-10-19の制作・接続手順は当時の履歴であり、「未接続」「Antigravityの担当」「コンパイル停止」は現在の未完了一覧ではありません。
+
+- **祭壇の製作・修理はサーバー処理へ接続済み。** `KitsunebiAltarMenu implements AltarEquipmentView`。`clickMenuButton`が2000/2001を受け、サーバー側で実行条件と出力容量を判定し、`AltarCraftingEngine`で素材を消費して実出力を保存します。画面/APIだけが完成した状態ではありません。回帰検証の範囲と、実際の利用者による操作確認は区別してください。
+- **実クライアント・専用サーバー間の通信も検証済み。** Fabric 1.21.1の `network-client-verification.txt` に開始・解除・S2C状態同期のPASS記録があります。Forge 1.20.1は実接続で80tick超の空中歩行、解除後の落下、JEI/EMI/REIの祭壇レシピ52件の画面表示まで確認しました。複数プレイヤー、遅延のある回線、長時間プレイの操作感は別途手動確認の余地があります。
+- **Forge 1.20.1の主要機能移植は完了。** 狐火・幻影建材・祭壇・朱狐装備・妖術・空中歩行・Curios・レシピビューアを実装し、ビルド・回帰検証済み。詳細は `../../forge-1.20.1/README.md`。
+- **26.1.2 / 26.2 / 26.3は起動・ビルド基盤のみ。** ゲームプレイ機能の移植は未完了。詳細は `../PORTING.md`。
+- **IDEキャッシュ問題は現在の診断を見て判断。** Gradleビルド成功だけではJDTの表示消失を保証しませんが、過去のエラー一覧だけを根拠に現在も未解決と扱わないでください。現行の診断とGradle同期結果を確認してから対処します。
+
+共同作業の入口は `../../Build.ps1`、`../../RunClient.ps1`、`../../RunServer.ps1`。手順は `../../scripts/README.md`。ビルド成功時の配布物は `../../releases/` に集約し、26.xは `preview/` に分離します。
+
+## 以下は初回制作時の履歴・接続仕様
+
 最新の防具・狐面・御幣は、ユーザー提供のGemini図を基準に再制作済み。詳細は `SHRINE-REFERENCE.md`。再生成は `generate-shrine-outfit.py` を使用し、旧生成器を単独実行しない。
 
 2026-10-19。既存の登録・能力・祭壇メニュー・ネットワーク・レシピ・Config・共有lang・build.gradleは変更していません。
@@ -80,3 +98,14 @@ java -jar gradle/wrapper/gradle-wrapper.jar -I docs/v04-codex/verify-visuals.gra
 - 生成し直す場合はこのフォルダの `generate-equipment.py` を使用。既存の全体生成器は使わない。
 
 モデル・ソースの詳細と素材の出典は `CREDITS-ADDENDUM.md` を参照。
+
+
+## NeoForge 1.21.1 GeckoLib仮実装（追加依頼）
+
+既存朱狐モデルをGeckoLib 4.8.4へ変換したNeoForge限定の仮実装を追加。全16装備組み合わせ、2クライアント間の装備同期と他プレイヤー描画、7姿勢×3方向のPlayerRenderer描画を検証。詳細・変更一覧・未検証範囲は [SHUKO-GECKO-PROTOTYPE.md](SHUKO-GECKO-PROTOTYPE.md)。原本モデル・テクスチャ、他ローダーの描画は維持。
+
+- [Shuko / Byakko / Kokko 色違い防具と検証](FOX-ARMOR-VARIANTS.md)（2026-10-21）。
+
+- [防具の斑点状ちらつき修正と防具立て確認画像](FOX-ARMOR-UV-FIX.md)（2026-10-21）。
+
+- [神狐（Shinko）専用詳細モデル・確認画像](SHINKO-DETAILED-MODEL.md)（2026-10-21）。

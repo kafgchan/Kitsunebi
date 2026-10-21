@@ -2,6 +2,8 @@
 
 透明な光源「狐火」、幻影の建材、和装の「朱狐」装備と妖術ツールを追加するMinecraft Modです。竹Modの狐火に着想を得た独立プロジェクトです。
 
+NeoForge 1.21.1の現在の開発版には、GeckoLib 4.9.3が必須となる[朱狐防具の描画仮実装](docs/v04-codex/FOX-ARMOR-VARIANTS.md)があります。仮実装JARはreleases/preview/に分離し、通常版JARと依存条件を区別します。
+
 ## 共同開発の入口
 
 ビルドは `.\Build.ps1`、クライアント起動は `.\RunClient.ps1`、サーバー起動は `.\RunServer.ps1`（既定：Forge 1.20.1）。対象・任意Modの選択は [共通コマンド一覧](scripts/README.md) を参照してください。ビルド成功時のJARは [releases/](releases/README.md) に集約されます。
@@ -99,3 +101,10 @@ Gradle Wrapperは9.7.1、コンパイルのJavaツールチェーンは21です�
 
 Modのバイナリを公開する場合は、その版に対応するソースとビルド設定もライセンス条件に従って取得できるようにしてください。
 
+
+
+1.21.1開発版には、詳細案を元にした色違い防具 **Shuko（朱狐）・Byakko（白狐）・Kokko（黒狐）** を実装しています。同能力で、白狐・黒狐の製作レシピは未追加です。新規装備はクリエイティブ一覧とコマンドから利用できます。
+
+神狐（Shinko）は独立した詳細モデルを追加。[実装内容と確認画像](docs/v04-codex/SHINKO-DETAILED-MODEL.md)。クリエイティブ一覧／コマンドから入手でき、専用製作レシピは未追加です。
+
+4種の袖・袴・組紐・足元・尻尾を詳細案に基づき再モデリング。[最新の確認画像と生成手順](docs/v04-codex/FOUR-FOX-REFERENCE-REMODEL.md)。対象は1.21.1 NeoForge / Fabricです。

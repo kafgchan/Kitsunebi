@@ -1,0 +1,1 @@
+{"required":true,"minVersion":"0.8","package":"net.kafgchan.kitsunebi.neoforge.mixin","compatibilityLevel":"JAVA_21","client":["ShukoArmorGeoMixin"],"injectors":{"defaultRequire":1}}

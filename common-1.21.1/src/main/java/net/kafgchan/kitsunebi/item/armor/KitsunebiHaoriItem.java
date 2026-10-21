@@ -10,6 +10,10 @@ import net.minecraft.world.item.ArmorItem;
 public class KitsunebiHaoriItem extends KitsunebiArmorItem {
 
     public KitsunebiHaoriItem(Properties properties) {
-        super(ModArmorMaterials.KITSUNEBI, ArmorItem.Type.CHESTPLATE, properties);
+        this(properties, FoxArmorStyle.SHUKO);
+    }
+
+    public KitsunebiHaoriItem(Properties properties, FoxArmorStyle style) {
+        super(ModArmorMaterials.KITSUNEBI, ArmorItem.Type.CHESTPLATE, properties, style);
     }
 }

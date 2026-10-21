@@ -99,7 +99,44 @@ public final class EquipmentFeaturesVerifier {
                 if(!recipe.assemble(crafting,level.registryAccess()).is(ModItems.getItem(target).get()))throw new AssertionError("Wrong recolor: "+source+" -> "+target);
             }
         }
+        verifyArmor(level,player);
         System.out.println("PASS: default axe fells 5 logs, vein harvest 8 ores, hoe till25/grow81/harvest81/replant81, exact durability, all 7 repair colors and 49 shapeless recolor combinations.");
+    }
+    private static void verifyArmor(ServerLevel level,net.minecraft.server.level.ServerPlayer player) {
+        var victim=net.minecraft.world.entity.EntityType.ZOMBIE.create(level);
+        var attacker=net.minecraft.world.entity.EntityType.ZOMBIE.create(level);
+        if(victim==null||attacker==null)throw new AssertionError("Cannot create armor fixture");
+        victim.setPos(4550,250,4500);attacker.setPos(4551,250,4500);
+        var armor=List.of(ModItems.KITSUNEBI_HEADDRESS,ModItems.KITSUNEBI_HAORI,ModItems.KITSUNEBI_HAKAMA,ModItems.KITSUNEBI_TABI);
+        var slots=new EquipmentSlot[]{EquipmentSlot.HEAD,EquipmentSlot.CHEST,EquipmentSlot.LEGS,EquipmentSlot.FEET};
+        for(int i=0;i<4;i++) {
+            var stack=new ItemStack(armor.get(i).get());
+            if(stack.getMaxDamage()!=1_048_576||!stack.isEnchantable())throw new AssertionError("Armor durability/enchanting: "+slots[i]);
+            victim.setItemSlot(slots[i],stack);
+        }
+        float health=victim.getHealth();
+        victim.hurt(level.damageSources().mobAttack(attacker),10);
+        if(victim.getHealth()!=health||attacker.isAlive())throw new AssertionError("Full-set immunity/retaliation event not connected");
+        var knockback=new net.minecraftforge.event.entity.living.LivingKnockBackEvent(victim,1,1,0);
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(knockback);
+        if(!knockback.isCanceled())throw new AssertionError("Full-set knockback event not connected");
+        for(var slot:slots)player.setItemSlot(slot,ItemStack.EMPTY);
+        ItemStack headdress=new ItemStack(ModItems.KITSUNEBI_HEADDRESS.get());
+        player.setItemSlot(EquipmentSlot.HEAD,headdress);
+        player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON,200));
+        player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.REGENERATION,200));
+        headdress.getItem().inventoryTick(headdress,level,player,39,false);
+        if(player.hasEffect(net.minecraft.world.effect.MobEffects.POISON)||!player.hasEffect(net.minecraft.world.effect.MobEffects.REGENERATION)||!player.hasEffect(net.minecraft.world.effect.MobEffects.NIGHT_VISION))throw new AssertionError("Headdress status effects");
+        var speed=player.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED);
+        double base=speed.getBaseValue();
+        for(int i=2;i<4;i++) {
+            var stack=new ItemStack(armor.get(i).get());
+            speed.addTransientModifier(stack.getAttributeModifiers(slots[i]).get(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED).iterator().next());
+        }
+        if(Math.abs(speed.getValue()-base*2.5)>0.000001)throw new AssertionError("Hakama+tabi must add 150% movement speed");
+        victim.discard();attacker.discard();
+        System.out.println("PASS: actual Forge damage/retaliation/knockback events, armor durability/enchanting, headdress harmful-only cleansing/night vision, additive 2.5x speed.");
     }
     private EquipmentFeaturesVerifier(){}
 }
+

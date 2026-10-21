@@ -1,0 +1,24 @@
+{
+  "editing_master": "C:\\Users\\lara2\\Desktop\\App-Project\\antigravity-2-apps\\mc-mods-kitsunebi\\Kitsunebi-mod\\docs\\npc\\shuko\\shuko.bbmodel",
+  "geometry": "C:\\Users\\lara2\\Desktop\\App-Project\\antigravity-2-apps\\mc-mods-kitsunebi\\Kitsunebi-mod\\neoforge-1.21.1\\src\\main\\resources\\assets\\kitsunebi\\geo\\npc\\shuko.geo.json",
+  "texture_size": [
+    256,
+    256
+  ],
+  "texture_count": 6,
+  "opaque": true,
+  "bones": 64,
+  "cubes": 341,
+  "cube_faces_max": 2046,
+  "animations": [
+    "animation.shuko.idle",
+    "animation.shuko.walk",
+    "animation.shuko.talk"
+  ],
+  "coordinates": "+Y up, -Z front; Blockbench master coordinates retained by this exporter",
+  "bounds_height_px": 33.3,
+  "tail_chain_pattern": "tail_01..tail_09 -> tail_XX_mid -> tail_XX_tip",
+  "manual_edits": "export reads saved master and never rewrites it",
+  "blockbench_ui_verified": false,
+  "minecraft_render_verified": false
+}

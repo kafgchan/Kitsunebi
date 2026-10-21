@@ -21,7 +21,11 @@ import java.util.ArrayList;
 public class KitsunebiHeaddressItem extends KitsunebiArmorItem {
 
     public KitsunebiHeaddressItem(Properties properties) {
-        super(ModArmorMaterials.KITSUNEBI, ArmorItem.Type.HELMET, properties);
+        this(properties, FoxArmorStyle.SHUKO);
+    }
+
+    public KitsunebiHeaddressItem(Properties properties, FoxArmorStyle style) {
+        super(ModArmorMaterials.KITSUNEBI, ArmorItem.Type.HELMET, properties, style);
     }
 
     @Override

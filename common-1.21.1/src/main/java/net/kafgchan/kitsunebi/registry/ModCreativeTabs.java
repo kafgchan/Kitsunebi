@@ -17,11 +17,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.KITSUNEBI_GOHEI.get());
                         output.accept(ModItems.KITSUNEBI_GOGGLES.get());
                         output.accept(ModItems.KITSUNEBI_ALTAR.get());
-                        // 狐火防具4種
-                        output.accept(ModItems.KITSUNEBI_HEADDRESS.get());
-                        output.accept(ModItems.KITSUNEBI_HAORI.get());
-                        output.accept(ModItems.KITSUNEBI_HAKAMA.get());
-                        output.accept(ModItems.KITSUNEBI_TABI.get());
+                        ModItems.foxArmorItems().forEach(item -> output.accept(item.get()));
                         // 狐火ツール5種
                         output.accept(ModItems.KITSUNEBI_SWORD.get());
                         output.accept(ModItems.KITSUNEBI_PICKAXE.get());

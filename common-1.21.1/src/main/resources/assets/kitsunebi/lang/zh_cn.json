@@ -136,5 +136,17 @@
   "key.kitsunebi.mode_previous": "上一个妖术模式",
   "key.kitsunebi.feet_toggle": "切换足袋妖术",
   "emi.category.kitsunebi.altar": "狐火祭坛",
-  "tag.item.kitsunebi.foxfires": "狐火"
+  "tag.item.kitsunebi.foxfires": "狐火",
+  "item.kitsunebi.byakko_headdress": "白狐头饰",
+  "item.kitsunebi.byakko_haori": "白狐羽织",
+  "item.kitsunebi.byakko_hakama": "白狐袴",
+  "item.kitsunebi.byakko_tabi": "白狐足袋",
+  "item.kitsunebi.kokko_headdress": "黑狐头饰",
+  "item.kitsunebi.kokko_haori": "黑狐羽织",
+  "item.kitsunebi.kokko_hakama": "黑狐袴",
+  "item.kitsunebi.kokko_tabi": "黑狐足袋",
+  "item.kitsunebi.shinko_headdress": "神狐头饰",
+  "item.kitsunebi.shinko_haori": "神狐羽织",
+  "item.kitsunebi.shinko_hakama": "神狐袴",
+  "item.kitsunebi.shinko_tabi": "神狐足袋"
 }

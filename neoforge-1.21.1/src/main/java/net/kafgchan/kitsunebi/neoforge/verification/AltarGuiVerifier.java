@@ -139,8 +139,8 @@ public final class AltarGuiVerifier {
             };
             for(var slot:new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.HEAD,net.minecraft.world.entity.EquipmentSlot.CHEST,net.minecraft.world.entity.EquipmentSlot.LEGS,net.minecraft.world.entity.EquipmentSlot.FEET}) {
                 var stack=wearer.getItemBySlot(slot);
-                var hooked=net.neoforged.neoforge.client.extensions.common.IClientItemExtensions.of(stack).getGenericArmorModel(wearer,stack,slot,model);
-                if(!(hooked instanceof net.kafgchan.kitsunebi.client.model.KitsunebiArmorVisualModel<?>))throw new AssertionError("Armor render hook absent: "+slot);
+                var hooked=software.bernie.geckolib.animatable.client.GeoRenderProvider.of(stack).getGeoArmorRenderer(wearer,stack,slot,model);
+                if(!(hooked instanceof net.kafgchan.kitsunebi.neoforge.client.gecko.ShukoGeoRenderer<?>))throw new AssertionError("Armor render hook absent: "+slot);
             }
             for(int count=1;count<=4;count++) {
                 g.pose().pushPose();g.pose().translate(120+(count-1)*52,65,80);g.pose().scale(42,42,42);
@@ -148,7 +148,7 @@ public final class AltarGuiVerifier {
                 var mannequin=net.minecraft.client.model.geom.builders.LayerDefinition.create(net.minecraft.client.model.HumanoidModel.createMesh(net.minecraft.client.model.geom.builders.CubeDeformation.NONE,0),128,128).bakeRoot();
                 mannequin.getChild("head").render(g.pose(),g.bufferSource().getBuffer(net.minecraft.client.renderer.RenderType.entityCutoutNoCull(net.kafgchan.kitsunebi.client.model.KitsunebiArmorVisuals.TEXTURE)),15728880,net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,-1);
                 for(var slot:new net.minecraft.world.entity.EquipmentSlot[]{net.minecraft.world.entity.EquipmentSlot.HEAD,net.minecraft.world.entity.EquipmentSlot.CHEST,net.minecraft.world.entity.EquipmentSlot.LEGS,net.minecraft.world.entity.EquipmentSlot.FEET}) {
-                    model.configure(slot,count,0);
+                    model.configure(slot,count,0,slot==net.minecraft.world.entity.EquipmentSlot.LEGS);
                     var buffer=g.bufferSource().getBuffer(net.minecraft.client.renderer.RenderType.entityCutoutNoCull(net.kafgchan.kitsunebi.client.model.KitsunebiArmorVisuals.TEXTURE));
                     model.renderToBuffer(g.pose(),buffer,15728880,net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY,-1);
                 }
@@ -158,3 +158,4 @@ public final class AltarGuiVerifier {
         }
     }
 }
+

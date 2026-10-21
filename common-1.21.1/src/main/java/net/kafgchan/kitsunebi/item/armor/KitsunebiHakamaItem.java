@@ -17,7 +17,11 @@ public class KitsunebiHakamaItem extends KitsunebiArmorItem {
     private static final ResourceLocation SPEED_MODIFIER_ID = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "armor.hakama.speed");
 
     public KitsunebiHakamaItem(Properties properties) {
-        super(ModArmorMaterials.KITSUNEBI, ArmorItem.Type.LEGGINGS, properties);
+        this(properties, FoxArmorStyle.SHUKO);
+    }
+
+    public KitsunebiHakamaItem(Properties properties, FoxArmorStyle style) {
+        super(ModArmorMaterials.KITSUNEBI, ArmorItem.Type.LEGGINGS, properties, style);
     }
 
     @Override
